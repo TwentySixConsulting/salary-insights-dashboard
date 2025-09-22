@@ -1,0 +1,163 @@
+Prompt: Build a Salary Survey Insights Dashboard (Housing Associations)
+Goal
+Create a modern, professional web app that lets housing associations compare pay and reward data across organisations. The app must be accurate, user-friendly, and cover: Overview, Reflections on Pay, Core Benefits, Pay Frameworks, Key Performance Indicators (KPIs), National Minimum/Living Wage, and Rates of Pay for Key Roles with a scrollable + searchable table. Base content on the figures below.
+Audience
+HR/Reward leaders in supported housing/housing associations.
+Tech & UX Requirements
+Stack (preferred): React + Vite + TypeScript + Tailwind CSS + shadcn/ui + TanStack Table (v8) + Recharts.
+Styling: Dark blue base with gold highlights.
+--brand-dark: #0B2C54; (primary backgrounds, headings)
+--brand-gold: #D4AF37; (accents, active states)
+--brand-slate: #0E1A2B; (alt background)
+Use system font stack, high contrast, WCAG AA.
+Layout: Top nav with product title + org selector; left rail for section navigation; right side content. Mobile-first responsive.
+Components: KPI cards, comparison filters, segmented controls, tabs, data table with column filters, CSV export, and “definitions” popovers for jargon.
+Performance & UX: Client-side routing; persistent filters in URL query; sticky table header; virtualized rows for large tables; keyboard navigation; aria labels.
+Data model (shape the JSON like this)
+type Organisation = {
+  id: string;
+  name: string;
+  region: "London" | "Outside London" | "Both";
+  headcount: number;
+  turnover_gbp_m: number;
+  working_week_hours: number | { note: string; range?: [number, number] };
+};
+
+type PayAward = {
+  year: 2024 | 2025;
+  type: "consolidated" | "unconsolidated" | "fixed_amount" | "percentage";
+  value?: number; // e.g., 3.0 for 3%
+  notes?: string;
+};
+
+type BenefitSummary = {
+  holiday_start_days: number;
+  holiday_max_days: number;
+  has_buy_sell: boolean;
+  healthcare_offered: boolean;
+  details?: string[];
+};
+
+type KPI = {
+  orgId?: string; // optional for per-org lines later
+  year: string;
+  sickness_ltr_pct?: number;
+  turnover_global_pct?: number;
+  turnover_voluntary_pct?: number;
+  conflict_index_pct?: number;
+  agency_spend_pct_payroll?: number;
+};
+
+type WagePolicy = {
+  nlw_impact: boolean;
+  rlw_or_llw_adopted: boolean;
+  strategies?: string[];
+};
+
+type RoleRate = {
+  role: string; // from the role list below
+  geography: "Total" | "Inside London" | "Outside London" | "Wider Market – London" | "Wider Market – National";
+  sample_size?: number;
+  LQ?: number;
+  Median?: number;
+  UQ?: number;
+  Average?: number;
+};
+Pages & features
+Overview
+KPI summary cards (totals/medians across the sample):
+“All participants implemented a 2024 pay rise” ✔
+Pay increases ranged 2.1% to 7.1%+; lower-paid roles prioritised.
+55.6% plan a consolidated increase in 2025 (22.2% undecided).
+67% pay standard rates for weekend overtime; 33% enhanced.
+50% offer structured on-call allowances (£20–£80).
+25 days most common starting annual leave; 30 days typical cap.
+67% offer healthcare benefits.
+All organisations reported decline in global turnover vs last year.
+Annual conflict index largely 3–8%.
+44% will be impacted by NLW rise to £12.21.
+89% have adopted/plan to adopt Real or London Living Wage.
+Include tooltips linking to the relevant section. Data points provided in the “Data Appendix” below.
+Filters at top: Region (London / Outside / Both), Organisation multi-select, and a “Reset” button.
+Reflections on Pay (Market Overview & Forecasts)
+Short narrative callout explaining: bottom-of-market uplift from NLW/LLW, ripple effects into £22k–£32k band (≈7% at Senior Support level over 18 months), and skewing downwards for senior roles; CPI ≈2.3%, rates ≈4.75%, earnings growth ≈5.2% (Jul–Sep 2024).
+Two visualizations:
+“Bottom vs Manager level pay trend” (explainer chart made from the summary text).
+“Forecast pay rises 2025” (banded range 2–4%).
+Keep these charts clearly labelled as contextual insights.
+Core Benefits
+Tabs: Holiday, Pension, Sickness, Wellbeing/Healthcare, Family Leave.
+Show the % providing each feature with concise bullets (e.g., buy/sell leave = 44%; healthcare benefits = 67%). Include examples (e.g., health cash plans, EAP, enhanced maternity). Add an “Examples” accordion.
+Pay Frameworks
+Chips showing framework prevalence: pay spine, broad-banded, job families, market ranges.
+Small table breaking down popularity by location and by size (<250 vs 250+).
+KPIs
+Multi-series small multiples or separate charts for:
+Sickness LTR YoY
+Global turnover YoY
+Voluntary turnover YoY
+Conflict index (distribution)
+% payroll spent on agency (2022/23 vs 2023/24)
+Use organisation filter + region toggle; legend + download as PNG/CSV.
+National Minimum Wage & Living Wage
+Highlight cards:
+NLW (Apr 2025) £12.21 → £23,809 for 37.5h/week.
+LLW £13.85 → £27,007 for 37.5h/week.
+Tiles: 44% impacted by NLW; 89% adopted/plan RLW/LLW; notes on strategies (e.g., adjusting grades above NLW).
+Short explainer on differentials compression and response options.
+Rates of Pay for Key Roles (Flagship table)
+Scrollable, searchable, filterable table with sticky header; supports:
+Role quick search (fuzzy), Region filter (Total / Inside London / Outside London / Wider Market), and min/max for quartiles.
+Columns: Role, Geography, Sample, LQ, Median, UQ, Average.
+Row grouping by role; expandable to see all geographies per role.
+CSV export of filtered view.
+Provide a “Glossary” tooltip for LQ/Median/UQ.
+Add “Compare roles” drawer: select up to 3 roles to plot Median bars side-by-side (with geography toggle).
+Seed data (from the SSHR Pay Benchmark Group Report 2024/25)
+Use these exact figures to populate the demo (aggregate-level, not per-org). The sample includes nine organisations; turnover £4.3m–£70m; median headcount 600; geography mix: 2 London-only, 1 South East-only (outside London), 6 both; working week: four at 37.5h, one at 39h, one at 40h, three vary 35–39h.
+Summary metrics
+2024 pay awards: all 9 gave an award; ranges 2.1% to 7.1%+; fixed NJC amounts for some London roles £1,575 inner / £1,491 outer; lower-paid prioritised. 2025 consolidated: 55.6% yes, 22.2% undecided, 22.2% no. Unconsolidated 2025: 77.8% no, 22.2% undecided.
+Overtime: 78% weekday no enhancement; 22% enhanced. Weekends 67% standard; 33% enhanced (time-and-a-half to double time). Sleep-in examples: 0.2× hourly, £30.24, £61.50. On-call allowances: structured £20–£80 per shift; holiday/emergency enhancements noted.
+Core benefits: 25 days starting leave most common; 30 days typical max; 44% buy/sell leave; 67% healthcare benefits (cash plans, PMI, eye tests, life assurance/critical illness in some). Sick pay medians ≈ 6 weeks full + 6 weeks half; max often 13 + 13 after tenure. All DC pensions; some matching up to 7.5–8%.
+Pay frameworks: mix of pay spine, broad-banded, job families, market spot ranges; larger/London orgs skew to pay spine/market ranges.
+KPIs: all orgs reported decline in global turnover vs prior year; conflict index mostly 3–8%; agency spend trend mixed.
+Wages: NLW £12.21 (Apr 2025) → £23,809 for 37.5h; LLW £13.85 → £27,007 for 37.5h; 44% impacted by NLW; 89% adopted/plan RLW/LLW.
+Roles & pay table (load these into RoleRate[])
+Include all roles below; for brevity I’m showing a representative subset — implement the full list exactly as specified in the report, preserving figures for Total and by geography. Use “Wider Market – London/National” rows where given.
+Entry Level — Total (n=36): LQ 25643, Median 26357, UQ 27352, Avg 26818; Inside London (n=32): LQ 25643, Median 26087, UQ 27352, Avg 26620; Outside London (n=4): Avg 28398; Wider Market – London: LQ 22000, Median 24500, UQ 26000; Wider Market – National: 21500 / 22000 / 24000.
+Support/Project Worker (Main Grade) — Total (n=62): 26912 / 28947 / 32386, Avg 29855; Inside London (n=48): 27450 / 28980 / 32786, Avg 30508; Outside London (n=14): 24930 / 27624 / 29905, Avg 27615; Wider Market – London: 23500 / 25500 / 27000; National: 21500 / 22500 / 25000.
+Senior Support/Specialist/Complex Needs — Total (n=46): 28330 / 30353 / 33748, Avg 30993; Inside London: 28489 / 31177 / 33988, Avg 31638; Outside London: 27446 / 28709 / 31995, Avg 29521.
+Deputy Manager/Team Leader/Lead — Total (n=36): 31376 / 34650 / 37343, Avg 35086; Inside London: 31575 / 36225 / 38025, Avg 36272; Outside London: 29200 / 32981 / 34650, Avg 32715.
+Project/Service Manager — Total (n=72): 38278 / 41240 / 46769, Avg 42621; Inside London: 39434 / 42986 / 46830, Avg 44043; Outside London: 35449 / 37500 / 42189, Avg 38923.
+Area/Operations Manager — Total (n=32): 45405 / 49337 / 51874, Avg 48867; Inside London: 47874 / 49968 / 52378, Avg 50134; Outside London: 41981 / 43724 / 44681, Avg 43375.
+Admin/Customer Services — Total (n=20): 25993 / 27450 / 29139, Avg 28266; Inside London Avg 29233; Wider Market – London 24500/26500/28000.
+Maintenance Worker/Officer — Total (n=22): 27352 / 28542 / 30856, Avg 29080.
+Housing Advice/Tenancy Sustainment/Housing Support Worker — Total (n=22): 25725 / 28424 / 29590, Avg 29254; Inside London Avg 30367; Outside London Avg 26285.
+Outreach Worker — Total (n=12): 28049 / 30343 / 34031, Avg 31533 (London).
+Service Co-ordinator — Total (n=32): 28280 / 31177 / 33736, Avg 32045 (mostly London).
+Night Worker — Total (n=26): 26541 / 27450 / 28801, Avg 27718.
+Night Assistant/Concierge — Total (n=6): 25643 / 25817 / 28181, Avg 27367 (London).
+Activities Worker/Coordinator — Total (n=18): 27536 / 28998 / 31376, Avg 29876 (London).
+Cook/Chef — Total (n=10): 25730 / 27060 / 27352, Avg 26775 (London).
+Specialist Advice Workers — Total (n=38): 29253 / 33008 / 38292, Avg 35404.
+Housing Management Assistant — Total (n=6): 29880 / 32786 / 32786, Avg 32103 (London).
+Resettlement Worker — Total (n=16): 27426 / 28270 / 32295, Avg 29617 (London).
+IDVA/IDVSA — Total (n=14): LQ 29122, Median 31469, UQ 33478, Avg 31419; London Avg 31891.
+Navigator — Total (n=12): 30954 / 32777 / 34996, Avg 32898 (London).
+(Implement the remainder exactly per the report figures provided; the app should make it easy to extend this JSON.)
+Interactions & polish
+Global org filter: when none selected, show aggregate figures; when >0 selected, recompute KPIs and cards on the fly (client-side).
+“Download” actions: CSV for tables, PNG for charts.
+Empty states with clear copy.
+Inline definitions for “LQ/Median/UQ”, “LTR”, “Global vs Voluntary turnover”.
+Footer: source note “SSHR Pay Benchmark Group Report (2024/25) – TwentySix Consulting”.
+Acceptance criteria
+Navigation: all 7 sections present and working.
+At least 10 KPI/metric callouts populated with the numbers above.
+Rates of Pay table: scrollable, searchable (fuzzy), column filters, CSV export, sticky header, virtualized rows.
+Theming matches dark blue + gold; responsive on mobile/desktop; meets basic a11y checks.
+No backend required; bundle the data as local JSON or TypeScript constant. (Optional: add a tiny Node/Express endpoint if needed.)
+Nice-to-haves (if time allows)
+Org comparator: select 2–3 org archetypes to compare KPIs (mock categories if per-org data isn’t available).
+“What changed vs last year?” snapshot cards on KPIs.
+If you want, I can also generate a ready-to-run starter (React + Vite + Tailwind + shadcn) with the data JSON wired into the pages above.
