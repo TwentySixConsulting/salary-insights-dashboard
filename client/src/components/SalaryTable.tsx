@@ -59,9 +59,15 @@ export default function SalaryTable({ data, title = "Salary Rates by Role" }: Sa
           </Button>
         )
       },
-      cell: ({ row }) => (
-        <div className="font-medium">{row.getValue("role")}</div>
-      ),
+      cell: ({ row }) => {
+        const role = row.getValue("role") as string;
+        return (
+          <div className="font-medium max-w-[280px] min-w-[200px]" title={role}>
+            <div className="truncate pr-2">{role}</div>
+          </div>
+        );
+      },
+      size: 280,
     },
     {
       accessorKey: "geography",
@@ -283,17 +289,26 @@ export default function SalaryTable({ data, title = "Salary Rates by Role" }: Sa
       <CardContent>
         <div className="rounded-md border">
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full table-fixed min-w-[800px]">
               <thead className="sticky top-0 bg-muted/50">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
-                    {headerGroup.headers.map((header) => (
-                      <th key={header.id} className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">
-                        {header.isPlaceholder
-                          ? null
-                          : flexRender(header.column.columnDef.header, header.getContext())}
-                      </th>
-                    ))}
+                    {headerGroup.headers.map((header) => {
+                      const isRoleColumn = header.column.id === 'role';
+                      return (
+                        <th 
+                          key={header.id} 
+                          className={`h-12 px-4 text-left align-middle font-medium text-muted-foreground ${
+                            isRoleColumn ? 'min-w-[200px] max-w-[280px] w-[280px]' : ''
+                          }`}
+                          style={isRoleColumn ? { width: '280px' } : undefined}
+                        >
+                          {header.isPlaceholder
+                            ? null
+                            : flexRender(header.column.columnDef.header, header.getContext())}
+                        </th>
+                      );
+                    })}
                   </tr>
                 ))}
               </thead>
@@ -305,11 +320,20 @@ export default function SalaryTable({ data, title = "Salary Rates by Role" }: Sa
                       className="border-b transition-colors hover:bg-muted/50"
                       data-testid={`row-${row.original.role.toLowerCase().replace(/\s+/g, '-')}-${row.original.geography.toLowerCase().replace(/\s+/g, '-')}`}
                     >
-                      {row.getVisibleCells().map((cell) => (
-                        <td key={cell.id} className="p-4 align-middle">
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </td>
-                      ))}
+                      {row.getVisibleCells().map((cell) => {
+                        const isRoleColumn = cell.column.id === 'role';
+                        return (
+                          <td 
+                            key={cell.id} 
+                            className={`p-4 align-middle ${
+                              isRoleColumn ? 'min-w-[200px] max-w-[280px] w-[280px]' : ''
+                            }`}
+                            style={isRoleColumn ? { width: '280px' } : undefined}
+                          >
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                          </td>
+                        );
+                      })}
                     </tr>
                   ))
                 ) : (

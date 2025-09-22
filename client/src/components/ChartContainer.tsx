@@ -12,6 +12,7 @@ import {
   Tooltip, 
   ResponsiveContainer,
   PieChart,
+  Pie,
   Cell,
   LineChart,
   Line,
@@ -74,6 +75,11 @@ export default function ChartContainer({
   };
 
   const renderChart = () => {
+    // Validate data
+    if (!data || data.length === 0) {
+      return <div className="flex items-center justify-center h-32 text-muted-foreground">No data available</div>;
+    }
+
     const commonProps = {
       data,
       height,
