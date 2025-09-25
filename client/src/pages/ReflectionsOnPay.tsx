@@ -32,8 +32,7 @@ export default function ReflectionsOnPay() {
   const forecastData = [
     { year: "2023", actual: 4, forecast: null },
     { year: "2024", actual: 5, forecast: null },
-    { year: "2025", actual: null, forecast: payForecast2025.market_context.median_forecast_pct },
-    { year: "2025 (Range)", actual: null, forecast: 5 }
+    { year: "2025", actual: null, forecast: payForecast2025.market_context.median_forecast_pct }
   ];
 
   return (
