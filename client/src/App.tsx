@@ -6,21 +6,16 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/AppSidebar";
 import ThemeToggle from "@/components/ThemeToggle";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import FilterPanel from "@/components/FilterPanel";
 import { Building2 } from "lucide-react";
-import { useState } from "react";
 
 // Page imports
 import Overview from "@/pages/Overview";
 import ReflectionsOnPay from "@/pages/ReflectionsOnPay";
-import RatesOfPay from "@/pages/RatesOfPay";
+import RatesOfPayImproved from "@/pages/RatesOfPayImproved";
 import KPIs from "@/pages/KPIs";
 import Benefits from "@/pages/Benefits";
 import NotFound from "@/pages/not-found";
 
-// Sample data
-import { organisations } from "@shared/sampleData";
 
 function Router() {
   return (
@@ -41,23 +36,13 @@ function Router() {
           <p className="text-muted-foreground">Living wage impact and policy analysis - Coming Soon</p>
         </div>
       )} />
-      <Route path="/rates" component={RatesOfPay} />
+      <Route path="/rates" component={RatesOfPayImproved} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
 function App() {
-  const [selectedRegions, setSelectedRegions] = useState<string[]>([]);
-  const [selectedOrgs, setSelectedOrgs] = useState<string[]>([]);
-  const [currentOrg, setCurrentOrg] = useState<string>("all");
-
-  const handleResetFilters = () => {
-    console.log('Global filters reset');
-    setSelectedRegions([]);
-    setSelectedOrgs([]);
-    setCurrentOrg("all");
-  };
 
   // Custom sidebar width for the dashboard
   const sidebarStyle = {
@@ -82,58 +67,13 @@ function App() {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4">
-                  {/* Organisation Selector */}
-                  <Select value={currentOrg} onValueChange={setCurrentOrg}>
-                    <SelectTrigger className="w-64" data-testid="select-current-organisation">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Organisations</SelectItem>
-                      {organisations.map(org => (
-                        <SelectItem key={org.id} value={org.id}>
-                          {org.name}
-                          <span className="ml-2 text-xs text-muted-foreground">
-                            ({org.region})
-                          </span>
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  
-                  <ThemeToggle />
-                </div>
+                <ThemeToggle />
               </header>
 
               {/* Main Content Area */}
-              <div className="flex flex-1 overflow-hidden">
-                {/* Main Content */}
-                <main className="flex-1 overflow-y-auto p-6">
-                  <Router />
-                </main>
-                
-                {/* Right Sidebar - Filters */}
-                <aside className="w-80 border-l border-border bg-background/50 backdrop-blur p-4 overflow-y-auto">
-                  <FilterPanel
-                    organisations={organisations}
-                    selectedRegions={selectedRegions}
-                    selectedOrgs={selectedOrgs}
-                    onRegionChange={setSelectedRegions}
-                    onOrgChange={setSelectedOrgs}
-                    onReset={handleResetFilters}
-                  />
-                  
-                  {/* Filter Status */}
-                  <div className="mt-6 p-4 bg-muted rounded-lg">
-                    <h3 className="font-medium text-sm mb-2">Current Filters</h3>
-                    <div className="space-y-1 text-xs text-muted-foreground">
-                      <div>Organisation: {currentOrg === "all" ? "All" : organisations.find(o => o.id === currentOrg)?.name || "Unknown"}</div>
-                      <div>Regions: {selectedRegions.length > 0 ? selectedRegions.join(", ") : "None"}</div>
-                      <div>Selected Orgs: {selectedOrgs.length}</div>
-                    </div>
-                  </div>
-                </aside>
-              </div>
+              <main className="flex-1 overflow-y-auto p-6">
+                <Router />
+              </main>
             </div>
           </div>
         </SidebarProvider>

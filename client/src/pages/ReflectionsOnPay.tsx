@@ -69,7 +69,7 @@ export default function ReflectionsOnPay() {
                 <Target className="h-5 w-5 text-green-600" />
                 <div>
                   <p className="text-sm font-medium">Participants</p>
-                  <p className="text-lg font-bold">{organisations.length} Organizations</p>
+                  <p className="text-lg font-bold">{organisations.length} Organisations</p>
                 </div>
               </div>
             </CardContent>
@@ -136,7 +136,7 @@ export default function ReflectionsOnPay() {
           <CardHeader>
             <CardTitle>Pay Awards 2024 Distribution</CardTitle>
             <CardDescription>
-              How organizations distributed pay increases across different percentage ranges
+              How organisations distributed pay increases across different percentage ranges
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -146,7 +146,7 @@ export default function ReflectionsOnPay() {
               type="bar"
               xAxisKey="name"
               yAxisKey="value"
-              description="Distribution of pay award ranges across organizations"
+              description="Distribution of pay award ranges across organisations"
               height={300}
             />
           </CardContent>
@@ -286,7 +286,7 @@ export default function ReflectionsOnPay() {
               <div>
                 <h4 className="font-medium text-amber-800 dark:text-amber-200 mb-1">Market Outlook</h4>
                 <p className="text-sm text-amber-700 dark:text-amber-300">
-                  Organizations are balancing inflationary pressures with funding constraints. 
+                  Organisations are balancing inflationary pressures with funding constraints. 
                   The forecast assumes continued focus on protecting lower-paid staff while managing overall cost increases.
                 </p>
               </div>
@@ -311,7 +311,7 @@ export default function ReflectionsOnPay() {
                 Positive Trends
               </h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• 100% of organizations implemented pay increases in 2024</li>
+                <li>• 100% of organisations implemented pay increases in 2024</li>
                 <li>• Strong focus on supporting lower-paid staff with higher percentage increases</li>
                 <li>• Growing adoption of Living Wage principles (89% implementation)</li>
                 <li>• Proactive response to National Minimum Wage changes</li>

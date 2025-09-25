@@ -4,7 +4,7 @@ import type {
   WagePolicy, MarketAnalysis, DetailedPayFramework 
 } from './schema';
 
-// Real participating organizations from SSHR Pay Benchmark Group Report 2024-2025
+// Real participating organisations from SSHR Pay Benchmark Group Report 2024-2025
 export const organisations: Organisation[] = [
   { id: "org-1", name: "London Housing Partnership", region: "London", headcount: 420, turnover_gbp_m: 15.2, working_week_hours: 37.5 },
   { id: "org-2", name: "Metropolitan Community Housing", region: "London", headcount: 650, turnover_gbp_m: 32.4, working_week_hours: 37.5 },
@@ -17,14 +17,14 @@ export const organisations: Organisation[] = [
   { id: "org-9", name: "Community Housing Alliance", region: "Both", headcount: 600, turnover_gbp_m: 4.3, working_week_hours: 37.5 }
 ];
 
-// Real pay award data from 2024 survey (9 organizations total)
+// Real pay award data from 2024 survey (9 organisations total)
 export const payAwards2024: PayAward2024[] = [
   { pay_award_range: "0-2%", count: 0, details: "All organisations reported implementing some form of pay increase in 2024" },
   { pay_award_range: "2.1-3%", count: 2, details: "Standard percentage increases" },
   { pay_award_range: "3.1-5%", count: 3, details: "Mid-range increases balancing affordability and competitiveness" },
   { pay_award_range: "5.1-7%", count: 2, details: "Higher increases prioritising lower-paid staff, reaching up to 7%" },
   { pay_award_range: "7.1%+", count: 2, details: "Focused on LLW adjustments and uplifts for staff in lowest pay bands, such as 8% or 10%" }
-  // Note: Total = 9 organizations (some used multiple approaches: percentage + NJC/other methods)
+  // Note: Total = 9 organisations (some used multiple approaches: percentage + NJC/other methods)
 ];
 
 // 2025 pay forecast and market context

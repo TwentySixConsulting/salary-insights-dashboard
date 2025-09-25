@@ -26,7 +26,7 @@ export default function Overview() {
           value={100}
           format="percentage"
           description="All participants implemented 2024 pay rise"
-          tooltip="All 9 organizations in the survey implemented pay increases ranging from 2.1% to 7.1%+"
+          tooltip="All 9 organisations in the survey implemented pay increases ranging from 2.1% to 7.1%+"
         />
         
         <KPICard
@@ -42,7 +42,7 @@ export default function Overview() {
           title="Healthcare Benefits"
           value={summaryMetrics.healthcare_benefits_pct}
           format="percentage"
-          description="Organizations offering healthcare benefits"
+          description="Organisations offering healthcare benefits"
           tooltip="67% offer healthcare benefits including cash plans, PMI, eye tests"
         />
         
@@ -75,7 +75,7 @@ export default function Overview() {
           format="percentage"
           description="Organizations reporting turnover decline"
           change={{ value: -8.3, type: 'positive' }}
-          tooltip="All organizations reported decline in global turnover vs last year"
+          tooltip="All organisations reported decline in global turnover vs last year"
         />
         
         <KPICard
@@ -99,7 +99,7 @@ export default function Overview() {
           title="Conflict Index Range"
           value={summaryMetrics.conflict_index_range}
           description="Annual conflict index range"
-          tooltip="Annual conflict index largely ranges between 3-8% across organizations"
+          tooltip="Annual conflict index largely ranges between 3-8% across organisations"
         />
       </div>
 
@@ -109,7 +109,7 @@ export default function Overview() {
           title="Key Benefits Adoption"
           data={overviewChartData}
           type="bar"
-          description="Percentage of organizations offering key benefits and policies"
+          description="Percentage of organisations offering key benefits and policies"
           allowTypeToggle={true}
         />
         
