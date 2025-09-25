@@ -360,6 +360,7 @@ export const roleRates: RoleRate[] = [
 ];
 
 
+
 // Legacy benefits summary for backward compatibility
 export const benefitsSummary = {
   holiday_start_days: 25,

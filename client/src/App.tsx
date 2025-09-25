@@ -13,6 +13,7 @@ import { useState } from "react";
 
 // Page imports
 import Overview from "@/pages/Overview";
+import ReflectionsOnPay from "@/pages/ReflectionsOnPay";
 import RatesOfPay from "@/pages/RatesOfPay";
 import KPIs from "@/pages/KPIs";
 import Benefits from "@/pages/Benefits";
@@ -25,12 +26,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Overview} />
-      <Route path="/reflections" component={() => (
-        <div className="p-8">
-          <h1 className="text-3xl font-bold mb-4">Reflections on Pay</h1>
-          <p className="text-muted-foreground">Market overview and pay forecasts - Coming Soon</p>
-        </div>
-      )} />
+      <Route path="/reflections" component={ReflectionsOnPay} />
       <Route path="/benefits" component={Benefits} />
       <Route path="/frameworks" component={() => (
         <div className="p-8">
