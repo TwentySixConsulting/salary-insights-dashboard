@@ -236,24 +236,17 @@ export default function RatesOfPayImproved() {
 
   return (
     <div className="space-y-8">
-      {/* Premium Header with Enhanced Gradients */}
-      <div className="relative overflow-hidden animated-gradient rounded-2xl p-8 shadow-premium-xl hover-glow-primary" data-testid="rates-header">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent"></div>
-        <div className="relative z-10 flex items-center gap-6 mb-6">
-          <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl glow-accent">
-            <BarChart3 className="h-12 w-12 text-white drop-shadow-md" />
-          </div>
+      {/* Professional Header */}
+      <div className="bg-gradient-to-r from-primary/10 to-chart-3/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="rates-header">
+        <div className="flex items-center gap-4 mb-4">
+          <BarChart3 className="h-10 w-10 text-primary" />
           <div>
-            <h1 className="text-5xl font-bold text-white tracking-tight drop-shadow-lg">
-              Rates of Pay for Key Roles
-            </h1>
-            <p className="text-xl text-white/90 mt-3 drop-shadow-md">
+            <h1 className="text-4xl font-bold text-foreground tracking-tight">Rates of Pay for Key Roles</h1>
+            <p className="text-xl text-muted-foreground mt-2">
               Comprehensive salary benchmarking across housing association front-line roles
             </p>
           </div>
         </div>
-        <div className="absolute top-4 right-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-lg"></div>
       </div>
 
       {/* BRIEF INTRODUCTION */}
@@ -263,15 +256,15 @@ export default function RatesOfPayImproved() {
           <h2 className="text-2xl font-bold text-foreground">6. Rates of Pay for Key Roles</h2>
         </div>
         
-        <div className="bg-card-premium border-gradient-primary rounded-2xl p-8 shadow-premium hover-glow-primary">
+        <div className="bg-card border border-card-border rounded-xl p-6 shadow-md">
           <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
-            <p className="mb-6 text-lg">
+            <p className="mb-4">
               We asked participants to submit all their front-line roles, up to and including Area Manager or equivalent, to establish the most useful common job groupings. The data below represents 21 key roles that were reasonably common across all nine participating housing associations.
             </p>
             
-            <div className="bg-accent-gradient rounded-2xl p-6 border-gradient-accent shadow-premium">
-              <h4 className="font-bold text-accent-foreground mb-3 text-lg">Data Overview</h4>
-              <p className="text-accent-foreground/80">
+            <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+              <h4 className="font-semibold text-foreground mb-2">Data Overview</h4>
+              <p className="text-sm">
                 Where sample size is six or greater, we provide Lower, Median and Upper Quartiles. For smaller samples, we calculated averages to provide meaningful insight. Geographic data is separated between London and outside London areas.
               </p>
             </div>
@@ -281,26 +274,24 @@ export default function RatesOfPayImproved() {
 
       {/* INTERACTIVE SALARY DATA - MAIN CONTENT */}
       <div className="space-y-8">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-2 h-10 bg-gradient-to-b from-chart-5 to-chart-6 rounded-full shadow-premium glow-accent"></div>
-          <h2 className="text-3xl font-bold text-gradient-primary">Interactive Salary Data Analysis</h2>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-1 h-8 bg-chart-5 rounded-full"></div>
+          <h2 className="text-2xl font-bold text-foreground">Interactive Salary Data Analysis</h2>
         </div>
 
-        {/* Enhanced Search and Filter Controls */}
-        <Card className="bg-card-premium border-gradient-primary shadow-premium-xl hover-glow-primary">
-          <CardHeader className="bg-primary-gradient rounded-t-2xl">
-            <CardTitle className="flex items-center justify-between text-primary-foreground">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-white/20 rounded-lg">
-                  <Search className="h-6 w-6 text-white" />
-                </div>
-                <span className="text-xl font-bold">Search & Filter Options</span>
+        {/* Search and Filter Controls */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Search className="h-5 w-5 text-primary" />
+                Search & Filter Options
               </div>
               <Button 
                 onClick={handleExportCSV} 
                 variant="outline" 
                 size="sm"
-                className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover-glow-accent flex items-center gap-2"
+                className="flex items-center gap-2"
                 data-testid="button-export-csv"
               >
                 <Download className="h-4 w-4" />
@@ -388,14 +379,12 @@ export default function RatesOfPayImproved() {
           </CardContent>
         </Card>
 
-        {/* Enhanced Salary Quartiles Glossary */}
-        <Card className="bg-card-premium border-gradient-accent shadow-premium hover-glow-accent">
-          <CardHeader className="bg-accent-gradient rounded-t-2xl">
-            <CardTitle className="flex items-center gap-3 text-xl text-accent-foreground">
-              <div className="p-2 bg-white/20 rounded-lg">
-                <Info className="h-6 w-6" />
-              </div>
-              <span className="font-bold">Salary Quartiles Glossary</span>
+        {/* Salary Quartiles Glossary */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Info className="h-5 w-5 text-primary" />
+              Salary Quartiles Glossary
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -463,17 +452,15 @@ export default function RatesOfPayImproved() {
           </CardContent>
         </Card>
 
-        {/* Premium Main Salary Data Table */}
-        <Card className="bg-card-premium border-gradient-primary shadow-premium-2xl hover-glow-primary">
-          <CardHeader className="bg-primary-gradient rounded-t-2xl">
-            <CardTitle className="flex items-center justify-between text-primary-foreground">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-white/20 rounded-lg">
-                  <Users className="h-6 w-6 text-white" />
-                </div>
-                <span className="text-xl font-bold">Salary Data by Role and Geography</span>
+        {/* Main Salary Data Table */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Users className="h-5 w-5 text-primary" />
+                Salary Data by Role and Geography
               </div>
-              <Badge variant="outline" className="bg-white/20 border-white/30 text-white text-sm font-medium">
+              <Badge variant="outline" className="text-xs">
                 {filteredAndSortedData.length} roles shown
               </Badge>
             </CardTitle>
