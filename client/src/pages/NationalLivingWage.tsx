@@ -138,9 +138,9 @@ export default function NationalLivingWage() {
                 The forthcoming 6% increase in the statutory National Living Wage to £12.21, will take the minimum salary for a 37.5-hour week to £23,809. Furthermore, almost all of our survey respondents are signed up to the London Living Wage (previously £13.15, since announced to rise to £13.85). Employers have until 1st May 2025 to implement the rates, and, for a 37.5-hour week, the new LLW represents an annual salary of £27,007.
               </p>
               
-              <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-6 my-6">
-                <h4 className="font-semibold text-amber-800 dark:text-amber-200 mb-2">Strategic Considerations</h4>
-                <ul className="list-disc list-inside space-y-2 text-amber-700 dark:text-amber-300">
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 my-6">
+                <h4 className="font-semibold text-amber-800 mb-2">Strategic Considerations</h4>
+                <ul className="list-disc list-inside space-y-2 text-amber-700">
                   <li>Need to maintain pay differentials between grades</li>
                   <li>Ripple effects through pay structures</li>
                   <li>Balance between statutory compliance and voluntary commitment</li>
@@ -371,12 +371,12 @@ export default function NationalLivingWage() {
               </div>
             </div>
             
-            <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
               <div className="flex items-start gap-3">
                 <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="font-medium text-amber-800 dark:text-amber-200 mb-1">Looking Ahead</h4>
-                  <p className="text-sm text-amber-700 dark:text-amber-300">
+                  <h4 className="font-medium text-amber-800 mb-1">Looking Ahead</h4>
+                  <p className="text-sm text-amber-700">
                     The 6% increase in National Living Wage represents a significant shift affecting pay structures 
                     across the housing association sector. While most organisations are committed to living wage 
                     principles, strategic planning is essential to maintain fair pay differentials and organisational sustainability.

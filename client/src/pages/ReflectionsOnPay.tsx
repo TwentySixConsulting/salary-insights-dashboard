@@ -236,53 +236,51 @@ export default function ReflectionsOnPay() {
         </Card>
       </div>
 
-      {/* Market Analysis and Sector Trends */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Sector Trends & Market Drivers</CardTitle>
-          <CardDescription>
-            Key factors influencing pay decisions in housing associations
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h4 className="font-medium text-sm">Primary Market Drivers</h4>
-              {marketAnalysis.sector_analysis.skills_shortage_areas.map((area: string, index: number) => (
-                <div key={area} className="flex items-center gap-3 p-3 rounded-lg bg-muted/30">
-                  <div 
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: COLORS[index % COLORS.length] }}
-                  />
-                  <span className="text-sm">{area}</span>
-                </div>
-              ))}
+      {/* Forecast Pay Rises & Sector Implications */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-3 mb-4" data-testid="section-forecast-pay-rises">
+          <div className="w-1 h-8 bg-chart-5 rounded-full"></div>
+          <h2 className="text-2xl font-bold text-foreground">Forecast Pay Rises & Implications for the Supported Housing Sector</h2>
+        </div>
+        
+        <div className="bg-card border border-card-border rounded-lg p-6">
+          <div className="prose prose-lg max-w-none text-foreground">
+            <p className="text-lg text-muted-foreground mb-6">
+              So how then will all of this play out in terms of pay rises in 2025 and what does this mean for the supported housing sector?
+            </p>
+            
+            <p className="mb-4">
+              Affordability has been the absolute criteria for support providers over the past ten years. The well-known difficulties in contract values mean that providers across the sector continue to have relatively little room to manoeuvre in terms of available money to fund across-the-board pay increases.
+            </p>
+            
+            <p className="mb-4">
+              However, support providers have generally managed to achieve meaningful pay rises over the past couple of years. Section 1.2 looks at pay rises in 2024 and it's notable that no participant gave an award lower than 2.1% (and that was only to some staff).
+            </p>
+            
+            <p className="mb-4">
+              What is also notable is that the direct result of Living Wage increases is that participants are increasingly having to give variable pay awards i.e., front line/lower paid colleagues receiving more than managerial staff. As our section above shows, it's clear that this is happening across the economy as a whole – pay for lower paid staff is going up noticeably more than for other groups.
+            </p>
+            
+            <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary my-6">
+              <h4 className="font-semibold text-foreground mb-2">External Market Forecasts</h4>
+              <ul className="list-disc list-inside space-y-1 text-sm">
+                <li>CIPD's Labour Market Survey forecasts median pay rises of <strong>3%</strong> in voluntary/private sectors, <strong>4%</strong> in public sector</li>
+                <li>Bank of England survey suggests pay rises between <strong>2-4%</strong></li>
+                <li>Brightmine data indicates median pay rise around <strong>3%</strong></li>
+                <li>TwentySix's own forecasts for the economy: <strong>3-4%</strong> for 2025/26</li>
+              </ul>
             </div>
             
-            <div className="space-y-4">
-              <h4 className="font-medium text-sm">Economic Challenges</h4>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 rounded-lg border">
-                  <span className="text-sm">Inflation Impact</span>
-                  <Badge variant="destructive">High</Badge>
-                </div>
-                <div className="flex items-center justify-between p-3 rounded-lg border">
-                  <span className="text-sm">Funding Pressures</span>
-                  <Badge variant="destructive">High</Badge>
-                </div>
-                <div className="flex items-center justify-between p-3 rounded-lg border">
-                  <span className="text-sm">Talent Retention</span>
-                  <Badge variant="outline">Medium</Badge>
-                </div>
-                <div className="flex items-center justify-between p-3 rounded-lg border">
-                  <span className="text-sm">Cost Management</span>
-                  <Badge variant="destructive">High</Badge>
-                </div>
-              </div>
-            </div>
+            <p className="mb-4">
+              However, all of these forecasts were published before the recent budget, in which Employers' National Insurance contributions increased from 13.8% to 15%, with a reduction in the threshold to £5,000. This is a direct increase in organisations' wage bills, and, combined with the Living Wage increases, we would expect to see pay rise expectations shading downwards.
+            </p>
+            
+            <p>
+              What is clear, however, is that pay rises will be lower than last year, and this is supported by data from this benchmarking group in section 1.2 below.
+            </p>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {/* 2025 Pay Forecast */}
       <Card>
@@ -335,12 +333,12 @@ export default function ReflectionsOnPay() {
           
           <Separator className="my-6" />
           
-          <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
             <div className="flex items-start gap-3">
               <AlertCircle className="h-5 w-5 text-amber-600 mt-0.5" />
               <div>
-                <h4 className="font-medium text-amber-800 dark:text-amber-200 mb-1">Market Outlook</h4>
-                <p className="text-sm text-amber-700 dark:text-amber-300">
+                <h4 className="font-medium text-amber-800 mb-1">Market Outlook</h4>
+                <p className="text-sm text-amber-700">
                   Organisations are balancing inflationary pressures with funding constraints. 
                   The forecast assumes continued focus on protecting lower-paid staff while managing overall cost increases.
                 </p>

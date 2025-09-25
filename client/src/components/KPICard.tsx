@@ -41,8 +41,8 @@ export default function KPICard({
   const getTrendColor = () => {
     if (!change) return '';
     switch (change.type) {
-      case 'positive': return 'text-green-600 dark:text-green-400';
-      case 'negative': return 'text-red-600 dark:text-red-400';
+      case 'positive': return 'text-green-600';
+      case 'negative': return 'text-red-600';
       default: return 'text-muted-foreground';
     }
   };

@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/AppSidebar";
-import ThemeToggle from "@/components/ThemeToggle";
 import twentySixLogo from "@assets/Blue Logotype with Logo (1)_1758798870725.png";
 
 // Page imports
@@ -59,7 +58,6 @@ function App() {
                   </div>
                 </div>
                 
-                <ThemeToggle />
               </header>
 
               {/* Main Content Area */}
