@@ -1,77 +1,91 @@
-# Salary Survey Insights Dashboard Design Guidelines
+# TwentySix Salary Survey Insights Dashboard Design Guidelines
 
-## Design Approach: Material Design System
-This data-heavy enterprise application follows Material Design principles, emphasizing clear information hierarchy, functional layouts, and professional aesthetics suitable for housing association stakeholders.
+## Design Approach: Refined Material Design System
+This executive-level enterprise dashboard follows Material Design principles with sophisticated branding integration, emphasizing premium aesthetics, refined typography, and elegant information hierarchy suitable for C-suite stakeholders.
 
 ## Core Design Elements
 
 ### Color Palette
 **Primary Colors:**
-- Dark Blue: 203 85% 19% (main brand, navigation, headers)
-- Light Blue: 203 85% 95% (backgrounds, subtle accents)
+- Deep Navy: 212 85% 12% (primary brand, navigation, headers)
+- Soft Navy: 212 25% 95% (subtle backgrounds, card accents)
 
 **Accent Colors:**
-- Gold: 43 85% 53% (highlights, active states, key metrics)
-- Muted Gold: 43 20% 85% (subtle backgrounds, hover states)
+- Refined Gold: 43 70% 58% (strategic highlights, premium touches)
+- Whisper Gold: 43 15% 92% (subtle hover states, light accents)
 
-**Neutral Colors:**
-- Dark Gray: 210 10% 23% (text, borders)
-- Light Gray: 210 15% 98% (card backgrounds, dividers)
-- White: 0 0% 100% (primary backgrounds)
+**Neutral Palette:**
+- Charcoal: 215 8% 25% (primary text, strong contrast)
+- Warm Gray: 215 6% 45% (secondary text, labels)
+- Pearl: 215 12% 98% (card backgrounds, subtle dividers)
+- Pure White: 0 0% 100% (primary backgrounds)
 
 ### Typography
-- **Primary Font:** Inter (Google Fonts) - clean, readable for data tables
-- **Headings:** 600-700 weight, dark gray
-- **Body Text:** 400-500 weight, comfortable line height 1.6
-- **Data Tables:** 400 weight, consistent sizing for scanability
+**Primary Font:** Inter (Google Fonts) - exceptional readability for executive reporting
+- **Executive Headers:** 700 weight, tight letter spacing (-0.025em)
+- **Section Titles:** 600 weight, refined line height 1.2
+- **Body Content:** 500 weight, optimal line height 1.6
+- **Data Labels:** 400 weight, consistent sizing for precision
 
 ### Layout System
-**Spacing Units:** Tailwind classes using 2, 4, 6, 8, 12, 16 units
-- Consistent 4-unit gutters between components
-- 8-unit padding for cards and containers
-- 16-unit margins for major section breaks
+**Sophisticated Spacing:** Tailwind units 3, 6, 8, 12, 16, 24
+- 6-unit refined gutters between components
+- 12-unit elegant padding for premium cards
+- 24-unit executive margins for major sections
+- 3-unit micro-spacing for subtle refinements
 
 ### Component Library
 
-**Navigation:**
-- Left sidebar navigation with dark blue background
-- Organization selector in top header bar
-- Breadcrumb navigation for deep sections
+**Executive Navigation:**
+- Clean top navigation bar with TwentySix branding
+- Breadcrumb system with subtle dividers
+- Organization selector with premium dropdown styling
 
-**Data Display:**
-- Clean table design with alternating row colors
-- Sticky headers with subtle shadows
-- Interactive sorting indicators
-- Search and filter controls above tables
+**Premium Data Display:**
+- Elevated tables with sophisticated shadows (shadow-lg)
+- Alternating row treatments with pearl backgrounds
+- Executive-grade sticky headers with refined typography
+- Advanced filtering with elegant input styling
 
-**Cards & Containers:**
-- Subtle drop shadows (shadow-sm)
-- Rounded corners (rounded-lg)
-- White backgrounds with light gray borders
+**Sophisticated Cards:**
+- Multiple elevation levels (shadow-sm, shadow-md, shadow-lg)
+- Refined rounded corners (rounded-xl for primary cards)
+- Subtle border treatments with pearl accents
+- Strategic use of refined gold for premium emphasis
 
-**Interactive Elements:**
-- Primary buttons: Dark blue with white text
-- Secondary buttons: Outlined with dark blue border
-- Gold accent for active/selected states
-- Subtle hover transitions (150ms ease)
+**Executive Interactive Elements:**
+- Primary buttons: Deep navy with refined gold hover states
+- Secondary buttons: Outline style with sophisticated borders
+- Tertiary actions: Ghost buttons with subtle hover treatments
+- Premium loading states with elegant animations
 
-**Charts & Visualizations:**
-- Consistent color palette across all charts
-- Clear axis labels and legends
-- Responsive sizing for different screen sizes
-- Export functionality with subtle icon buttons
+**Advanced Visualizations:**
+- Consistent sophisticated color palette across charts
+- Executive-grade legends with refined typography
+- Premium export functionality with subtle icon integration
+- Responsive scaling maintaining visual quality
+
+### TwentySix Brand Integration
+**Logo Placement:** Top-left navigation with appropriate sizing
+**Brand Colors:** Deep navy as primary with refined gold strategic accents
+**Typography Hierarchy:** Executive-grade scaling with brand consistency
+**Premium Touches:** Subtle branded elements in cards and navigation
 
 ### Key Design Principles
-1. **Information Hierarchy:** Clear visual separation between KPIs, charts, and data tables
-2. **Scanability:** Generous whitespace and consistent alignment for easy data consumption  
-3. **Professional Aesthetic:** Conservative color usage with strategic gold accents
-4. **Responsive Design:** Mobile-first approach with collapsible navigation
-5. **Accessibility:** High contrast ratios and clear focus states throughout
+1. **Executive Hierarchy:** Clear visual separation prioritizing key insights
+2. **Sophisticated Spacing:** Generous whitespace with refined proportions
+3. **Premium Aesthetic:** Conservative palette with strategic luxury touches
+4. **Professional Polish:** Consistent elevation and shadow treatments
+5. **Brand Sophistication:** Subtle TwentySix integration throughout
 
-### Animations
-Minimal, functional animations only:
-- 150ms transitions for hover states
-- Smooth table sorting animations
-- Subtle loading states for data fetching
+### Refined Interactions
+Subtle, professional animations:
+- 200ms premium transitions for all interactive elements
+- Elegant table interactions with sophisticated feedback
+- Refined loading states maintaining executive standards
+- Smooth chart transitions preserving data clarity
 
-This design creates a trustworthy, professional environment optimized for data analysis and decision-making by housing association stakeholders.
+### Images
+**No hero image required** - this dashboard prioritizes immediate data access over marketing imagery. TwentySix logo integration in navigation provides sufficient brand presence without compromising the executive-focused, data-first experience.
+
+This refined design creates a sophisticated, executive-grade environment optimized for strategic decision-making with seamless TwentySix brand integration.

@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/AppSidebar";
 import ThemeToggle from "@/components/ThemeToggle";
-import { Building2 } from "lucide-react";
+import twentySixLogo from "@assets/Blue Logotype with Logo (1)_1758798870725.png";
 
 // Page imports
 import Overview from "@/pages/Overview";
@@ -61,9 +61,9 @@ function App() {
               <header className="flex items-center justify-between p-4 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                 <div className="flex items-center gap-4">
                   <SidebarTrigger data-testid="button-sidebar-toggle" />
-                  <div className="flex items-center gap-2">
-                    <Building2 className="h-5 w-5 text-sidebar-primary" />
-                    <h1 className="font-semibold text-lg">Salary Survey Dashboard</h1>
+                  <div className="flex items-center gap-3">
+                    <img src={twentySixLogo} alt="TwentySix Consulting" className="h-8 w-auto" />
+                    <h1 className="font-semibold text-lg text-foreground">Salary Survey Dashboard</h1>
                   </div>
                 </div>
                 

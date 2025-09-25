@@ -20,9 +20,9 @@ import {
   Target,
   Coins,
   Table,
-  Home,
-  Building2
+  Home
 } from "lucide-react";
+import twentySixLogo from "@assets/Blue Logotype with Logo (1)_1758798870725.png";
 
 const navigationItems = [
   {
@@ -75,8 +75,8 @@ export default function AppSidebar() {
   return (
     <Sidebar className="border-r border-sidebar-border">
       <SidebarHeader className="border-b border-sidebar-border p-4">
-        <div className="flex items-center gap-2">
-          <Building2 className="h-6 w-6 text-sidebar-primary" />
+        <div className="flex items-center gap-3">
+          <img src={twentySixLogo} alt="TwentySix Consulting" className="h-7 w-auto" />
           <div>
             <h2 className="font-semibold text-sidebar-foreground text-sm">
               Salary Survey Insights
