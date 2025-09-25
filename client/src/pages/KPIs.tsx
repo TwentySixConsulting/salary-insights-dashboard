@@ -6,8 +6,8 @@ export default function KPIs() {
   // Transform KPI data for charts
   const sicknessData = kpiData.map(kpi => ({ name: kpi.year, value: kpi.sickness_ltr_pct || 0 }));
   const turnoverData = [
-    { name: '2023', 'Global Turnover': 18.5, 'Voluntary Turnover': 12.3 },
-    { name: '2024', 'Global Turnover': 15.2, 'Voluntary Turnover': 10.8 }
+    { name: '2023', value: 18.5, 'Global Turnover': 18.5, 'Voluntary Turnover': 12.3 },
+    { name: '2024', value: 15.2, 'Global Turnover': 15.2, 'Voluntary Turnover': 10.8 }
   ];
   const conflictData = [
     { name: '0-3%', value: 11 },
