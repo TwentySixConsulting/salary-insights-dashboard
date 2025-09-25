@@ -83,18 +83,90 @@ export default function ReflectionsOnPay() {
         </div>
       </div>
 
+      {/* Market Overview Section */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-3 mb-4" data-testid="section-market-overview">
+          <div className="w-1 h-8 bg-primary rounded-full"></div>
+          <h2 className="text-2xl font-bold text-foreground">Market Overview</h2>
+        </div>
+        
+        <div className="bg-card border border-card-border rounded-lg p-6">
+          <div className="prose prose-lg max-w-none text-foreground">
+            <p className="text-lg text-muted-foreground mb-6">
+              This section sets the scene for the report by considering the current economic context. First we look at the current state of the labour market, before considering what inflation and pay rises might look like next year and the implications for the supported housing sector.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Current Labour Market Section */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-3 mb-4" data-testid="section-current-labour-market">
+          <div className="w-1 h-8 bg-chart-2 rounded-full"></div>
+          <h2 className="text-2xl font-bold text-foreground">The Current Labour Market</h2>
+        </div>
+        
+        <div className="bg-card border border-card-border rounded-lg p-6">
+          <div className="prose prose-lg max-w-none text-foreground space-y-4">
+            <p>
+              Some will have found the UK labour market over the past two to three years akin to navigating a treacherous mountain path without a compass. Having successfully surmounted the challenges of skills shortages and a recruitment crisis, as well as the Cost of Living Crisis – and with inflation finally back to more normal levels – employers now find the bottom of the market being moved significantly upwards through increases in the National Living Wage.
+            </p>
+            
+            <p>
+              The forthcoming 5.8% increase in the statutory National Living Wage to £12.21, will take the minimum salary for a 37.5-hour week to £23,809. Furthermore, almost all of our survey respondents are signed up to the London Living Wage (previously £13.15, since announced to rise to £13.85). Employers have until 1st May 2025 to implement the rates, and, for a 37.5-hour week, the new LLW represents an annual salary of £27,007.
+            </p>
+            
+            <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary my-6">
+              <h4 className="font-semibold text-foreground mb-2">Key Wage Impacts</h4>
+              <ul className="list-disc list-inside space-y-1 text-sm">
+                <li>Pay for roles at the bottom of the market increased by <strong>9%</strong> over the last year</li>
+                <li>Roles at Senior Support level saw increases of <strong>just over 7%</strong> in the £22,000-£32,000 bracket</li>
+                <li>Fairly steady market for roles at the manager level</li>
+                <li>Some erosion of differentials between bottom grades in many organisations</li>
+              </ul>
+            </div>
+            
+            <p>
+              These upwards shifts – particularly of the statutory National Living Wage – are having a noticeable impact on the bottom of the labour market. Our analysis shows that pay for roles at the bottom of the market has increased by 9% over the last year; on the other hand, it has been a fairly steady market for roles at the manager level.
+            </p>
+            
+            <p>
+              While there has been some erosion of differentials between the bottom grades in many organisations, there is a limit to how much can be absorbed this year. The result of this is that these uplifts at the very bottom also ripple upwards. It is in pay for roles within the £22,000 - £32,000 bracket that we have seen the biggest increases over the past 18 months: just over 7% for roles at Senior Support level.
+            </p>
+            
+            <p>
+              Finally, our analysis shows that this need to give higher than average pay rises to these lower paid staff has reduced the amount available for more senior levels. Indeed, tracking recruitment job sites shows advertised pay reducing slightly at these levels. The result of this is that pay rises for more senior roles have been skewed slightly downwards.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Economic Context Section */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <AlertCircle className="h-5 w-5 text-orange-500" />
+            <AlertCircle className="h-5 w-5 text-chart-1" />
             Economic Context 2024
           </CardTitle>
           <CardDescription>
-            Key economic indicators affecting pay decisions in the housing sector
+            The economic context has returned to more familiar ground after the high inflation/higher interest rate scenario of the recent past
           </CardDescription>
         </CardHeader>
         <CardContent>
+          <div className="prose prose-lg max-w-none text-foreground space-y-4 mb-6">
+            <p>
+              More broadly, the economic context has returned to more familiar ground after the high inflation/higher interest rate scenario of the recent past.
+            </p>
+            
+            <p>
+              <strong>CPI now sits at 2.3%</strong>, as expected this is slightly higher than the Bank of England's 2% target and is likely to remain so throughout 2025. <strong>Interest rates have come down from their peak and sit at 4.75%</strong>.
+            </p>
+            
+            <p>
+              The labour market is slowly loosening, with unemployment edging up and vacancies slightly down – although it remains tight and this can be seen in the continuing stickiness of wage inflation. <strong>Annual growth in employees' average earnings (regular and total) was 5.2%</strong> in July to September 2024, slightly up from 4.8% (regular earnings) the month before; higher than many commentators expected when inflation started to reach its 2% target.
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {economicContextData.map((indicator, index) => (
               <div key={indicator.indicator} className="space-y-3">
@@ -115,10 +187,10 @@ export default function ReflectionsOnPay() {
             ))}
           </div>
           
-          <div className="bg-muted/50 rounded-lg p-4">
-            <h4 className="font-medium mb-2 text-sm">Market Context</h4>
+          <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+            <h4 className="font-semibold text-foreground mb-2">Labour Market Summary</h4>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Housing associations face significant recruitment pressure in key areas, with contract value challenges impacting overall affordability. Wage inflation of {marketAnalysis.economic_context.wage_inflation_pct}% exceeds CPI, creating competitive pressure.
+              Taking all of this into account, we see a labour market that continues the flux of previous years. Whilst it is undoubtedly true that recruitment pressures and pay rises have cooled from their respective peaks, we are now seeing a transformative shift in the approach to paying the lowest paid across the economy and the impact of this has not yet fully been felt.
             </p>
           </div>
         </CardContent>
