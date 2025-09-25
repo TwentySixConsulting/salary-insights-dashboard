@@ -20,18 +20,18 @@ export const organisations: Organisation[] = [
 // Real pay award data from 2024 survey (9 organisations total)
 export const payAwards2024: PayAward2024[] = [
   { pay_award_range: "0-2%", count: 0, details: "All organisations reported implementing some form of pay increase in 2024" },
-  { pay_award_range: "2.1-3%", count: 2, details: "Standard percentage increases" },
-  { pay_award_range: "3.1-5%", count: 3, details: "Mid-range increases balancing affordability and competitiveness" },
-  { pay_award_range: "5.1-7%", count: 2, details: "Higher increases prioritising lower-paid staff, reaching up to 7%" },
-  { pay_award_range: "7.1%+", count: 2, details: "Focused on LLW adjustments and uplifts for staff in lowest pay bands, such as 8% or 10%" }
+  { pay_award_range: "2-3%", count: 2, details: "Standard percentage increases" },
+  { pay_award_range: "3-5%", count: 3, details: "Mid-range increases balancing affordability and competitiveness" },
+  { pay_award_range: "5-7%", count: 2, details: "Higher increases prioritising lower-paid staff, reaching up to 7%" },
+  { pay_award_range: "7%+", count: 2, details: "Focused on LLW adjustments and uplifts for staff in lowest pay bands, such as 8% or 10%" }
   // Note: Total = 9 organisations (some used multiple approaches: percentage + NJC/other methods)
 ];
 
 // 2025 pay forecast and market context
 export const payForecast2025: PayForecast = {
   year: 2025,
-  consolidated_increase_pct: 55.6,
-  undecided_pct: 22.2,
+  consolidated_increase_pct: 56,
+  undecided_pct: 22,
   key_concerns: [
     "Affordability pressures", 
     "Living Wage requirement increases", 
@@ -98,11 +98,11 @@ export const summaryMetrics: SummaryMetrics = {
   },
   pay_rise_summary: {
     all_implemented_2024: true,
-    range: "2.1% to 7.1%+",
+    range: "2% to 7%+",
     highest_pct_range: "LLW adjustments 8-10%"
   },
-  consolidated_2025_pct: 55.6,
-  undecided_2025_pct: 22.2,
+  consolidated_2025_pct: 56,
+  undecided_2025_pct: 22,
   weekend_overtime_standard_pct: 67,
   on_call_allowance_pct: 50,
   common_holiday_start: 25,
@@ -116,8 +116,8 @@ export const summaryMetrics: SummaryMetrics = {
 
 // Legacy KPI data for backward compatibility
 export const kpiData: KPI[] = [
-  { year: "2023", sickness_ltr_pct: 4.2, turnover_global_pct: 18.5, turnover_voluntary_pct: 12.3, conflict_index_pct: 5.1, agency_spend_pct_payroll: 3.2 },
-  { year: "2024", sickness_ltr_pct: 3.8, turnover_global_pct: 15.2, turnover_voluntary_pct: 10.8, conflict_index_pct: 4.7, agency_spend_pct_payroll: 2.8 }
+  { year: "2023", sickness_ltr_pct: 4, turnover_global_pct: 19, turnover_voluntary_pct: 12, conflict_index_pct: 5, agency_spend_pct_payroll: 3 },
+  { year: "2024", sickness_ltr_pct: 4, turnover_global_pct: 15, turnover_voluntary_pct: 11, conflict_index_pct: 5, agency_spend_pct_payroll: 3 }
 ];
 
 // Enhanced KPI data with detailed analysis from the report
@@ -125,26 +125,26 @@ export const detailedKPIData: DetailedKPI[] = [
   {
     year: "2023",
     sickness_ltr: {
-      percentage: 4.2,
+      percentage: 4,
       trend: "declining",
       notes: "Long-term sickness absence lasting more than 4 weeks"
     },
     turnover_global: {
-      percentage: 18.5,
+      percentage: 19,
       decline_from_previous: false,
       trend: "declining"
     },
     turnover_voluntary: {
-      percentage: 12.3,
-      as_percent_of_global: 66.5
+      percentage: 12,
+      as_percent_of_global: 67
     },
     conflict_index: {
-      percentage: 5.1,
+      percentage: 5,
       range_category: "5-8%",
       context: "Workplace disputes and grievances"
     },
     agency_spend: {
-      percent_of_payroll: 3.2,
+      percent_of_payroll: 3,
       trend: "reducing",
       strategies: ["Improved retention", "Enhanced recruitment"]
     }
@@ -152,26 +152,26 @@ export const detailedKPIData: DetailedKPI[] = [
   {
     year: "2024",
     sickness_ltr: {
-      percentage: 3.8,
+      percentage: 4,
       trend: "improving",
-      notes: "Continued decline across the sector - improved from 4.2% in 2023"
+      notes: "Continued decline across the sector - improved from 4% in 2023"
     },
     turnover_global: {
-      percentage: 15.2,
+      percentage: 15,
       decline_from_previous: true,
       trend: "improving"
     },
     turnover_voluntary: {
-      percentage: 10.8,
-      as_percent_of_global: 71.1
+      percentage: 11,
+      as_percent_of_global: 71
     },
     conflict_index: {
-      percentage: 4.7,
+      percentage: 5,
       range_category: "3-5%",
       context: "Varies significantly but most organizations maintain 3-8% range"
     },
     agency_spend: {
-      percent_of_payroll: 2.8,
+      percent_of_payroll: 3,
       trend: "reducing",
       strategies: ["Better retention", "Reduced dependency on temporary staff"]
     }
@@ -181,10 +181,10 @@ export const detailedKPIData: DetailedKPI[] = [
 // Market analysis from the report
 export const marketAnalysis: MarketAnalysis = {
   economic_context: {
-    cpi_rate: 2.3,
-    interest_rate: 4.75,
+    cpi_rate: 2,
+    interest_rate: 5,
     unemployment_trend: "rising",
-    wage_inflation_pct: 5.2
+    wage_inflation_pct: 5
   },
   sector_analysis: {
     recruitment_pressure: "medium",

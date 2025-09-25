@@ -13,7 +13,7 @@ export type Organisation = {
 // Comprehensive pay award data from 2024 survey
 export type PayAward2024 = {
   org_id?: string;
-  pay_award_range: "0-2%" | "2.1-3%" | "3.1-5%" | "5.1-7%" | "7.1%+" | "Fixed Amount (NJC)" | "Other";
+  pay_award_range: "0-2%" | "2-3%" | "3-5%" | "5-7%" | "7%+" | "Fixed Amount (NJC)" | "Other";
   count: number;
   details?: string;
   prioritized_groups?: string[];

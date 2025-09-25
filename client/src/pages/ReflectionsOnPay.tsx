@@ -14,7 +14,7 @@ export default function ReflectionsOnPay() {
   const payAwardsChartData = payAwards2024.map(award => ({
     name: award.pay_award_range,
     value: award.count,
-    percentage: ((award.count / 9) * 100).toFixed(1)
+    percentage: Math.round((award.count / 9) * 100).toString()
   }));
 
   const economicContextData = [
@@ -30,10 +30,10 @@ export default function ReflectionsOnPay() {
   }));
 
   const forecastData = [
-    { year: "2023", actual: 4.2, forecast: null },
-    { year: "2024", actual: 4.8, forecast: null },
+    { year: "2023", actual: 4, forecast: null },
+    { year: "2024", actual: 5, forecast: null },
     { year: "2025", actual: null, forecast: payForecast2025.market_context.median_forecast_pct },
-    { year: "2025 (Range)", actual: null, forecast: 4.5 }
+    { year: "2025 (Range)", actual: null, forecast: 5 }
   ];
 
   return (
@@ -113,7 +113,7 @@ export default function ReflectionsOnPay() {
             </p>
             
             <p>
-              The forthcoming 5.8% increase in the statutory National Living Wage to £12.21, will take the minimum salary for a 37.5-hour week to £23,809. Furthermore, almost all of our survey respondents are signed up to the London Living Wage (previously £13.15, since announced to rise to £13.85). Employers have until 1st May 2025 to implement the rates, and, for a 37.5-hour week, the new LLW represents an annual salary of £27,007.
+              The forthcoming 6% increase in the statutory National Living Wage to £12.21, will take the minimum salary for a 37.5-hour week to £23,809. Furthermore, almost all of our survey respondents are signed up to the London Living Wage (previously £13.15, since announced to rise to £13.85). Employers have until 1st May 2025 to implement the rates, and, for a 37.5-hour week, the new LLW represents an annual salary of £27,007.
             </p>
             
             <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary my-6">
@@ -159,11 +159,11 @@ export default function ReflectionsOnPay() {
             </p>
             
             <p>
-              <strong>CPI now sits at 2.3%</strong>, as expected this is slightly higher than the Bank of England's 2% target and is likely to remain so throughout 2025. <strong>Interest rates have come down from their peak and sit at 4.75%</strong>.
+              <strong>CPI now sits at 2%</strong>, as expected this is slightly in line with the Bank of England's 2% target and is likely to remain so throughout 2025. <strong>Interest rates have come down from their peak and sit at 5%</strong>.
             </p>
             
             <p>
-              The labour market is slowly loosening, with unemployment edging up and vacancies slightly down – although it remains tight and this can be seen in the continuing stickiness of wage inflation. <strong>Annual growth in employees' average earnings (regular and total) was 5.2%</strong> in July to September 2024, slightly up from 4.8% (regular earnings) the month before; higher than many commentators expected when inflation started to reach its 2% target.
+              The labour market is slowly loosening, with unemployment edging up and vacancies slightly down – although it remains tight and this can be seen in the continuing stickiness of wage inflation. <strong>Annual growth in employees' average earnings (regular and total) was 5%</strong> in July to September 2024, slightly up from 5% (regular earnings) the month before; higher than many commentators expected when inflation started to reach its 2% target.
             </p>
           </div>
           

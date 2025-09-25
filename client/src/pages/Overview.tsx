@@ -5,7 +5,7 @@ import { summaryMetrics, kpiData } from "@shared/sampleData";
 export default function Overview() {
   // Categorised chart data for better structure
   const payTrendsData = [
-    { name: '2024 Pay Awards Range', value: 7.1, description: '2.1% to 7.1%+' },
+    { name: '2024 Pay Awards Range', value: 7, description: '2% to 7%+' },
     { name: 'Living Wage Adoption', value: 89, description: '89% adopted or planning adoption' }
   ];
 
@@ -93,11 +93,11 @@ export default function Overview() {
               </div>
               
               <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
-                <p className="text-sm font-medium text-foreground">Pay increases ranged between 2.1% and over 7.1%, with frontline and lower-paid roles prioritised due to Living Wage commitments.</p>
+                <p className="text-sm font-medium text-foreground">Pay increases ranged between 2% and over 7%, with frontline and lower-paid roles prioritised due to Living Wage commitments.</p>
               </div>
               
               <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
-                <p className="text-sm font-medium text-foreground">55.6% of organisations plan to give a consolidated pay increase in 2025. 22.2% remain undecided, citing affordability concerns, particularly due to rising Living Wage requirements and increased National Insurance contributions.</p>
+                <p className="text-sm font-medium text-foreground">56% of organisations plan to give a consolidated pay increase in 2025. 22% remain undecided, citing affordability concerns, particularly due to rising Living Wage requirements and increased National Insurance contributions.</p>
               </div>
               
               <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
@@ -154,7 +154,7 @@ export default function Overview() {
             value={100}
             format="percentage"
             description="All participants implemented 2024 pay rise"
-            tooltip="All 9 organisations in the survey implemented pay increases ranging from 2.1% to 7.1%+"
+            tooltip="All 9 organisations in the survey implemented pay increases ranging from 2% to 7%+"
           />
           
           <KPICard
@@ -163,7 +163,7 @@ export default function Overview() {
             format="percentage"
             description="Plan consolidated increase in 2025"
             change={{ value: 5.2, type: 'positive' }}
-            tooltip="55.6% plan a consolidated increase in 2025 (22.2% undecided)"
+            tooltip="56% plan a consolidated increase in 2025 (22% undecided)"
           />
           
           <KPICard

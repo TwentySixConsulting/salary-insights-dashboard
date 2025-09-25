@@ -6,8 +6,8 @@ export default function KPIs() {
   // Transform KPI data for charts
   const sicknessData = kpiData.map(kpi => ({ name: kpi.year, value: kpi.sickness_ltr_pct || 0 }));
   const turnoverData = [
-    { name: '2023', value: 18.5, 'Global Turnover': 18.5, 'Voluntary Turnover': 12.3 },
-    { name: '2024', value: 15.2, 'Global Turnover': 15.2, 'Voluntary Turnover': 10.8 }
+    { name: '2023', value: 19, 'Global Turnover': 19, 'Voluntary Turnover': 12 },
+    { name: '2024', value: 15, 'Global Turnover': 15, 'Voluntary Turnover': 11 }
   ];
   const conflictData = [
     { name: '0-3%', value: 11 },
@@ -16,8 +16,8 @@ export default function KPIs() {
     { name: '8%+', value: 12 }
   ];
   const agencySpendData = [
-    { name: '2022/23', value: 3.2 },
-    { name: '2023/24', value: 2.8 }
+    { name: '2022/23', value: 3 },
+    { name: '2023/24', value: 3 }
   ];
 
   return (
@@ -34,38 +34,38 @@ export default function KPIs() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <KPICard
           title="Current Sickness LTR"
-          value={3.8}
+          value={4}
           format="percentage"
           description="Long-term sickness rate (2024)"
-          change={{ value: -0.4, type: 'positive' }}
-          tooltip="Long-term sickness rate decreased from 4.2% in 2023 to 3.8% in 2024"
+          change={{ value: 0, type: 'neutral' }}
+          tooltip="Long-term sickness rate stable at 4% in 2024"
         />
         
         <KPICard
           title="Global Turnover Rate"
-          value={15.2}
+          value={15}
           format="percentage"
           description="Total employee turnover (2024)"
-          change={{ value: -3.3, type: 'positive' }}
-          tooltip="All organizations reported decline in global turnover vs previous year"
+          change={{ value: -4, type: 'positive' }}
+          tooltip="All organizations reported decline in global turnover from 19% to 15%"
         />
         
         <KPICard
           title="Voluntary Turnover"
-          value={10.8}
+          value={11}
           format="percentage"
           description="Voluntary employee departures (2024)"
-          change={{ value: -1.5, type: 'positive' }}
-          tooltip="Voluntary turnover decreased from 12.3% in 2023 to 10.8% in 2024"
+          change={{ value: -1, type: 'positive' }}
+          tooltip="Voluntary turnover decreased from 12% in 2023 to 11% in 2024"
         />
         
         <KPICard
           title="Agency Spend"
-          value={2.8}
+          value={3}
           format="percentage"
           description="% of payroll spent on agency (2023/24)"
-          change={{ value: -0.4, type: 'positive' }}
-          tooltip="Percentage of payroll spent on agency staff decreased from 3.2% to 2.8%"
+          change={{ value: 0, type: 'neutral' }}
+          tooltip="Percentage of payroll spent on agency staff stable at 3%"
         />
       </div>
 

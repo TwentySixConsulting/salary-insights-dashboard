@@ -99,6 +99,7 @@ export default function ChartContainer({
               <YAxis 
                 tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
                 axisLine={{ stroke: 'hsl(var(--border))' }}
+                tickFormatter={(value) => Math.round(value).toString()}
               />
               <Tooltip 
                 contentStyle={{
@@ -144,6 +145,7 @@ export default function ChartContainer({
               <YAxis 
                 tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }}
                 axisLine={{ stroke: 'hsl(var(--border))' }}
+                tickFormatter={(value) => Math.round(value).toString()}
               />
               <Tooltip 
                 contentStyle={{
