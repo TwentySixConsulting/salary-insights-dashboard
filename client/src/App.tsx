@@ -14,6 +14,7 @@ import ReflectionsOnPay from "@/pages/ReflectionsOnPay";
 import RatesOfPayImproved from "@/pages/RatesOfPayImproved";
 import KPIs from "@/pages/KPIs";
 import Benefits from "@/pages/Benefits";
+import PayFrameworks from "@/pages/PayFrameworks";
 import NotFound from "@/pages/not-found";
 
 
@@ -23,12 +24,7 @@ function Router() {
       <Route path="/" component={Overview} />
       <Route path="/reflections" component={ReflectionsOnPay} />
       <Route path="/benefits" component={Benefits} />
-      <Route path="/frameworks" component={() => (
-        <div className="p-8">
-          <h1 className="text-3xl font-bold mb-4">Pay Frameworks</h1>
-          <p className="text-muted-foreground">Framework types and prevalence analysis - Coming Soon</p>
-        </div>
-      )} />
+      <Route path="/frameworks" component={PayFrameworks} />
       <Route path="/kpis" component={KPIs} />
       <Route path="/wages" component={() => (
         <div className="p-8">
