@@ -15,6 +15,7 @@ import RatesOfPayImproved from "@/pages/RatesOfPayImproved";
 import KPIs from "@/pages/KPIs";
 import Benefits from "@/pages/Benefits";
 import PayFrameworks from "@/pages/PayFrameworks";
+import NationalLivingWage from "@/pages/NationalLivingWage";
 import NotFound from "@/pages/not-found";
 
 
@@ -26,12 +27,7 @@ function Router() {
       <Route path="/benefits" component={Benefits} />
       <Route path="/frameworks" component={PayFrameworks} />
       <Route path="/kpis" component={KPIs} />
-      <Route path="/wages" component={() => (
-        <div className="p-8">
-          <h1 className="text-3xl font-bold mb-4">National Minimum Wage & Living Wage</h1>
-          <p className="text-muted-foreground">Living wage impact and policy analysis - Coming Soon</p>
-        </div>
-      )} />
+      <Route path="/wages" component={NationalLivingWage} />
       <Route path="/rates" component={RatesOfPayImproved} />
       <Route component={NotFound} />
     </Switch>
