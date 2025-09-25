@@ -5,24 +5,37 @@ export default function Overview() {
 
   return (
     <div className="space-y-8">
-      {/* Report Title Header */}
-      <div className="bg-gradient-to-r from-primary/10 to-chart-1/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="report-title-header">
-        <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-foreground mb-3 tracking-tight">Supported Housing HR Network</h1>
-          <h2 className="text-3xl font-semibold text-primary mb-3">Pay Benchmarking Group</h2>
-          <p className="text-xl text-muted-foreground mb-2">December 2024</p>
-          <p className="text-sm text-muted-foreground italic">Confidential Report for Participants</p>
+      {/* Premium Report Title Header */}
+      <div className="relative overflow-hidden animated-gradient rounded-3xl p-12 shadow-premium-2xl hover-glow-primary" data-testid="report-title-header">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+        <div className="relative z-10 text-center">
+          <h1 className="text-6xl font-bold text-white mb-4 tracking-tight drop-shadow-lg text-gradient-rainbow">
+            Supported Housing HR Network
+          </h1>
+          <h2 className="text-4xl font-bold text-white/95 mb-4 drop-shadow-md">
+            Pay Benchmarking Group
+          </h2>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-12 h-0.5 bg-white/60"></div>
+            <p className="text-2xl text-white/90 font-medium">December 2024</p>
+            <div className="w-12 h-0.5 bg-white/60"></div>
+          </div>
+          <p className="text-lg text-white/80 italic backdrop-blur-sm bg-white/10 rounded-full px-6 py-2 inline-block">
+            Confidential Report for Participants
+          </p>
         </div>
+        <div className="absolute top-8 right-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-8 left-8 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
       </div>
 
       {/* About the Participants */}
       <div className="space-y-6">
-        <div className="flex items-center gap-3 mb-4" data-testid="section-about-participants">
-          <div className="w-1 h-8 bg-primary rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">About the Participants</h2>
+        <div className="flex items-center gap-4 mb-6" data-testid="section-about-participants">
+          <div className="w-2 h-10 bg-gradient-to-b from-chart-1 to-chart-4 rounded-full shadow-premium glow-primary"></div>
+          <h2 className="text-3xl font-bold text-gradient-primary">About the Participants</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+        <div className="bg-card-premium border-gradient-primary rounded-2xl p-8 shadow-premium hover-glow-primary">
           <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
               The 2024/25 Supported Housing HR Network survey includes nine participating organisations from across the supported housing sector, encompassing both homelessness and care organisations.
@@ -41,12 +54,12 @@ export default function Overview() {
 
       {/* About Us */}
       <div className="space-y-6">
-        <div className="flex items-center gap-3 mb-4" data-testid="section-about-us">
-          <div className="w-1 h-8 bg-chart-2 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">About Us</h2>
+        <div className="flex items-center gap-4 mb-6" data-testid="section-about-us">
+          <div className="w-2 h-10 bg-gradient-to-b from-chart-2 to-chart-5 rounded-full shadow-premium glow-accent"></div>
+          <h2 className="text-3xl font-bold text-gradient-accent">About Us</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+        <div className="bg-card-premium border-gradient-accent rounded-2xl p-8 shadow-premium hover-glow-accent">
           <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
               TwentySix is a specialist reward consultancy, which works closely with a large number of social housing groups, community support, social care and homelessness charities. Our team consists of senior reward consultants, supported by specially trained analysts. We have a track record of delivering outstanding reward projects and have built our business almost entirely on our clients recommending us to other organisations.
@@ -61,12 +74,12 @@ export default function Overview() {
 
       {/* Summary of Findings */}
       <div className="space-y-6">
-        <div className="flex items-center gap-3 mb-4" data-testid="section-summary-findings">
-          <div className="w-1 h-8 bg-chart-3 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Summary of Findings</h2>
+        <div className="flex items-center gap-4 mb-6" data-testid="section-summary-findings">
+          <div className="w-2 h-10 bg-gradient-to-b from-chart-3 to-chart-7 rounded-full shadow-premium glow-success"></div>
+          <h2 className="text-3xl font-bold text-gradient-rainbow">Summary of Findings</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+        <div className="bg-card-premium border-gradient-primary rounded-2xl p-8 shadow-premium hover-glow-primary">
           <p className="text-lg text-muted-foreground mb-6">Below we summarise some of the key findings from this report:</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
