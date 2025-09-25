@@ -237,12 +237,14 @@ export default function RatesOfPayImproved() {
   return (
     <div className="space-y-8">
       {/* Professional Header */}
-      <div className="bg-gradient-to-r from-primary/10 to-chart-3/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="rates-header">
+      <div className="bg-gradient-to-br from-primary/15 via-chart-2/10 to-chart-4/15 rounded-xl p-8 border border-chart-2/30 shadow-xl" data-testid="rates-header">
         <div className="flex items-center gap-4 mb-4">
-          <BarChart3 className="h-10 w-10 text-primary" />
+          <div className="bg-gradient-to-br from-chart-2 to-chart-5 p-3 rounded-lg shadow-md">
+            <BarChart3 className="h-10 w-10 text-white" />
+          </div>
           <div>
-            <h1 className="text-4xl font-bold text-foreground tracking-tight">Rates of Pay for Key Roles</h1>
-            <p className="text-xl text-muted-foreground mt-2">
+            <h1 className="text-4xl font-bold text-foreground tracking-tight bg-gradient-to-r from-primary to-chart-4 bg-clip-text text-transparent">Rates of Pay for Key Roles</h1>
+            <p className="text-xl text-chart-4 mt-2 font-medium">
               Comprehensive salary benchmarking across housing association front-line roles
             </p>
           </div>
@@ -252,17 +254,17 @@ export default function RatesOfPayImproved() {
       {/* BRIEF INTRODUCTION */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-8 bg-primary rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">6. Rates of Pay for Key Roles</h2>
+          <div className="w-1 h-8 bg-gradient-to-b from-chart-2 to-chart-5 rounded-full shadow-sm"></div>
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-chart-4 bg-clip-text text-transparent">6. Rates of Pay for Key Roles</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-xl p-6 shadow-md">
+        <div className="bg-gradient-to-br from-card to-chart-2/5 border border-chart-2/20 rounded-xl p-6 shadow-lg hover-elevate">
           <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
               We asked participants to submit all their front-line roles, up to and including Area Manager or equivalent, to establish the most useful common job groupings. The data below represents 21 key roles that were reasonably common across all nine participating housing associations.
             </p>
             
-            <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+            <div className="bg-gradient-to-r from-chart-2/10 to-chart-4/10 rounded-lg p-4 border-l-4 border-l-chart-2 shadow-sm">
               <h4 className="font-semibold text-foreground mb-2">Data Overview</h4>
               <p className="text-sm">
                 Where sample size is six or greater, we provide Lower, Median and Upper Quartiles. For smaller samples, we calculated averages to provide meaningful insight. Geographic data is separated between London and outside London areas.
@@ -275,17 +277,19 @@ export default function RatesOfPayImproved() {
       {/* INTERACTIVE SALARY DATA - MAIN CONTENT */}
       <div className="space-y-8">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-8 bg-chart-5 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Interactive Salary Data Analysis</h2>
+          <div className="w-1 h-8 bg-gradient-to-b from-chart-2 to-chart-5 rounded-full shadow-sm"></div>
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-chart-4 to-chart-2 bg-clip-text text-transparent">Interactive Salary Data Analysis</h2>
         </div>
 
         {/* Search and Filter Controls */}
-        <Card>
+        <Card className="bg-gradient-to-br from-card to-chart-2/5 border-chart-2/20 shadow-lg hover-elevate">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Search className="h-5 w-5 text-primary" />
-                Search & Filter Options
+                <div className="bg-gradient-to-r from-chart-2 to-chart-4 p-1.5 rounded-md">
+                  <Search className="h-4 w-4 text-white" />
+                </div>
+                <span className="bg-gradient-to-r from-chart-4 to-chart-2 bg-clip-text text-transparent font-semibold">Search & Filter Options</span>
               </div>
               <Button 
                 onClick={handleExportCSV} 
@@ -364,14 +368,14 @@ export default function RatesOfPayImproved() {
 
             {/* Filter Summary */}
             {(searchTerm || selectedRegion !== "all" || selectedCategory !== "all") && (
-              <div className="mt-4 p-3 bg-muted rounded-lg">
-                <p className="text-sm font-medium mb-1">Active Filters:</p>
+              <div className="mt-4 p-3 bg-gradient-to-r from-chart-2/10 to-chart-4/10 rounded-lg border border-chart-2/20">
+                <p className="text-sm font-medium mb-1 text-chart-4">Active Filters:</p>
                 <div className="flex flex-wrap gap-1">
-                  {searchTerm && <Badge variant="outline">Search: "{searchTerm}"</Badge>}
-                  {selectedRegion !== "all" && <Badge variant="outline">Region: {selectedRegion}</Badge>}
-                  {selectedCategory !== "all" && <Badge variant="outline">Category: {selectedCategory}</Badge>}
+                  {searchTerm && <Badge variant="outline" className="bg-gradient-to-r from-chart-2/20 to-chart-4/20 border-chart-2/30">Search: "{searchTerm}"</Badge>}
+                  {selectedRegion !== "all" && <Badge variant="outline" className="bg-gradient-to-r from-chart-4/20 to-chart-5/20 border-chart-4/30">Region: {selectedRegion}</Badge>}
+                  {selectedCategory !== "all" && <Badge variant="outline" className="bg-gradient-to-r from-chart-3/20 to-primary/20 border-chart-3/30">Category: {selectedCategory}</Badge>}
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">
+                <p className="text-xs text-chart-4 mt-2 font-medium">
                   Showing {filteredAndSortedData.length} results
                 </p>
               </div>
@@ -380,11 +384,13 @@ export default function RatesOfPayImproved() {
         </Card>
 
         {/* Salary Quartiles Glossary */}
-        <Card>
+        <Card className="bg-gradient-to-br from-card to-chart-4/5 border-chart-4/20 shadow-lg hover-elevate">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
-              <Info className="h-5 w-5 text-primary" />
-              Salary Quartiles Glossary
+              <div className="bg-gradient-to-r from-chart-4 to-chart-2 p-1.5 rounded-md">
+                <Info className="h-4 w-4 text-white" />
+              </div>
+              <span className="bg-gradient-to-r from-chart-4 to-chart-2 bg-clip-text text-transparent font-semibold">Salary Quartiles Glossary</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -392,8 +398,8 @@ export default function RatesOfPayImproved() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <div className="p-3 rounded-lg border cursor-help">
-                      <div className="font-medium text-primary">LQ (Lower Quartile)</div>
+                    <div className="p-3 rounded-lg border border-chart-2/30 bg-gradient-to-br from-card to-chart-2/10 cursor-help hover-elevate">
+                      <div className="font-medium text-chart-2">LQ (Lower Quartile)</div>
                       <p className="text-muted-foreground">25th percentile</p>
                       <p className="text-xs mt-1">25% of salaries fall below this amount</p>
                     </div>
@@ -407,8 +413,8 @@ export default function RatesOfPayImproved() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <div className="p-3 rounded-lg border cursor-help">
-                      <div className="font-medium text-primary">Median</div>
+                    <div className="p-3 rounded-lg border border-chart-4/30 bg-gradient-to-br from-card to-chart-4/10 cursor-help hover-elevate">
+                      <div className="font-medium text-chart-4">Median</div>
                       <p className="text-muted-foreground">50th percentile</p>
                       <p className="text-xs mt-1">Middle value - 50% above, 50% below</p>
                     </div>
@@ -422,8 +428,8 @@ export default function RatesOfPayImproved() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <div className="p-3 rounded-lg border cursor-help">
-                      <div className="font-medium text-primary">UQ (Upper Quartile)</div>
+                    <div className="p-3 rounded-lg border border-chart-5/30 bg-gradient-to-br from-card to-chart-5/10 cursor-help hover-elevate">
+                      <div className="font-medium text-chart-5">UQ (Upper Quartile)</div>
                       <p className="text-muted-foreground">75th percentile</p>
                       <p className="text-xs mt-1">75% of salaries fall below this amount</p>
                     </div>
@@ -437,7 +443,7 @@ export default function RatesOfPayImproved() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <div className="p-3 rounded-lg border cursor-help">
+                    <div className="p-3 rounded-lg border border-primary/30 bg-gradient-to-br from-card to-primary/10 cursor-help hover-elevate">
                       <div className="font-medium text-primary">Average</div>
                       <p className="text-muted-foreground">Mean salary</p>
                       <p className="text-xs mt-1">Arithmetic mean of all salary values</p>
@@ -453,14 +459,16 @@ export default function RatesOfPayImproved() {
         </Card>
 
         {/* Main Salary Data Table */}
-        <Card>
+        <Card className="bg-gradient-to-br from-card to-chart-2/5 border-chart-2/20 shadow-lg">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-primary" />
-                Salary Data by Role and Geography
+                <div className="bg-gradient-to-r from-chart-2 to-chart-4 p-1.5 rounded-md">
+                  <Users className="h-4 w-4 text-white" />
+                </div>
+                <span className="bg-gradient-to-r from-chart-4 to-chart-2 bg-clip-text text-transparent font-semibold">Salary Data by Role and Geography</span>
               </div>
-              <Badge variant="outline" className="text-xs">
+              <Badge variant="outline" className="text-xs bg-gradient-to-r from-chart-2/20 to-chart-4/20 border-chart-2/30 text-chart-4 font-medium">
                 {filteredAndSortedData.length} roles shown
               </Badge>
             </CardTitle>
@@ -498,7 +506,7 @@ export default function RatesOfPayImproved() {
                                 {Object.entries(roleCategories).map(([category, roles]) => {
                                   if (roles.includes(rate.role)) {
                                     return (
-                                      <Badge key={category} variant="secondary" className="text-xs">
+                                      <Badge key={category} variant="secondary" className="text-xs bg-gradient-to-r from-chart-3/20 to-chart-4/20 border-chart-3/30">
                                         {category}
                                       </Badge>
                                     );
@@ -510,30 +518,39 @@ export default function RatesOfPayImproved() {
                           </div>
                         </TableCell>
                         <TableCell>
-                          <Badge variant={getGeographyBadgeVariant(rate.geography)} className="text-xs">
+                          <Badge 
+                            variant={getGeographyBadgeVariant(rate.geography)} 
+                            className={`text-xs ${
+                              rate.geography === "Inside London" 
+                                ? "bg-gradient-to-r from-chart-2 to-chart-4 text-white border-chart-2" 
+                                : rate.geography === "Outside London" 
+                                ? "bg-gradient-to-r from-chart-4 to-chart-5 text-white border-chart-4" 
+                                : "bg-gradient-to-r from-chart-3 to-primary text-white border-chart-3"
+                            }`}
+                          >
                             <MapPin className="h-3 w-3 mr-1" />
                             {rate.geography}
                           </Badge>
                         </TableCell>
                         <TableCell className="text-center">
                           {rate.sample_size ? (
-                            <Badge variant="outline" className="text-xs">
+                            <Badge variant="outline" className="text-xs bg-gradient-to-r from-muted to-chart-3/20 border-chart-3/30">
                               {rate.sample_size}
                             </Badge>
                           ) : (
                             <span className="text-muted-foreground">—</span>
                           )}
                         </TableCell>
-                        <TableCell className="text-right font-mono text-sm">
+                        <TableCell className="text-right font-mono text-sm text-chart-2 font-medium">
                           {formatCurrency(rate.LQ)}
                         </TableCell>
-                        <TableCell className="text-right font-mono text-sm font-medium">
+                        <TableCell className="text-right font-mono text-sm font-bold text-chart-4">
                           {formatCurrency(rate.Median)}
                         </TableCell>
-                        <TableCell className="text-right font-mono text-sm">
+                        <TableCell className="text-right font-mono text-sm text-chart-5 font-medium">
                           {formatCurrency(rate.UQ)}
                         </TableCell>
-                        <TableCell className="text-right font-mono text-sm">
+                        <TableCell className="text-right font-mono text-sm text-primary font-medium">
                           {formatCurrency(rate.Average)}
                         </TableCell>
                       </TableRow>
@@ -546,7 +563,7 @@ export default function RatesOfPayImproved() {
         </Card>
 
         {/* Data Source Information */}
-        <Card>
+        <Card className="bg-gradient-to-br from-muted/50 to-chart-3/20 border-chart-3/20 shadow-md">
           <CardContent className="pt-6">
             <div className="text-sm text-muted-foreground">
               <p className="font-medium mb-2">Data Source & Methodology</p>
@@ -566,18 +583,18 @@ export default function RatesOfPayImproved() {
       {/* DETAILED METHODOLOGY AND JOB GROUPINGS - APPENDIX SECTION */}
       <div className="space-y-8">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-8 bg-chart-2 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Detailed Methodology & Job Groupings</h2>
+          <div className="w-1 h-8 bg-gradient-to-b from-chart-3 to-chart-5 rounded-full shadow-sm"></div>
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-chart-3 to-chart-5 bg-clip-text text-transparent">Detailed Methodology & Job Groupings</h2>
         </div>
 
         {/* Methodology Section */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-6 bg-chart-2 rounded-full"></div>
-            <h3 className="text-xl font-bold text-foreground">Methodology</h3>
+            <div className="w-1 h-6 bg-gradient-to-b from-chart-2 to-chart-4 rounded-full shadow-sm"></div>
+            <h3 className="text-xl font-bold bg-gradient-to-r from-chart-2 to-chart-4 bg-clip-text text-transparent">Methodology</h3>
           </div>
           
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-gradient-to-br from-card to-chart-2/5 border border-chart-2/20 rounded-xl p-8 shadow-lg hover-elevate">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <p className="mb-6">
                 To place roles into the correct job group, we used a combination of job title and grade/salary. We were able to use grade/salary as an indicator as we had sufficient roles from each organisation to reconstruct (to some extent) their grading structure (i.e., for each organisation we could identify which roles were more senior based on salary).
@@ -596,14 +613,14 @@ export default function RatesOfPayImproved() {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-                <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2">
+                <div className="bg-gradient-to-br from-chart-2/10 to-chart-2/20 rounded-lg p-6 border-l-4 border-l-chart-2 shadow-sm hover-elevate">
                   <h4 className="font-semibold text-foreground mb-2">Data Calculation Approach</h4>
                   <p className="text-sm">
                     Where the sample size is six or greater, we have been able to produce Lower, Median and Upper Quartiles; where smaller, we calculated an average of the data – rather than using quartiles – to provide more meaningful insight.
                   </p>
                 </div>
                 
-                <div className="bg-chart-3/10 rounded-lg p-6 border-l-4 border-l-chart-3">
+                <div className="bg-gradient-to-br from-chart-3/10 to-chart-3/20 rounded-lg p-6 border-l-4 border-l-chart-3 shadow-sm hover-elevate">
                   <h4 className="font-semibold text-foreground mb-2">Wider Market Context</h4>
                   <p className="text-sm">
                     This year we have also included the "Wider Market" benchmarking results for each job grouping. This is to provide further insights into the market range for specific roles, allowing comparisons between our small sample and broader trends across the UK.
@@ -621,16 +638,18 @@ export default function RatesOfPayImproved() {
         {/* Job Groupings Definition - Organized by Category */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-6 bg-chart-4 rounded-full"></div>
-            <h3 className="text-xl font-bold text-foreground">Job Groupings</h3>
+            <div className="w-1 h-6 bg-gradient-to-b from-chart-4 to-chart-5 rounded-full shadow-sm"></div>
+            <h3 className="text-xl font-bold bg-gradient-to-r from-chart-4 to-chart-5 bg-clip-text text-transparent">Job Groupings</h3>
           </div>
 
           {/* Search for Job Groupings */}
-          <Card>
+          <Card className="bg-gradient-to-br from-card to-chart-4/5 border-chart-4/20 shadow-lg hover-elevate">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
-                <Search className="h-5 w-5 text-primary" />
-                Search Job Groupings
+                <div className="bg-gradient-to-r from-chart-4 to-chart-5 p-1.5 rounded-md">
+                  <Search className="h-4 w-4 text-white" />
+                </div>
+                <span className="bg-gradient-to-r from-chart-4 to-chart-5 bg-clip-text text-transparent font-semibold">Search Job Groupings</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -652,15 +671,15 @@ export default function RatesOfPayImproved() {
           {/* Organized Job Groupings */}
           <div className="space-y-8">
             {Object.entries(filteredJobGroupings).map(([category, roles]) => (
-              <div key={category} className="bg-card border border-card-border rounded-xl p-6 shadow-md">
-                <h4 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
-                  <div className="w-1 h-5 bg-primary rounded-full"></div>
-                  {category}
+              <div key={category} className="bg-gradient-to-br from-card to-chart-4/5 border border-chart-4/20 rounded-xl p-6 shadow-lg hover-elevate">
+                <h4 className="text-lg font-bold mb-6 flex items-center gap-2">
+                  <div className="w-1 h-5 bg-gradient-to-b from-chart-2 to-chart-4 rounded-full shadow-sm"></div>
+                  <span className="bg-gradient-to-r from-chart-2 to-chart-4 bg-clip-text text-transparent">{category}</span>
                 </h4>
                 
                 <div className="grid gap-4">
                   {roles.map((role, index) => (
-                    <div key={index} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
+                    <div key={index} className="border border-chart-2/20 rounded-lg p-4 bg-gradient-to-br from-card to-chart-2/5 hover-elevate transition-all duration-200">
                       <h5 className="font-semibold text-foreground mb-2 text-base">
                         {role.title}
                       </h5>
