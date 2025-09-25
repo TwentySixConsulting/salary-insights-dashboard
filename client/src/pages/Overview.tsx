@@ -24,10 +24,10 @@ export default function Overview() {
     <div className="space-y-8">
       {/* Report Title Header */}
       <div className="bg-gradient-to-r from-primary/10 to-chart-1/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="report-title-header">
-        <div className="text-center mb-6">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Supported Housing HR Network</h1>
-          <h2 className="text-2xl font-semibold text-primary mb-2">Pay Benchmarking Group</h2>
-          <p className="text-lg text-muted-foreground mb-2">December 2024</p>
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-bold text-foreground mb-3 tracking-tight">Supported Housing HR Network</h1>
+          <h2 className="text-3xl font-semibold text-primary mb-3">Pay Benchmarking Group</h2>
+          <p className="text-xl text-muted-foreground mb-2">December 2024</p>
           <p className="text-sm text-muted-foreground italic">Confidential Report for Participants</p>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function Overview() {
         </div>
         
         <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
-          <div className="prose prose-lg max-w-none text-foreground">
+          <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
               The 2024/25 Supported Housing HR Network survey includes nine participating organisations from across the supported housing sector, encompassing both homelessness and care organisations.
             </p>
@@ -64,7 +64,7 @@ export default function Overview() {
         </div>
         
         <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
-          <div className="prose prose-lg max-w-none text-foreground">
+          <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
               TwentySix is a specialist reward consultancy, which works closely with a large number of social housing groups, community support, social care and homelessness charities. Our team consists of senior reward consultants, supported by specially trained analysts. We have a track record of delivering outstanding reward projects and have built our business almost entirely on our clients recommending us to other organisations.
             </p>
@@ -88,53 +88,53 @@ export default function Overview() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
-              <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+              <div className="bg-primary/5 rounded-lg p-6 border-l-4 border-l-primary hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">All participants reported implementing a pay rise in 2024: the highest proportion of pay rises compared to previous years.</p>
               </div>
               
-              <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+              <div className="bg-primary/5 rounded-lg p-6 border-l-4 border-l-primary hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">Pay increases ranged between 2% and over 7%, with frontline and lower-paid roles prioritised due to Living Wage commitments.</p>
               </div>
               
-              <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+              <div className="bg-primary/5 rounded-lg p-6 border-l-4 border-l-primary hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">56% of organisations plan to give a consolidated pay increase in 2025. 22% remain undecided, citing affordability concerns, particularly due to rising Living Wage requirements and increased National Insurance contributions.</p>
               </div>
               
-              <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+              <div className="bg-primary/5 rounded-lg p-6 border-l-4 border-l-primary hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">67% of organisations pay standard rates for weekend overtime, 33% offer enhanced rates.</p>
               </div>
               
-              <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+              <div className="bg-primary/5 rounded-lg p-6 border-l-4 border-l-primary hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">50% of organisations offer structured on-call allowances with rates ranging between £20 and £80 per shift.</p>
               </div>
             </div>
             
             <div className="space-y-4">
-              <div className="bg-chart-2/10 rounded-lg p-4 border-l-4 border-l-chart-2">
+              <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2 hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">25 days remains the most common starting annual leave entitlement. Maximum entitlements typically increase with service, with 30 days being the most common cap.</p>
               </div>
               
-              <div className="bg-chart-2/10 rounded-lg p-4 border-l-4 border-l-chart-2">
+              <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2 hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">44% of participants offer policies to buy and sell annual leave; this is nearly double the 25% from the previous SHHR survey in 2022/23.</p>
               </div>
               
-              <div className="bg-chart-2/10 rounded-lg p-4 border-l-4 border-l-chart-2">
+              <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2 hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">67% offer healthcare benefits, which includes health cash plans, private medical insurance, and free eye tests. Life assurance and critical illness cover are also provided by some organisations.</p>
               </div>
               
-              <div className="bg-chart-2/10 rounded-lg p-4 border-l-4 border-l-chart-2">
+              <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2 hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">All reporting organisations experienced a decline in global turnover compared to last year.</p>
               </div>
               
-              <div className="bg-chart-2/10 rounded-lg p-4 border-l-4 border-l-chart-2">
+              <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2 hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">Annual conflict indices largely sat between 3% and 8%.</p>
               </div>
               
-              <div className="bg-chart-2/10 rounded-lg p-4 border-l-4 border-l-chart-2">
+              <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2 hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">44% of organisations indicated they would be impacted by the NLW increase to £12.21.</p>
               </div>
               
-              <div className="bg-chart-2/10 rounded-lg p-4 border-l-4 border-l-chart-2">
+              <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2 hover-elevate transition-all duration-200">
                 <p className="text-sm font-medium text-foreground">89% of participants have either adopted, or are planning to adopt, the real Living Wage or London Living Wage.</p>
               </div>
             </div>
