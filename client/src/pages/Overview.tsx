@@ -1,24 +1,7 @@
 import KPICard from "@/components/KPICard";
-import ChartContainer from "@/components/ChartContainer";
-import { summaryMetrics, kpiData } from "@shared/sampleData";
+import { summaryMetrics } from "@shared/sampleData";
 
 export default function Overview() {
-  // Categorised chart data for better structure
-  const payTrendsData = [
-    { name: '2024 Pay Awards Range', value: 7, description: '2% to 7%+' },
-    { name: 'Living Wage Adoption', value: 89, description: '89% adopted or planning adoption' }
-  ];
-
-  const benefitsData = [
-    { name: 'Healthcare Benefits', value: 67, description: '67% offering health benefits' },
-    { name: 'Holiday Buy/Sell', value: 44, description: '44% offer holiday trading' },
-    { name: 'On-Call Allowances', value: 50, description: '50% structured allowances' }
-  ];
-
-  const workforceData = [
-    { name: 'Weekend Standard Rate', value: 67, description: '67% pay standard weekend rates' },
-    { name: 'Global Turnover Decline', value: 100, description: 'All organisations reported decline' }
-  ];
 
   return (
     <div className="space-y-8">
@@ -251,56 +234,6 @@ export default function Overview() {
         </div>
       </div>
 
-      {/* Data Visualisation Section */}
-      <div className="space-y-6">
-        <div className="flex items-center gap-3 mb-4" data-testid="section-sector-analysis">
-          <div className="w-1 h-8 bg-chart-4 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Sector Analysis & Trends</h2>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <ChartContainer
-            title="Pay Award Trends"
-            data={payTrendsData}
-            type="bar"
-            description="2024 pay implementation and living wage adoption rates"
-            allowTypeToggle={true}
-          />
-          
-          <ChartContainer
-            title="Benefits Provision"
-            data={benefitsData}
-            type="bar"
-            description="Percentage of organisations offering key employee benefits"
-            allowTypeToggle={true}
-          />
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <ChartContainer
-            title="Workforce Management"
-            data={workforceData}
-            type="bar"
-            description="Workforce policies and turnover trends across the sector"
-            allowTypeToggle={true}
-          />
-          
-          <ChartContainer
-            title="KPI Performance Trends"
-            data={kpiData.map(kpi => ({
-              name: kpi.year,
-              value: kpi.turnover_global_pct || 0,
-              'Sickness LTR': kpi.sickness_ltr_pct || 0,
-              'Global Turnover': kpi.turnover_global_pct || 0,
-              'Voluntary Turnover': kpi.turnover_voluntary_pct || 0
-            }))}
-            type="line"
-            multiSeries={true}
-            seriesKeys={['Sickness LTR', 'Global Turnover', 'Voluntary Turnover']}
-            description="Year-over-year trends in key performance indicators (2023-2024)"
-            allowTypeToggle={true}
-          />
-        </div>
-      </div>
     </div>
   );
 }

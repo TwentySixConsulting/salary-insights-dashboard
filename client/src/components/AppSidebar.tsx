@@ -76,7 +76,9 @@ export default function AppSidebar() {
     <Sidebar className="border-r border-sidebar-border">
       <SidebarHeader className="border-b border-sidebar-border p-4">
         <div className="flex items-center gap-3">
-          <img src={twentySixLogo} alt="TwentySix Consulting" className="h-7 w-auto" />
+          <div className="bg-white rounded-lg p-2 shadow-sm border border-sidebar-border/30">
+            <img src={twentySixLogo} alt="TwentySix Consulting" className="h-5 w-auto" />
+          </div>
           <div>
             <h2 className="font-semibold text-sidebar-foreground text-sm">
               Salary Survey Insights
