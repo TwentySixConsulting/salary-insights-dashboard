@@ -249,163 +249,30 @@ export default function RatesOfPayImproved() {
         </div>
       </div>
 
-      {/* COMPLETE SSHR REPORT TEXT CONTENT - ALL TEXT BEFORE ANY DATA TABLES */}
-      <div className="space-y-8">
-        {/* Explanation of Job Groupings */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-8 bg-primary rounded-full"></div>
-            <h2 className="text-2xl font-bold text-foreground">6. Rates of Pay for Key Roles</h2>
-          </div>
-          
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
-            <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
-              <h3 className="text-xl font-semibold text-foreground mb-4">Explanation of Job Groupings</h3>
-              
-              <p className="mb-6">
-                We asked participants to submit all their front-line roles, up to and including Area Manager or equivalent, so that we could work out the most useful common job groupings.
-              </p>
-              
-              <p className="mb-6">
-                As we expected, participants have a diverse group of services and therefore roles differ considerably across the benchmarking club. To collate a set of data that was most useful to participants we analysed all the role data we received and identified 21 roles that were reasonably common across participants.
-              </p>
-              
-              <p className="mb-6">
-                These roles are listed below, each with a short explanation of the types of roles we have placed into each group. As the benchmarking club is relatively small (nine participants), we had to keep the job groupings relatively broad, in order to: a) preserve anonymity and b) to ensure sufficient data to calculate mean or median averages.
-              </p>
-              
-              <div className="bg-primary/5 rounded-lg p-6 border-l-4 border-l-primary my-6">
-                <h4 className="font-semibold text-foreground mb-2">Geographic Considerations</h4>
-                <p>
-                  This was particularly important as participants are spread across London and outside London, and we wanted to be able to separate out these two sets of data.
-                </p>
-              </div>
-            </div>
-          </div>
+      {/* BRIEF INTRODUCTION */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-1 h-8 bg-primary rounded-full"></div>
+          <h2 className="text-2xl font-bold text-foreground">6. Rates of Pay for Key Roles</h2>
         </div>
-
-        {/* Methodology Section */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-8 bg-chart-2 rounded-full"></div>
-            <h2 className="text-2xl font-bold text-foreground">Methodology</h2>
-          </div>
-          
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
-            <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
-              <p className="mb-6">
-                To place roles into the correct job group, we used a combination of job title and grade/salary. We were able to use grade/salary as an indicator as we had sufficient roles from each organisation to reconstruct (to some extent) their grading structure (i.e., for each organisation we could identify which roles were more senior based on salary).
-              </p>
-              
-              <p className="mb-6">
-                Within a job grouping, to avoid skewing the data, where the salary was the same, we only used one example role from each organisation. However, where there were roles with different salaries, we used an example of each salary.
-              </p>
-              
-              <p className="mb-6">
-                In order to ensure sufficient data within a job grouping, we have had to cluster together roles that might be considered at slightly different levels. This is particularly the case for the Manager grouping, which encompasses managers of single projects and managers of multiple/large projects.
-              </p>
-              
-              <p className="mb-6">
-                Finally, we have pulled out a few areas in which there were not that many entries, but which we thought might be useful to participants. Because of the small sample size, we are only able to provide mean averages, which are provided in case participants might find them useful.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-                <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2">
-                  <h4 className="font-semibold text-foreground mb-2">Data Calculation Approach</h4>
-                  <p className="text-sm">
-                    Where the sample size is six or greater, we have been able to produce Lower, Median and Upper Quartiles; where smaller, we calculated an average of the data – rather than using quartiles – to provide more meaningful insight.
-                  </p>
-                </div>
-                
-                <div className="bg-chart-3/10 rounded-lg p-6 border-l-4 border-l-chart-3">
-                  <h4 className="font-semibold text-foreground mb-2">Wider Market Context</h4>
-                  <p className="text-sm">
-                    This year we have also included the "Wider Market" benchmarking results for each job grouping. This is to provide further insights into the market range for specific roles, allowing comparisons between our small sample and broader trends across the UK.
-                  </p>
-                </div>
-              </div>
-              
-              <p className="mb-4">
-                The wider market data was gathered using our established benchmarking practices, leveraging our comprehensive and up-to-date UK salary database to provide accurate and relevant market insights.
+        
+        <div className="bg-card border border-card-border rounded-xl p-6 shadow-md">
+          <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
+            <p className="mb-4">
+              We asked participants to submit all their front-line roles, up to and including Area Manager or equivalent, to establish the most useful common job groupings. The data below represents 21 key roles that were reasonably common across all nine participating housing associations.
+            </p>
+            
+            <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-l-primary">
+              <h4 className="font-semibold text-foreground mb-2">Data Overview</h4>
+              <p className="text-sm">
+                Where sample size is six or greater, we provide Lower, Median and Upper Quartiles. For smaller samples, we calculated averages to provide meaningful insight. Geographic data is separated between London and outside London areas.
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Job Groupings Definition - Organized by Category */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-8 bg-chart-4 rounded-full"></div>
-            <h2 className="text-2xl font-bold text-foreground">Job Groupings</h2>
-          </div>
-
-          {/* Search for Job Groupings */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Search className="h-5 w-5 text-primary" />
-                Search Job Groupings
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Input
-                placeholder="Search job titles or descriptions..."
-                value={jobGroupingsSearch}
-                onChange={(e) => setJobGroupingsSearch(e.target.value)}
-                className="w-full"
-                data-testid="input-search-job-groupings"
-              />
-              {jobGroupingsSearch && (
-                <p className="text-sm text-muted-foreground mt-2">
-                  Found {Object.values(filteredJobGroupings).flat().length} matching job groupings
-                </p>
-              )}
-            </CardContent>
-          </Card>
-          
-          {/* Organized Job Groupings */}
-          <div className="space-y-8">
-            {Object.entries(filteredJobGroupings).map(([category, roles]) => (
-              <div key={category} className="bg-card border border-card-border rounded-xl p-6 shadow-md">
-                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
-                  <div className="w-1 h-6 bg-primary rounded-full"></div>
-                  {category}
-                </h3>
-                
-                <div className="grid gap-4">
-                  {roles.map((role, index) => (
-                    <div key={index} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
-                      <h4 className="font-semibold text-foreground mb-2 text-base">
-                        {role.title}
-                      </h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {role.description}
-                      </p>
-                      {role.detail && (
-                        <p className="text-muted-foreground text-xs mt-2 leading-relaxed border-l-2 border-l-muted pl-3">
-                          {role.detail}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {Object.keys(filteredJobGroupings).length === 0 && jobGroupingsSearch && (
-            <div className="bg-card border border-card-border rounded-xl p-8 text-center shadow-md">
-              <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-foreground mb-2">No matching job groupings found</h3>
-              <p className="text-muted-foreground">
-                Try searching with different keywords or clear your search to see all job groupings.
-              </p>
-            </div>
-          )}
         </div>
       </div>
 
-      {/* SUPPORTING DATA ANALYSIS TOOLS - ALL INTERACTIVE ELEMENTS AFTER TEXT CONTENT */}
+      {/* INTERACTIVE SALARY DATA - MAIN CONTENT */}
       <div className="space-y-8">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 bg-chart-5 rounded-full"></div>
@@ -694,6 +561,134 @@ export default function RatesOfPayImproved() {
             </div>
           </CardContent>
         </Card>
+      </div>
+
+      {/* DETAILED METHODOLOGY AND JOB GROUPINGS - APPENDIX SECTION */}
+      <div className="space-y-8">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-1 h-8 bg-chart-2 rounded-full"></div>
+          <h2 className="text-2xl font-bold text-foreground">Detailed Methodology & Job Groupings</h2>
+        </div>
+
+        {/* Methodology Section */}
+        <div className="space-y-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-1 h-6 bg-chart-2 rounded-full"></div>
+            <h3 className="text-xl font-bold text-foreground">Methodology</h3>
+          </div>
+          
+          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+            <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
+              <p className="mb-6">
+                To place roles into the correct job group, we used a combination of job title and grade/salary. We were able to use grade/salary as an indicator as we had sufficient roles from each organisation to reconstruct (to some extent) their grading structure (i.e., for each organisation we could identify which roles were more senior based on salary).
+              </p>
+              
+              <p className="mb-6">
+                Within a job grouping, to avoid skewing the data, where the salary was the same, we only used one example role from each organisation. However, where there were roles with different salaries, we used an example of each salary.
+              </p>
+              
+              <p className="mb-6">
+                In order to ensure sufficient data within a job grouping, we have had to cluster together roles that might be considered at slightly different levels. This is particularly the case for the Manager grouping, which encompasses managers of single projects and managers of multiple/large projects.
+              </p>
+              
+              <p className="mb-6">
+                Finally, we have pulled out a few areas in which there were not that many entries, but which we thought might be useful to participants. Because of the small sample size, we are only able to provide mean averages, which are provided in case participants might find them useful.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                <div className="bg-chart-2/10 rounded-lg p-6 border-l-4 border-l-chart-2">
+                  <h4 className="font-semibold text-foreground mb-2">Data Calculation Approach</h4>
+                  <p className="text-sm">
+                    Where the sample size is six or greater, we have been able to produce Lower, Median and Upper Quartiles; where smaller, we calculated an average of the data – rather than using quartiles – to provide more meaningful insight.
+                  </p>
+                </div>
+                
+                <div className="bg-chart-3/10 rounded-lg p-6 border-l-4 border-l-chart-3">
+                  <h4 className="font-semibold text-foreground mb-2">Wider Market Context</h4>
+                  <p className="text-sm">
+                    This year we have also included the "Wider Market" benchmarking results for each job grouping. This is to provide further insights into the market range for specific roles, allowing comparisons between our small sample and broader trends across the UK.
+                  </p>
+                </div>
+              </div>
+              
+              <p className="mb-4">
+                The wider market data was gathered using our established benchmarking practices, leveraging our comprehensive and up-to-date UK salary database to provide accurate and relevant market insights.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Job Groupings Definition - Organized by Category */}
+        <div className="space-y-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-1 h-6 bg-chart-4 rounded-full"></div>
+            <h3 className="text-xl font-bold text-foreground">Job Groupings</h3>
+          </div>
+
+          {/* Search for Job Groupings */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Search className="h-5 w-5 text-primary" />
+                Search Job Groupings
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Input
+                placeholder="Search job titles or descriptions..."
+                value={jobGroupingsSearch}
+                onChange={(e) => setJobGroupingsSearch(e.target.value)}
+                className="w-full"
+                data-testid="input-search-job-groupings"
+              />
+              {jobGroupingsSearch && (
+                <p className="text-sm text-muted-foreground mt-2">
+                  Found {Object.values(filteredJobGroupings).flat().length} matching job groupings
+                </p>
+              )}
+            </CardContent>
+          </Card>
+          
+          {/* Organized Job Groupings */}
+          <div className="space-y-8">
+            {Object.entries(filteredJobGroupings).map(([category, roles]) => (
+              <div key={category} className="bg-card border border-card-border rounded-xl p-6 shadow-md">
+                <h4 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
+                  <div className="w-1 h-5 bg-primary rounded-full"></div>
+                  {category}
+                </h4>
+                
+                <div className="grid gap-4">
+                  {roles.map((role, index) => (
+                    <div key={index} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
+                      <h5 className="font-semibold text-foreground mb-2 text-base">
+                        {role.title}
+                      </h5>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {role.description}
+                      </p>
+                      {role.detail && (
+                        <p className="text-muted-foreground text-xs mt-2 leading-relaxed border-l-2 border-l-muted pl-3">
+                          {role.detail}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {Object.keys(filteredJobGroupings).length === 0 && jobGroupingsSearch && (
+            <div className="bg-card border border-card-border rounded-xl p-8 text-center shadow-md">
+              <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+              <h4 className="text-lg font-medium text-foreground mb-2">No matching job groupings found</h4>
+              <p className="text-muted-foreground">
+                Try searching with different keywords or clear your search to see all job groupings.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
