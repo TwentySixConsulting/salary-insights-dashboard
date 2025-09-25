@@ -49,7 +49,7 @@ export default function ReflectionsOnPay() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           <div className="bg-background/80 rounded-lg p-4 border" data-testid="card-survey-period">
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
@@ -66,16 +66,6 @@ export default function ReflectionsOnPay() {
               <div>
                 <p className="text-sm font-medium text-primary">Participants</p>
                 <p className="text-lg font-bold">{organisations.length} Organisations</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-background/80 rounded-lg p-4 border" data-testid="card-total-headcount">
-            <div className="flex items-center gap-2">
-              <PoundSterling className="h-5 w-5 text-chart-4" />
-              <div>
-                <p className="text-sm font-medium text-primary">Total Headcount</p>
-                <p className="text-lg font-bold">{organisations.reduce((sum, org) => sum + org.headcount, 0).toLocaleString()}</p>
               </div>
             </div>
           </div>
