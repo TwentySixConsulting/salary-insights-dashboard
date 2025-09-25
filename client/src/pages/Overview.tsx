@@ -230,7 +230,6 @@ export default function Overview() {
             description="Annual conflict index range"
             tooltip="Annual conflict index largely ranges between 3-8% across organisations"
           />
-        ]
         </div>
       </div>
 
