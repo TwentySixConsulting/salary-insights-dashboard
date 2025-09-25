@@ -19,6 +19,112 @@ const roleCategories = {
   "Executive": ["Deputy Chief Executive", "Chief Executive"]
 };
 
+// Job grouping type definition
+type JobGrouping = {
+  title: string;
+  description: string;
+  detail?: string;
+};
+
+// Job groupings with descriptions from SSHR report
+const jobGroupingDefinitions: Record<string, JobGrouping[]> = {
+  "Entry Level Roles": [
+    {
+      title: "Entry level: Typically called Assistant or Trainee",
+      description: "All support-based entry level roles sit in here."
+    },
+    {
+      title: "Night Assistant/Concierge", 
+      description: "All straight-forward night roles sit in here."
+    },
+    {
+      title: "Cook/Chef",
+      description: "We have grouped together all Cooks/Chefs here."
+    }
+  ],
+  "Front-Line Support Roles": [
+    {
+      title: "Support/Project Worker (Main Grade)",
+      description: "Regardless of job title, all front-line support-based worker roles (except Housing) sit in here. This includes all specialisms that sat within the main front line grade for each participant.",
+      detail: "For example, it includes both floating and project-based support. We looked at each sub-category of role (e.g., mental health) to see whether we could see groupings with noticeable pay differentials that we could pull out – where roles were paid at a higher salary, they were placed into the job grouping below."
+    },
+    {
+      title: "Night Worker",
+      description: "All support-based Night roles sit in here."
+    },
+    {
+      title: "Senior Support/Specialist/Complex Needs Worker",
+      description: "All senior/complex support-based roles sit in this grouping."
+    },
+    {
+      title: "Outreach Worker",
+      description: "All roles with Outreach Worker in their job title are placed in here."
+    }
+  ],
+  "Housing & Specialist Services": [
+    {
+      title: "Housing Advice/Tenancy Sustainment/Housing Support Worker",
+      description: "Within this group, we put all support/advice worker housing-related roles."
+    },
+    {
+      title: "Supported Housing Officer",
+      description: "This grouping contains all Housing/Neighbourhood Officer roles."
+    },
+    {
+      title: "Specialist Advice Workers (e.g., Employment, Welfare Rights, Housing First)",
+      description: "Higher level specialist advice workers are placed here."
+    },
+    {
+      title: "Housing Management Assistant",
+      description: "All Assistant level housing roles are placed here."
+    },
+    {
+      title: "Resettlement Workers",
+      description: "We also found a cluster of Resettlement Workers and they are grouped together here. Any Senior Resettlement Workers were excluded."
+    },
+    {
+      title: "IDVA/IDVSA",
+      description: "All roles specialising in IDVA/IDVSA are placed here."
+    },
+    {
+      title: "Navigator",
+      description: "All Navigator roles are placed here."
+    }
+  ],
+  "Coordination & Administrative": [
+    {
+      title: "Service Co-ordinator",
+      description: "This grouping includes all roles that are Co-ordinators of front-line services. We excluded all Head Office co-ordinators (e.g., HR Co-ordinator)."
+    },
+    {
+      title: "Activities Worker/Co-ordinator",
+      description: "All Activities Workers and Co-ordinators are placed here."
+    },
+    {
+      title: "Admin Worker/Customer Services",
+      description: "All service-based Admin/Assistant or Customer Service roles are placed here."
+    },
+    {
+      title: "Maintenance Worker/Officer",
+      description: "Any roles related to maintenance, at Worker or Officer level, are placed here."
+    }
+  ],
+  "Management Roles": [
+    {
+      title: "Deputy Manager/Team Leader/Lead",
+      description: "All Team Leader and Deputy Managers are placed in this grade, as well as Leads where they sit above Senior/Complex Workers in an organisation's pay grades."
+    },
+    {
+      title: "Project/Service Manager",
+      description: "All roles that manage a project or service are placed here, regardless of service size/complexity."
+    },
+    {
+      title: "Area/Operations Manager",
+      description: "All roles that sit above Service Managers in the grading structure and below 'Head of' are placed here."
+    }
+  ]
+};
+
 const formatCurrency = (amount: number | undefined) => {
   if (!amount) return "—";
   return new Intl.NumberFormat('en-GB', {
@@ -47,6 +153,25 @@ export default function RatesOfPayImproved() {
   const [selectedRegion, setSelectedRegion] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [sortBy, setSortBy] = useState<"role" | "median" | "average">("role");
+  const [jobGroupingsSearch, setJobGroupingsSearch] = useState("");
+
+  // Filter job groupings based on search
+  const filteredJobGroupings = useMemo(() => {
+    if (!jobGroupingsSearch) return jobGroupingDefinitions;
+    
+    const filtered: Record<string, JobGrouping[]> = {};
+    Object.entries(jobGroupingDefinitions).forEach(([category, roles]) => {
+      const matchingRoles = roles.filter(role => 
+        role.title.toLowerCase().includes(jobGroupingsSearch.toLowerCase()) ||
+        role.description.toLowerCase().includes(jobGroupingsSearch.toLowerCase()) ||
+        (role.detail && role.detail.toLowerCase().includes(jobGroupingsSearch.toLowerCase()))
+      );
+      if (matchingRoles.length > 0) {
+        filtered[category] = matchingRoles;
+      }
+    });
+    return filtered;
+  }, [jobGroupingsSearch]);
 
   // Get unique regions for filtering
   const regions = useMemo(() => {
@@ -207,168 +332,76 @@ export default function RatesOfPayImproved() {
           </div>
         </div>
 
-        {/* Job Groupings Definition */}
+        {/* Job Groupings Definition - Organized by Category */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-8 bg-chart-4 rounded-full"></div>
             <h2 className="text-2xl font-bold text-foreground">Job Groupings</h2>
           </div>
+
+          {/* Search for Job Groupings */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Search className="h-5 w-5 text-primary" />
+                Search Job Groupings
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Input
+                placeholder="Search job titles or descriptions..."
+                value={jobGroupingsSearch}
+                onChange={(e) => setJobGroupingsSearch(e.target.value)}
+                className="w-full"
+                data-testid="input-search-job-groupings"
+              />
+              {jobGroupingsSearch && (
+                <p className="text-sm text-muted-foreground mt-2">
+                  Found {Object.values(filteredJobGroupings).flat().length} matching job groupings
+                </p>
+              )}
+            </CardContent>
+          </Card>
           
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
-            <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
-              <div className="space-y-6">
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Entry level: Typically called Assistant or Trainee</h4>
-                  <p className="text-muted-foreground">
-                    All support-based entry level roles sit in here.
-                  </p>
-                </div>
+          {/* Organized Job Groupings */}
+          <div className="space-y-8">
+            {Object.entries(filteredJobGroupings).map(([category, roles]) => (
+              <div key={category} className="bg-card border border-card-border rounded-xl p-6 shadow-md">
+                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+                  <div className="w-1 h-6 bg-primary rounded-full"></div>
+                  {category}
+                </h3>
                 
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Night Assistant/Concierge</h4>
-                  <p className="text-muted-foreground">
-                    All straight-forward night roles sit in here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Support/Project Worker (Main Grade)</h4>
-                  <p className="text-muted-foreground mb-3">
-                    Regardless of job title, all front-line support-based worker roles (except Housing) sit in here. This includes all specialisms that sat within the main front line grade for each participant.
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    For example, it includes both floating and project-based support. We looked at each sub-category of role (e.g., mental health) to see whether we could see groupings with noticeable pay differentials that we could pull out – where roles were paid at a higher salary, they were placed into the job grouping below.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Night Worker</h4>
-                  <p className="text-muted-foreground">
-                    All support-based Night roles sit in here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Senior Support/Specialist/Complex Needs Worker</h4>
-                  <p className="text-muted-foreground">
-                    All senior/complex support-based roles sit in this grouping.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Housing Advice/Tenancy Sustainment/Housing Support Worker</h4>
-                  <p className="text-muted-foreground">
-                    Within this group, we put all support/advice worker housing-related roles.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Supported Housing Officer</h4>
-                  <p className="text-muted-foreground">
-                    This grouping contains all Housing/Neighbourhood Officer roles.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Outreach Worker</h4>
-                  <p className="text-muted-foreground">
-                    All roles with Outreach Worker in their job title are placed in here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Service Co-ordinator</h4>
-                  <p className="text-muted-foreground">
-                    This grouping includes all roles that are Co-ordinators of front-line services. We excluded all Head Office co-ordinators (e.g., HR Co-ordinator).
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Deputy Manager/Team Leader/Lead</h4>
-                  <p className="text-muted-foreground">
-                    All Team Leader and Deputy Managers are placed in this grade, as well as Leads where they sit above Senior/Complex Workers in an organisation's pay grades.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Project/Service Manager</h4>
-                  <p className="text-muted-foreground">
-                    All roles that manage a project or service are placed here, regardless of service size/complexity.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Area/Operations Manager</h4>
-                  <p className="text-muted-foreground">
-                    All roles that sit above Service Managers in the grading structure and below 'Head of' are placed here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Admin Worker/Customer Services</h4>
-                  <p className="text-muted-foreground">
-                    All service-based Admin/Assistant or Customer Service roles are placed here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Maintenance Worker/Officer</h4>
-                  <p className="text-muted-foreground">
-                    Any roles related to maintenance, at Worker or Officer level, are placed here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Activities Worker/Co-ordinator</h4>
-                  <p className="text-muted-foreground">
-                    All Activities Workers and Co-ordinators are placed here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Cook/Chef</h4>
-                  <p className="text-muted-foreground">
-                    We have grouped together all Cooks/Chefs here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Specialist Advice Workers (e.g., Employment, Welfare Rights, Housing First)</h4>
-                  <p className="text-muted-foreground">
-                    Higher level specialist advice workers are placed here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Housing Management Assistant</h4>
-                  <p className="text-muted-foreground">
-                    All Assistant level housing roles are placed here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Resettlement Workers</h4>
-                  <p className="text-muted-foreground">
-                    We also found a cluster of Resettlement Workers and they are grouped together here. Any Senior Resettlement Workers were excluded.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">IDVA/IDVSA</h4>
-                  <p className="text-muted-foreground">
-                    All roles specialising in IDVA/IDVSA are placed here.
-                  </p>
-                </div>
-                
-                <div className="border rounded-lg p-6">
-                  <h4 className="font-semibold text-lg text-foreground mb-2">Navigator</h4>
-                  <p className="text-muted-foreground">
-                    All Navigator roles are placed here.
-                  </p>
+                <div className="grid gap-4">
+                  {roles.map((role, index) => (
+                    <div key={index} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
+                      <h4 className="font-semibold text-foreground mb-2 text-base">
+                        {role.title}
+                      </h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {role.description}
+                      </p>
+                      {role.detail && (
+                        <p className="text-muted-foreground text-xs mt-2 leading-relaxed border-l-2 border-l-muted pl-3">
+                          {role.detail}
+                        </p>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
+
+          {Object.keys(filteredJobGroupings).length === 0 && jobGroupingsSearch && (
+            <div className="bg-card border border-card-border rounded-xl p-8 text-center shadow-md">
+              <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-foreground mb-2">No matching job groupings found</h3>
+              <p className="text-muted-foreground">
+                Try searching with different keywords or clear your search to see all job groupings.
+              </p>
+            </div>
+          )}
         </div>
       </div>
 
