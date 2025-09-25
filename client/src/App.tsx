@@ -58,7 +58,7 @@ function App() {
             <AppSidebar />
             <div className="flex flex-col flex-1 overflow-hidden">
               {/* Top Header */}
-              <header className="flex items-center justify-between p-4 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+              <header className="flex items-center justify-between p-6 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
                 <div className="flex items-center gap-4">
                   <SidebarTrigger data-testid="button-sidebar-toggle" />
                   <div className="flex items-center gap-3">
@@ -71,7 +71,7 @@ function App() {
               </header>
 
               {/* Main Content Area */}
-              <main className="flex-1 overflow-y-auto p-6">
+              <main className="flex-1 overflow-y-auto p-8 bg-background">
                 <Router />
               </main>
             </div>

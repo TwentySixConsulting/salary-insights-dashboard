@@ -23,7 +23,7 @@ export default function Overview() {
   return (
     <div className="space-y-8">
       {/* Report Title Header */}
-      <div className="bg-gradient-to-r from-primary/10 to-chart-1/10 rounded-lg p-6 border" data-testid="report-title-header">
+      <div className="bg-gradient-to-r from-primary/10 to-chart-1/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="report-title-header">
         <div className="text-center mb-6">
           <h1 className="text-4xl font-bold text-foreground mb-2">Supported Housing HR Network</h1>
           <h2 className="text-2xl font-semibold text-primary mb-2">Pay Benchmarking Group</h2>
@@ -39,7 +39,7 @@ export default function Overview() {
           <h2 className="text-2xl font-bold text-foreground">About the Participants</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-lg p-6">
+        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
           <div className="prose prose-lg max-w-none text-foreground">
             <p className="mb-4">
               The 2024/25 Supported Housing HR Network survey includes nine participating organisations from across the supported housing sector, encompassing both homelessness and care organisations.
@@ -63,7 +63,7 @@ export default function Overview() {
           <h2 className="text-2xl font-bold text-foreground">About Us</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-lg p-6">
+        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
           <div className="prose prose-lg max-w-none text-foreground">
             <p className="mb-4">
               TwentySix is a specialist reward consultancy, which works closely with a large number of social housing groups, community support, social care and homelessness charities. Our team consists of senior reward consultants, supported by specially trained analysts. We have a track record of delivering outstanding reward projects and have built our business almost entirely on our clients recommending us to other organisations.
@@ -83,7 +83,7 @@ export default function Overview() {
           <h2 className="text-2xl font-bold text-foreground">Summary of Findings</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-lg p-6">
+        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
           <p className="text-lg text-muted-foreground mb-6">Below we summarise some of the key findings from this report:</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
