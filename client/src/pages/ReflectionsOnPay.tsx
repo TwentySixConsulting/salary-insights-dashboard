@@ -7,7 +7,7 @@ import { payAwards2024, payForecast2025, marketAnalysis, organisations } from "@
 import { TrendingUp, TrendingDown, AlertCircle, Calendar, Target, PoundSterling } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from "recharts";
 
-const COLORS = ['#0B2C54', '#1e40af', '#3b82f6', '#60a5fa', '#93c5fd', '#c7d2fe', '#D4AF37'];
+const COLORS = ['hsl(var(--chart-1))', 'hsl(var(--chart-2))', 'hsl(var(--chart-3))', 'hsl(var(--chart-4))', 'hsl(var(--chart-5))', 'hsl(var(--primary))', 'hsl(var(--accent))'];
 
 export default function ReflectionsOnPay() {
   // Prepare data for visualizations
@@ -18,9 +18,9 @@ export default function ReflectionsOnPay() {
   }));
 
   const economicContextData = [
-    { indicator: "Consumer Price Index", value: marketAnalysis.economic_context.cpi_rate, target: 2.0, color: '#ef4444' },
-    { indicator: "Interest Rates", value: marketAnalysis.economic_context.interest_rate, target: 4.0, color: '#f97316' },
-    { indicator: "Wage Inflation", value: marketAnalysis.economic_context.wage_inflation_pct, target: 3.0, color: '#D4AF37' }
+    { indicator: "Consumer Price Index", value: marketAnalysis.economic_context.cpi_rate, target: 2.0, color: 'hsl(var(--chart-1))' },
+    { indicator: "Interest Rates", value: marketAnalysis.economic_context.interest_rate, target: 4.0, color: 'hsl(var(--chart-2))' },
+    { indicator: "Wage Inflation", value: marketAnalysis.economic_context.wage_inflation_pct, target: 3.0, color: 'hsl(var(--chart-3))' }
   ];
 
   const sectorTrendsData = marketAnalysis.sector_analysis.skills_shortage_areas.map((area: string, index: number) => ({
@@ -37,10 +37,10 @@ export default function ReflectionsOnPay() {
   ];
 
   return (
-    <div className="p-6 max-w-7xl mx-auto space-y-8">
-      {/* Header Section */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-3">
+    <div className="space-y-8">
+      {/* Professional Header */}
+      <div className="bg-gradient-to-r from-primary/10 to-chart-2/10 rounded-lg p-6 border" data-testid="reflections-header">
+        <div className="flex items-center gap-3 mb-3">
           <TrendingUp className="h-8 w-8 text-primary" />
           <div>
             <h1 className="text-3xl font-bold text-foreground">Reflections on Pay</h1>
@@ -50,42 +50,36 @@ export default function ReflectionsOnPay() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card className="border-l-4 border-l-primary">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-primary" />
-                <div>
-                  <p className="text-sm font-medium">Survey Period</p>
-                  <p className="text-lg font-bold">2024</p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+          <div className="bg-background/80 rounded-lg p-4 border" data-testid="card-survey-period">
+            <div className="flex items-center gap-2">
+              <Calendar className="h-5 w-5 text-primary" />
+              <div>
+                <p className="text-sm font-medium text-primary">Survey Period</p>
+                <p className="text-lg font-bold">2024</p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
           
-          <Card className="border-l-4 border-l-green-500">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-2">
-                <Target className="h-5 w-5 text-green-600" />
-                <div>
-                  <p className="text-sm font-medium">Participants</p>
-                  <p className="text-lg font-bold">{organisations.length} Organisations</p>
-                </div>
+          <div className="bg-background/80 rounded-lg p-4 border" data-testid="card-participants">
+            <div className="flex items-center gap-2">
+              <Target className="h-5 w-5 text-chart-3" />
+              <div>
+                <p className="text-sm font-medium text-primary">Participants</p>
+                <p className="text-lg font-bold">{organisations.length} Organisations</p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
           
-          <Card className="border-l-4 border-l-orange-500">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-2">
-                <PoundSterling className="h-5 w-5 text-orange-600" />
-                <div>
-                  <p className="text-sm font-medium">Total Headcount</p>
-                  <p className="text-lg font-bold">{organisations.reduce((sum, org) => sum + org.headcount, 0).toLocaleString()}</p>
-                </div>
+          <div className="bg-background/80 rounded-lg p-4 border" data-testid="card-total-headcount">
+            <div className="flex items-center gap-2">
+              <PoundSterling className="h-5 w-5 text-chart-4" />
+              <div>
+                <p className="text-sm font-medium text-primary">Total Headcount</p>
+                <p className="text-lg font-bold">{organisations.reduce((sum, org) => sum + org.headcount, 0).toLocaleString()}</p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
 

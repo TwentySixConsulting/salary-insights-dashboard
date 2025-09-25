@@ -21,10 +21,11 @@ export default function KPIs() {
   ];
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-foreground mb-2">Key Performance Indicators</h1>
-        <p className="text-muted-foreground">
+    <div className="space-y-8">
+      {/* Professional Header */}
+      <div className="bg-gradient-to-r from-primary/10 to-chart-3/10 rounded-lg p-6 border" data-testid="kpis-header">
+        <h1 className="text-3xl font-bold text-foreground mb-3">Key Performance Indicators</h1>
+        <p className="text-lg text-muted-foreground">
           Performance metrics and trends across participating housing associations
         </p>
       </div>
