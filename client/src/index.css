@@ -340,8 +340,12 @@
     transition: color 0.2s ease;
   }
 
-  .sidebar-section-title-active {
-    color: hsl(var(--sidebar-foreground) / 0.9) !important;
-    font-weight: 600;
+  /* Fix active sidebar text visibility */
+  [data-active="true"] {
+    color: hsl(215 8% 25%) !important;
+  }
+  
+  [data-active="true"] * {
+    color: hsl(215 8% 25%) !important;
   }
 }
