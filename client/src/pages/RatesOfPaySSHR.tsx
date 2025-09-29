@@ -465,8 +465,27 @@ export default function RatesOfPaySSHR() {
         )}
       </div>
 
+      {/* Go to Methodology Button */}
+      <div className="text-center py-8">
+        <Button
+          onClick={() => {
+            document.getElementById('methodology-section')?.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }}
+          variant="outline"
+          size="lg"
+          className="flex items-center gap-2 mx-auto"
+          data-testid="button-go-to-methodology"
+        >
+          <Info className="h-5 w-5" />
+          Go to Methodology
+        </Button>
+      </div>
+
       {/* Methodology Section */}
-      <div className="space-y-6">
+      <div id="methodology-section" className="space-y-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 bg-primary rounded-full shadow-md"></div>
           <h2 className="text-2xl font-bold text-primary">Methodology</h2>
