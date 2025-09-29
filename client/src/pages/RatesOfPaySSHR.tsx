@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { jobTables, type JobTable } from "@shared/sampleData";
-import { Search, Info, Download, BarChart3, FileText } from "lucide-react";
+import { Search, Info, Download, BarChart3, FileText, Eye, EyeOff, ChevronDown, ChevronUp } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const formatCurrency = (amount: number | undefined) => {
@@ -23,7 +23,7 @@ const formatSampleSize = (size: number | undefined) => {
 };
 
 // Individual Job Table Component matching SSHR report format exactly
-const JobTableComponent = ({ job }: { job: JobTable }) => {
+const JobTableComponent = ({ job, showTable = true }: { job: JobTable; showTable?: boolean }) => {
   return (
     <Card className="bg-card border-primary/15 shadow-xl hover-elevate">
       <CardHeader>
@@ -39,57 +39,146 @@ const JobTableComponent = ({ job }: { job: JobTable }) => {
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="rounded-md border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[200px] font-semibold">Geography</TableHead>
-                <TableHead className="w-[120px] text-center font-semibold">Sample Size</TableHead>
-                <TableHead className="w-[120px] text-right font-semibold">LQ</TableHead>
-                <TableHead className="w-[120px] text-right font-semibold">Median</TableHead>
-                <TableHead className="w-[120px] text-right font-semibold">UQ</TableHead>
-                <TableHead className="w-[120px] text-right font-semibold">Average</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {job.data.map((row, index) => (
-                <TableRow 
-                  key={`${job.id}-${row.geography}-${index}`} 
-                  className={`hover:bg-muted/50 ${
-                    row.geography === 'Total' ? 'bg-primary/5 font-medium' : ''
-                  }`}
-                >
-                  <TableCell className="font-medium">
-                    {row.geography}
-                  </TableCell>
-                  <TableCell className="text-center">
-                    {formatSampleSize(row.sample_size)}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {formatCurrency(row.LQ)}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {formatCurrency(row.Median)}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {formatCurrency(row.UQ)}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {formatCurrency(row.Average)}
-                  </TableCell>
+      {showTable && (
+        <CardContent>
+          <div className="rounded-md border">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[200px] font-semibold">Geography</TableHead>
+                  <TableHead className="w-[120px] text-center font-semibold">Sample Size</TableHead>
+                  <TableHead className="w-[120px] text-right font-semibold">LQ</TableHead>
+                  <TableHead className="w-[120px] text-right font-semibold">Median</TableHead>
+                  <TableHead className="w-[120px] text-right font-semibold">UQ</TableHead>
+                  <TableHead className="w-[120px] text-right font-semibold">Average</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </CardContent>
+              </TableHeader>
+              <TableBody>
+                {job.data.map((row, index) => (
+                  <TableRow 
+                    key={`${job.id}-${row.geography}-${index}`} 
+                    className={`hover:bg-muted/50 ${
+                      row.geography === 'Total' ? 'bg-primary/5 font-medium' : ''
+                    }`}
+                  >
+                    <TableCell className="font-medium">
+                      {row.geography}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {formatSampleSize(row.sample_size)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatCurrency(row.LQ)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatCurrency(row.Median)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatCurrency(row.UQ)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatCurrency(row.Average)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </CardContent>
+      )}
+    </Card>
+  );
+};
+
+// Expandable Job Item Component for collapsed view
+const ExpandableJobItem = ({ job, isExpanded, onToggle }: { 
+  job: JobTable; 
+  isExpanded: boolean; 
+  onToggle: () => void;
+}) => {
+  return (
+    <Card className="bg-card border-primary/15 shadow-xl hover-elevate">
+      <CardHeader 
+        className="cursor-pointer" 
+        onClick={onToggle}
+        data-testid={`expandable-job-${job.id}`}
+      >
+        <CardTitle className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="bg-primary p-2 rounded-md shadow-md">
+              <FileText className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-primary">{job.title}</h3>
+              <p className="text-sm text-muted-foreground mt-1 font-normal">
+                {job.description}
+              </p>
+            </div>
+          </div>
+          <div className="flex-shrink-0">
+            {isExpanded ? (
+              <ChevronUp className="h-5 w-5 text-primary" />
+            ) : (
+              <ChevronDown className="h-5 w-5 text-primary" />
+            )}
+          </div>
+        </CardTitle>
+      </CardHeader>
+      {isExpanded && (
+        <CardContent>
+          <div className="rounded-md border">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[200px] font-semibold">Geography</TableHead>
+                  <TableHead className="w-[120px] text-center font-semibold">Sample Size</TableHead>
+                  <TableHead className="w-[120px] text-right font-semibold">LQ</TableHead>
+                  <TableHead className="w-[120px] text-right font-semibold">Median</TableHead>
+                  <TableHead className="w-[120px] text-right font-semibold">UQ</TableHead>
+                  <TableHead className="w-[120px] text-right font-semibold">Average</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {job.data.map((row, index) => (
+                  <TableRow 
+                    key={`${job.id}-${row.geography}-${index}`} 
+                    className={`hover:bg-muted/50 ${
+                      row.geography === 'Total' ? 'bg-primary/5 font-medium' : ''
+                    }`}
+                  >
+                    <TableCell className="font-medium">
+                      {row.geography}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {formatSampleSize(row.sample_size)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatCurrency(row.LQ)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatCurrency(row.Median)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatCurrency(row.UQ)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatCurrency(row.Average)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </CardContent>
+      )}
     </Card>
   );
 };
 
 export default function RatesOfPaySSHR() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [showTables, setShowTables] = useState(true);
+  const [expandedJobs, setExpandedJobs] = useState<Set<string>>(new Set());
 
   // Filter job tables based on search term
   const filteredJobTables = useMemo(() => {
@@ -150,6 +239,18 @@ export default function RatesOfPaySSHR() {
     setSearchTerm("");
   };
 
+  const toggleJobExpansion = (jobId: string) => {
+    setExpandedJobs(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(jobId)) {
+        newSet.delete(jobId);
+      } else {
+        newSet.add(jobId);
+      }
+      return newSet;
+    });
+  };
+
   return (
     <div className="space-y-8">
       {/* Professional Header */}
@@ -167,17 +268,29 @@ export default function RatesOfPaySSHR() {
         </div>
       </div>
 
-      {/* Introduction Section */}
+      {/* Job Groupings Explanation Section */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 bg-primary rounded-full shadow-md"></div>
-          <h2 className="text-2xl font-bold text-primary">6. Rates of Pay for Key Roles</h2>
+          <h2 className="text-2xl font-bold text-primary">Explanation of Job Groupings</h2>
         </div>
         
         <div className="bg-card border border-primary/15 rounded-xl p-6 shadow-xl hover-elevate">
           <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
-              We asked participants to submit all their front-line roles, up to and including Area Manager or equivalent, to establish the most useful common job groupings. The data below represents 21 key roles that were reasonably common across all nine participating housing associations.
+              We asked participants to submit all their front-line roles, up to and including Area Manager or equivalent, so that we could work out the most useful common job groupings.
+            </p>
+            
+            <p className="mb-4">
+              As we expected, participants have a diverse group of services and therefore roles differ considerably across the benchmarking club. To collate a set of data that was most useful to participants we analysed all the role data we received and identified 21 roles that were reasonably common across participants.
+            </p>
+
+            <p className="mb-4">
+              These roles are listed below, each with a short explanation of the types of roles we have placed into each group. As the benchmarking club is relatively small (nine participants), we had to keep the job groupings relatively broad, in order to: a) preserve anonymity and b) to ensure sufficient data to calculate mean or median averages.
+            </p>
+
+            <p className="mb-6">
+              This was particularly important as participants are spread across London and outside London, and we wanted to be able to separate out these two sets of data.
             </p>
             
             <div className="bg-chart-2/10 rounded-lg p-4 border-l-4 border-l-chart-2 shadow-md">
@@ -200,16 +313,28 @@ export default function RatesOfPaySSHR() {
               </div>
               <span className="text-chart-4 font-semibold">Search Job Roles</span>
             </div>
-            <Button 
-              onClick={handleExportCSV} 
-              variant="outline" 
-              size="sm"
-              className="flex items-center gap-2"
-              data-testid="button-export-csv"
-            >
-              <Download className="h-4 w-4" />
-              Export CSV
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button 
+                onClick={() => setShowTables(!showTables)}
+                variant="outline" 
+                size="sm"
+                className="flex items-center gap-2"
+                data-testid="button-toggle-tables"
+              >
+                {showTables ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                {showTables ? "Hide Tables" : "Show Tables"}
+              </Button>
+              <Button 
+                onClick={handleExportCSV} 
+                variant="outline" 
+                size="sm"
+                className="flex items-center gap-2"
+                data-testid="button-export-csv"
+              >
+                <Download className="h-4 w-4" />
+                Export CSV
+              </Button>
+            </div>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -237,10 +362,10 @@ export default function RatesOfPaySSHR() {
 
           {/* Search Results Summary */}
           {searchTerm && (
-            <div className="mt-4 p-3 bg-gradient-to-r from-chart-2/10 to-chart-4/10 rounded-lg border border-chart-2/20">
+            <div className="mt-4 p-3 bg-chart-2/10 rounded-lg border border-chart-2/20">
               <p className="text-sm font-medium mb-1 text-chart-4">Search Results:</p>
               <div className="flex flex-wrap gap-1">
-                <Badge variant="outline" className="bg-gradient-to-r from-chart-2/20 to-chart-4/20 border-chart-2/30">
+                <Badge variant="outline" className="bg-chart-2/20 border-chart-2/30">
                   "{searchTerm}" - {filteredJobTables.length} job{filteredJobTables.length !== 1 ? 's' : ''} found
                 </Badge>
               </div>
@@ -325,11 +450,55 @@ export default function RatesOfPaySSHR() {
                     of {filteredJobTables.length} job{filteredJobTables.length !== 1 ? 's' : ''}
                   </span>
                 </div>
-                <JobTableComponent job={job} />
+                {showTables ? (
+                  <JobTableComponent job={job} />
+                ) : (
+                  <ExpandableJobItem 
+                    job={job} 
+                    isExpanded={expandedJobs.has(job.id)}
+                    onToggle={() => toggleJobExpansion(job.id)}
+                  />
+                )}
               </div>
             ))}
           </div>
         )}
+      </div>
+
+      {/* Methodology Section */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-1 h-8 bg-primary rounded-full shadow-md"></div>
+          <h2 className="text-2xl font-bold text-primary">Methodology</h2>
+        </div>
+        
+        <div className="bg-card border border-primary/15 rounded-xl p-6 shadow-xl hover-elevate">
+          <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
+            <p className="mb-4">
+              To place roles into the correct job group, we used a combination of job title and grade/salary. We were able to use grade/salary as an indicator as we had sufficient roles from each organisation to reconstruct (to some extent) their grading structure (i.e., for each organisation we could identify which roles were more senior based on salary).
+            </p>
+
+            <p className="mb-4">
+              Within a job grouping, to avoid skewing the data, where the salary was the same, we only used one example role from each organisation. However, where there were roles with different salaries, we used an example of each salary.
+            </p>
+
+            <p className="mb-4">
+              In order to ensure sufficient data within a job grouping, we have had to cluster together roles that might be considered at slightly different levels. This is particularly the case for the Manager grouping, which encompasses managers of single projects and managers of multiple/large projects.
+            </p>
+
+            <p className="mb-4">
+              Finally, we have pulled out a few areas in which there were not that many entries, but which we thought might be useful to participants. Because of the small sample size, we are only able to provide mean averages, which are provided in case participants might find them useful.
+            </p>
+
+            <p className="mb-4">
+              Where the sample size is six or greater, we have been able to produce Lower, Median and Upper Quartiles; where smaller, we calculated an average of the data – rather than using quartiles – to provide more meaningful insight.
+            </p>
+
+            <p className="mb-6">
+              This year we have also included the "Wider Market" benchmarking results for each job grouping. This is to provide further insights into the market range for specific roles, allowing comparisons between our small sample and broader trends across the UK. The wider market data was gathered using our established benchmarking practices, leveraging our comprehensive and up-to-date UK salary database to provide accurate and relevant market insights.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
