@@ -10,7 +10,7 @@ import twentySixLogo from "@assets/Blue Logotype with Logo (1)_1758798870725.png
 // Page imports
 import Overview from "@/pages/Overview";
 import ReflectionsOnPay from "@/pages/ReflectionsOnPay";
-import RatesOfPayImproved from "@/pages/RatesOfPayImproved";
+import RatesOfPaySSHR from "@/pages/RatesOfPaySSHR";
 import KPIs from "@/pages/KPIs";
 import Benefits from "@/pages/Benefits";
 import PayFrameworks from "@/pages/PayFrameworks";
@@ -27,7 +27,7 @@ function Router() {
       <Route path="/frameworks" component={PayFrameworks} />
       <Route path="/kpis" component={KPIs} />
       <Route path="/wages" component={NationalLivingWage} />
-      <Route path="/rates" component={RatesOfPayImproved} />
+      <Route path="/rates" component={RatesOfPaySSHR} />
       <Route component={NotFound} />
     </Switch>
   );
