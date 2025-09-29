@@ -341,7 +341,7 @@
   }
 
   .sidebar-section-title-active {
-    color: hsl(var(--section-color)) !important;
+    color: hsl(var(--sidebar-foreground) / 0.9) !important;
     font-weight: 600;
   }
 }
