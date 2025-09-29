@@ -288,7 +288,268 @@ export const payFrameworks: PayFramework[] = [
   }
 ];
 
-// Role rates data (comprehensive list from the report)
+// Individual job tables data matching SSHR report format exactly
+export interface JobTable {
+  id: string;
+  title: string;
+  description: string;
+  data: {
+    geography: 'Total' | 'Inside London' | 'Outside London' | 'Wider Market – London' | 'Wider Market - National';
+    sample_size?: number;
+    LQ?: number;
+    Median?: number;
+    UQ?: number;
+    Average?: number;
+  }[];
+}
+
+export const jobTables: JobTable[] = [
+  {
+    id: "entry-level",
+    title: "Entry level: Typically called Assistant or Trainee",
+    description: "All support-based entry level roles sit in here.",
+    data: [
+      { geography: "Total", sample_size: 36, LQ: 25643, Median: 26357, UQ: 27352, Average: 26818 },
+      { geography: "Inside London", sample_size: 32, LQ: 25643, Median: 26087, UQ: 27352, Average: 26620 },
+      { geography: "Outside London", sample_size: 4, Average: 28398 },
+      { geography: "Wider Market – London", LQ: 22000, Median: 24500, UQ: 26000 },
+      { geography: "Wider Market - National", LQ: 21500, Median: 22000, UQ: 24000 }
+    ]
+  },
+  {
+    id: "night-assistant-concierge",
+    title: "Night Assistant/Concierge",
+    description: "All straight-forward night roles sit in here.",
+    data: [
+      { geography: "Total", sample_size: 6, LQ: 25643, Median: 25817, UQ: 28181, Average: 27367 },
+      { geography: "Inside London", sample_size: 6, LQ: 25643, Median: 25817, UQ: 28181, Average: 27367 },
+      { geography: "Outside London", sample_size: 0 },
+      { geography: "Wider Market – London", LQ: 21500, Median: 23000, UQ: 25000 }
+    ]
+  },
+  {
+    id: "support-project-worker",
+    title: "Support/Project Worker (Main Grade)",
+    description: "Regardless of job title, all front-line support-based worker roles (except Housing) sit in here. This includes all specialisms that sat within the main front line grade for each participant.",
+    data: [
+      { geography: "Total", sample_size: 62, LQ: 26912, Median: 28947, UQ: 32386, Average: 29855 },
+      { geography: "Inside London", sample_size: 48, LQ: 27450, Median: 28980, UQ: 32786, Average: 30508 },
+      { geography: "Outside London", sample_size: 14, LQ: 24930, Median: 27624, UQ: 29905, Average: 27615 },
+      { geography: "Wider Market – London", LQ: 23500, Median: 25500, UQ: 27000 },
+      { geography: "Wider Market - National", LQ: 21500, Median: 22500, UQ: 25000 }
+    ]
+  },
+  {
+    id: "night-worker",
+    title: "Night Worker",
+    description: "All support-based Night roles sit in here.",
+    data: [
+      { geography: "Total", sample_size: 26, LQ: 26541, Median: 27450, UQ: 28801, Average: 27718 },
+      { geography: "Inside London", sample_size: 14, LQ: 26914, Median: 27450, UQ: 28425, Average: 28108 },
+      { geography: "Outside London", sample_size: 12, LQ: 25216, Median: 27199, UQ: 29578, Average: 27264 },
+      { geography: "Wider Market – London", LQ: 24000, Median: 25500, UQ: 27000 },
+      { geography: "Wider Market - National", LQ: 21500, Median: 23000, UQ: 25000 }
+    ]
+  },
+  {
+    id: "senior-support-specialist",
+    title: "Senior Support/Specialist/Complex Needs Worker",
+    description: "All senior/complex support-based roles sit in this grouping.",
+    data: [
+      { geography: "Total", sample_size: 46, LQ: 28330, Median: 30353, UQ: 33748, Average: 30993 },
+      { geography: "Inside London", sample_size: 32, LQ: 28489, Median: 31177, UQ: 33988, Average: 31638 },
+      { geography: "Outside London", sample_size: 14, LQ: 27446, Median: 28709, UQ: 31995, Average: 29521 },
+      { geography: "Wider Market – London", LQ: 26000, Median: 28000, UQ: 30000 },
+      { geography: "Wider Market - National", LQ: 24000, Median: 25500, UQ: 28000 }
+    ]
+  },
+  {
+    id: "housing-advice-tenancy",
+    title: "Housing Advice/Tenancy Sustainment/Housing Support Worker",
+    description: "Within this group, we put all support/advice worker housing-related roles.",
+    data: [
+      { geography: "Total", sample_size: 22, LQ: 25725, Median: 28424, UQ: 29590, Average: 29254 },
+      { geography: "Inside London", sample_size: 16, LQ: 26309, Median: 28756, UQ: 32786, Average: 30367 },
+      { geography: "Outside London", sample_size: 6, LQ: 25004, Median: 26030, UQ: 26859, Average: 26285 },
+      { geography: "Wider Market – London", LQ: 26500, Median: 27000, UQ: 29000 },
+      { geography: "Wider Market - National", LQ: 24000, Median: 26000, UQ: 27000 }
+    ]
+  },
+  {
+    id: "supported-housing-officer",
+    title: "Supported Housing Officer",
+    description: "This grouping contains all Housing/Neighbourhood Officer roles.",
+    data: [
+      { geography: "Total", sample_size: 16, LQ: 26942, Median: 28496, UQ: 32786, Average: 30994 },
+      { geography: "Inside London", sample_size: 12, LQ: 27923, Median: 31177, UQ: 33698, Average: 32576 },
+      { geography: "Outside London", sample_size: 4, Average: 26250 },
+      { geography: "Wider Market – London", LQ: 28000, Median: 30000, UQ: 34000 },
+      { geography: "Wider Market - National", LQ: 26000, Median: 28000, UQ: 29500 }
+    ]
+  },
+  {
+    id: "outreach-worker",
+    title: "Outreach Worker",
+    description: "All roles with Outreach Worker in their job title are placed in here.",
+    data: [
+      { geography: "Total", sample_size: 12, LQ: 28049, Median: 30343, UQ: 34031, Average: 31533 },
+      { geography: "Inside London", sample_size: 12, LQ: 28049, Median: 30343, UQ: 34031, Average: 31533 },
+      { geography: "Outside London", sample_size: 0 },
+      { geography: "Wider Market – London", LQ: 28000, Median: 30000, UQ: 32000 }
+    ]
+  },
+  {
+    id: "service-coordinator",
+    title: "Service Co-ordinator",
+    description: "This grouping includes all roles that are Co-ordinators of front-line services. We excluded all Head Office co-ordinators (e.g., HR Co-ordinator).",
+    data: [
+      { geography: "Total", sample_size: 32, LQ: 28280, Median: 31177, UQ: 33736, Average: 32045 },
+      { geography: "Inside London", sample_size: 30, LQ: 28531, Median: 31575, UQ: 34576, Average: 32422 },
+      { geography: "Outside London", sample_size: 2, Average: 26380 },
+      { geography: "Wider Market – London", LQ: 28000, Median: 30000, UQ: 33000 }
+    ]
+  },
+  {
+    id: "deputy-manager-team-leader",
+    title: "Deputy Manager/Team Leader/Lead",
+    description: "All Team Leader and Deputy Managers are placed in this grade, as well as Leads where they sit above Senior/Complex Workers in an organisation's pay grades.",
+    data: [
+      { geography: "Total", sample_size: 36, LQ: 31376, Median: 34650, UQ: 37343, Average: 35086 },
+      { geography: "Inside London", sample_size: 24, LQ: 31575, Median: 36225, UQ: 38025, Average: 36272 },
+      { geography: "Outside London", sample_size: 12, LQ: 29200, Median: 32981, UQ: 34650, Average: 32715 },
+      { geography: "Wider Market – London", LQ: 30000, Median: 32000, UQ: 35000 },
+      { geography: "Wider Market - National", LQ: 28000, Median: 30000, UQ: 33000 }
+    ]
+  },
+  {
+    id: "project-service-manager",
+    title: "Project/Service Manager",
+    description: "All roles that manage a project or service are placed here, regardless of service size/complexity.",
+    data: [
+      { geography: "Total", sample_size: 72, LQ: 38278, Median: 41240, UQ: 46769, Average: 42621 },
+      { geography: "Inside London", sample_size: 52, LQ: 39434, Median: 42986, UQ: 46830, Average: 44043 },
+      { geography: "Outside London", sample_size: 20, LQ: 35449, Median: 37500, UQ: 42189, Average: 38923 },
+      { geography: "Wider Market – London", LQ: 34000, Median: 37000, UQ: 41000 },
+      { geography: "Wider Market - National", LQ: 33000, Median: 35000, UQ: 37000 }
+    ]
+  },
+  {
+    id: "area-operations-manager",
+    title: "Area/Operations Manager",
+    description: "All roles that sit above Service Managers in the grading structure and below 'Head of' are placed here.",
+    data: [
+      { geography: "Total", sample_size: 32, LQ: 45405, Median: 49337, UQ: 51874, Average: 48867 },
+      { geography: "Inside London", sample_size: 26, LQ: 47874, Median: 49968, UQ: 52378, Average: 50134 },
+      { geography: "Outside London", sample_size: 6, LQ: 41981, Median: 43724, UQ: 44681, Average: 43375 },
+      { geography: "Wider Market – London", LQ: 46000, Median: 49000, UQ: 51000 },
+      { geography: "Wider Market - National", LQ: 42000, Median: 46000, UQ: 49000 }
+    ]
+  },
+  {
+    id: "admin-customer-services",
+    title: "Admin Worker/Customer Services",
+    description: "All service-based Admin/Assistant or Customer Service roles are placed here.",
+    data: [
+      { geography: "Total", sample_size: 20, LQ: 25993, Median: 27450, UQ: 29139, Average: 28266 },
+      { geography: "Inside London", sample_size: 16, LQ: 26946, Median: 28270, UQ: 30428, Average: 29233 },
+      { geography: "Outside London", sample_size: 4, Average: 24400 },
+      { geography: "Wider Market – London", LQ: 24500, Median: 26500, UQ: 28000 },
+      { geography: "Wider Market - National", LQ: 22000, Median: 24000, UQ: 26000 }
+    ]
+  },
+  {
+    id: "maintenance-worker-officer",
+    title: "Maintenance Worker/Officer",
+    description: "Any roles related to maintenance, at Worker or Officer level, are placed here.",
+    data: [
+      { geography: "Total", sample_size: 22, LQ: 27352, Median: 28542, UQ: 30856, Average: 29080 },
+      { geography: "Inside London", sample_size: 18, LQ: 27232, Median: 28275, UQ: 29639, Average: 28853 },
+      { geography: "Outside London", sample_size: 4, Average: 30100 },
+      { geography: "Wider Market – London", LQ: 26000, Median: 28000, UQ: 31000 },
+      { geography: "Wider Market - National", LQ: 25000, Median: 27000, UQ: 29000 }
+    ]
+  },
+  {
+    id: "activities-worker-coordinator",
+    title: "Activities Worker/Co-ordinator",
+    description: "All Activities Workers and Co-ordinators are placed here.",
+    data: [
+      { geography: "Total", sample_size: 18, LQ: 27536, Median: 28998, UQ: 31376, Average: 29876 },
+      { geography: "Inside London", sample_size: 18, LQ: 27536, Median: 28998, UQ: 31376, Average: 29876 },
+      { geography: "Outside London", sample_size: 0 },
+      { geography: "Wider Market – London", LQ: 27000, Median: 28500, UQ: 29500 }
+    ]
+  },
+  {
+    id: "cook-chef",
+    title: "Cook/Chef",
+    description: "We have grouped together all Cooks/Chefs here.",
+    data: [
+      { geography: "Total", sample_size: 10, LQ: 25730, Median: 27060, UQ: 27352, Average: 26775 },
+      { geography: "Inside London", sample_size: 10, LQ: 25730, Median: 27060, UQ: 27352, Average: 26775 },
+      { geography: "Outside London", sample_size: 0 },
+      { geography: "Wider Market – London", LQ: 25000, Median: 27000, UQ: 28500 }
+    ]
+  },
+  {
+    id: "specialist-advice-workers",
+    title: "Specialist Advice Workers (e.g., Employment, Welfare Rights, Housing First)",
+    description: "Higher level specialist advice workers are placed here.",
+    data: [
+      { geography: "Total", sample_size: 38, LQ: 29253, Median: 33008, UQ: 38292, Average: 35404 },
+      { geography: "Inside London", sample_size: 34, LQ: 29904, Median: 33008, UQ: 38433, Average: 35777 },
+      { geography: "Outside London", sample_size: 4, Average: 32231 },
+      { geography: "Wider Market – London", LQ: 29000, Median: 32000, UQ: 35000 },
+      { geography: "Wider Market - National", LQ: 27000, Median: 29000, UQ: 32000 }
+    ]
+  },
+  {
+    id: "housing-management-assistant",
+    title: "Housing Management Assistant",
+    description: "All Assistant level housing roles are placed here.",
+    data: [
+      { geography: "Total", sample_size: 6, LQ: 29880, Median: 32786, UQ: 32786, Average: 32103 },
+      { geography: "Inside London", sample_size: 6, LQ: 29880, Median: 32786, UQ: 32786, Average: 32103 },
+      { geography: "Outside London", sample_size: 0 },
+      { geography: "Wider Market – London", LQ: 27000, Median: 29000, UQ: 31000 }
+    ]
+  },
+  {
+    id: "resettlement-workers",
+    title: "Resettlement Workers",
+    description: "We also found a cluster of Resettlement Workers and they are grouped together here. Any Senior Resettlement Workers were excluded.",
+    data: [
+      { geography: "Total", sample_size: 16, LQ: 27426, Median: 28270, UQ: 32295, Average: 29617 },
+      { geography: "Inside London", sample_size: 16, LQ: 27426, Median: 28270, UQ: 32295, Average: 29617 },
+      { geography: "Outside London", sample_size: 0 },
+      { geography: "Wider Market – London", LQ: 26000, Median: 28000, UQ: 30000 }
+    ]
+  },
+  {
+    id: "idva-idvsa",
+    title: "IDVA/IDVSA",
+    description: "All roles specialising in IDVA/IDVSA are placed here.",
+    data: [
+      { geography: "Total", sample_size: 14, LQ: 29122, Median: 31469, UQ: 33478, Average: 31419 },
+      { geography: "Inside London", sample_size: 10, LQ: 31362, Median: 32017, UQ: 33478, Average: 31891 },
+      { geography: "Outside London", sample_size: 4, Average: 30237 },
+      { geography: "Wider Market – London", LQ: 26500, Median: 28000, UQ: 31000 }
+    ]
+  },
+  {
+    id: "navigator",
+    title: "Navigator",
+    description: "All Navigator roles are placed here.",
+    data: [
+      { geography: "Total", sample_size: 12, LQ: 30954, Median: 32777, UQ: 34996, Average: 32898 },
+      { geography: "Inside London", sample_size: 12, LQ: 30954, Median: 32777, UQ: 34996, Average: 32898 },
+      { geography: "Outside London", sample_size: 0 },
+      { geography: "Wider Market – London", LQ: 27000, Median: 28500, UQ: 30000 }
+    ]
+  }
+];
+
+// Legacy role rates data for backward compatibility
 export const roleRates: RoleRate[] = [
   // Entry Level
   { role: "Entry Level", geography: "Total", sample_size: 36, LQ: 25643, Median: 26357, UQ: 27352, Average: 26818 },
