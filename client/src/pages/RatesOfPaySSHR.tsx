@@ -44,13 +44,13 @@ const JobTableComponent = ({ job, showTable = true }: { job: JobTable; showTable
           <div className="rounded-md border">
             <Table>
               <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[200px] font-semibold">Geography</TableHead>
-                  <TableHead className="w-[120px] text-center font-semibold">Sample Size</TableHead>
-                  <TableHead className="w-[120px] text-right font-semibold">LQ</TableHead>
-                  <TableHead className="w-[120px] text-right font-semibold">Median</TableHead>
-                  <TableHead className="w-[120px] text-right font-semibold">UQ</TableHead>
-                  <TableHead className="w-[120px] text-right font-semibold">Average</TableHead>
+                <TableRow className="bg-primary/10 border-b-2 border-primary/20">
+                  <TableHead className="w-[200px] font-bold text-primary bg-primary/15 border-r border-primary/20">Geography</TableHead>
+                  <TableHead className="w-[120px] text-center font-bold text-primary">Sample Size</TableHead>
+                  <TableHead className="w-[120px] text-right font-bold text-primary">LQ</TableHead>
+                  <TableHead className="w-[120px] text-right font-bold text-primary">Median</TableHead>
+                  <TableHead className="w-[120px] text-right font-bold text-primary">UQ</TableHead>
+                  <TableHead className="w-[120px] text-right font-bold text-primary">Average</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -61,7 +61,7 @@ const JobTableComponent = ({ job, showTable = true }: { job: JobTable; showTable
                       row.geography === 'Total' ? 'bg-primary/5 font-medium' : ''
                     }`}
                   >
-                    <TableCell className="font-medium">
+                    <TableCell className="font-bold bg-primary/5 border-r border-primary/10">
                       {row.geography}
                     </TableCell>
                     <TableCell className="text-center">
@@ -129,13 +129,13 @@ const ExpandableJobItem = ({ job, isExpanded, onToggle }: {
           <div className="rounded-md border">
             <Table>
               <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[200px] font-semibold">Geography</TableHead>
-                  <TableHead className="w-[120px] text-center font-semibold">Sample Size</TableHead>
-                  <TableHead className="w-[120px] text-right font-semibold">LQ</TableHead>
-                  <TableHead className="w-[120px] text-right font-semibold">Median</TableHead>
-                  <TableHead className="w-[120px] text-right font-semibold">UQ</TableHead>
-                  <TableHead className="w-[120px] text-right font-semibold">Average</TableHead>
+                <TableRow className="bg-primary/10 border-b-2 border-primary/20">
+                  <TableHead className="w-[200px] font-bold text-primary bg-primary/15 border-r border-primary/20">Geography</TableHead>
+                  <TableHead className="w-[120px] text-center font-bold text-primary">Sample Size</TableHead>
+                  <TableHead className="w-[120px] text-right font-bold text-primary">LQ</TableHead>
+                  <TableHead className="w-[120px] text-right font-bold text-primary">Median</TableHead>
+                  <TableHead className="w-[120px] text-right font-bold text-primary">UQ</TableHead>
+                  <TableHead className="w-[120px] text-right font-bold text-primary">Average</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -146,7 +146,7 @@ const ExpandableJobItem = ({ job, isExpanded, onToggle }: {
                       row.geography === 'Total' ? 'bg-primary/5 font-medium' : ''
                     }`}
                   >
-                    <TableCell className="font-medium">
+                    <TableCell className="font-bold bg-primary/5 border-r border-primary/10">
                       {row.geography}
                     </TableCell>
                     <TableCell className="text-center">
