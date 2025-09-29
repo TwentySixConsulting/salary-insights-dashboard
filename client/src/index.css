@@ -16,13 +16,13 @@
 
   --background: 0 0% 100%;
 
-  --foreground: 215 8% 25%;
+  --foreground: 215 15% 15%;
 
   --border: 215 12% 90%;
 
   --card: 215 12% 98%;
 
-  --card-foreground: 215 8% 25%;
+  --card-foreground: 215 15% 15%;
 
   --card-border: 215 12% 88%;
 
@@ -54,11 +54,11 @@
 
   --secondary: 215 12% 94%;
 
-  --secondary-foreground: 215 8% 25%;
+  --secondary-foreground: 215 15% 15%;
 
   --muted: 215 12% 96%;
 
-  --muted-foreground: 215 6% 45%;
+  --muted-foreground: 215 10% 35%;
 
   --accent: 43 15% 92%;
 
@@ -84,7 +84,7 @@
   --section-wages: 0 68% 42%; /* Deep Red #B22222 */
   --section-rates: 207 44% 56%; /* Steel Blue #4682B4 */
 
-  --font-sans: Inter, system-ui, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .75rem; /* 12px */
@@ -138,6 +138,19 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    font-weight: 450;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 650;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+  }
+  
+  p {
+    line-height: 1.65;
   }
 }
 
