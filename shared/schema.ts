@@ -256,3 +256,18 @@ export const filterSchema = z.object({
 });
 
 export type FilterState = z.infer<typeof filterSchema>;
+
+// Individual job tables interface for SSHR report format
+export interface JobTable {
+  id: string;
+  title: string;
+  description: string;
+  data: {
+    geography: 'Total' | 'Inside London' | 'Outside London' | 'Wider Market – London' | 'Wider Market - National';
+    sample_size?: number;
+    LQ?: number;
+    Median?: number;
+    UQ?: number;
+    Average?: number;
+  }[];
+}
