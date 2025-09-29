@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export default function Overview() {
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
 
   const navigateToSection = (path: string) => {
     setLocation(path);
@@ -26,54 +26,48 @@ export default function Overview() {
       description: "Analysis of pay trends, forecasts, and market drivers",
       path: "/reflections",
       icon: TrendingUp,
-      colors: "from-primary to-chart-4",
-      bgGradient: "from-primary/10 to-chart-4/10",
-      borderColor: "border-primary/30"
+      sectionClass: "section-reflections",
+      shortTitle: "Reflections on Pay"
     },
     {
       title: "Core Benefits",
       description: "Comprehensive benefits analysis and comparisons",
       path: "/benefits", 
       icon: Gift,
-      colors: "from-chart-2 to-chart-5",
-      bgGradient: "from-chart-2/10 to-chart-5/10",
-      borderColor: "border-chart-2/30"
+      sectionClass: "section-benefits",
+      shortTitle: "Core Benefits"
     },
     {
       title: "Pay Frameworks",
       description: "Salary structures and grading frameworks",
       path: "/frameworks",
       icon: Layout,
-      colors: "from-chart-3 to-primary",
-      bgGradient: "from-chart-3/10 to-primary/10", 
-      borderColor: "border-chart-3/30"
+      sectionClass: "section-frameworks",
+      shortTitle: "Pay Frameworks"
     },
     {
       title: "Key Performance Indicators",
       description: "Workforce metrics and performance data",
       path: "/kpis",
       icon: BarChart3,
-      colors: "from-chart-4 to-chart-2",
-      bgGradient: "from-chart-4/10 to-chart-2/10",
-      borderColor: "border-chart-4/30"
+      sectionClass: "section-kpis",
+      shortTitle: "KPIs"
     },
     {
       title: "National Living Wage",
       description: "Impact analysis and compliance insights",
       path: "/wages",
       icon: PoundSterling,
-      colors: "from-chart-5 to-chart-3",
-      bgGradient: "from-chart-5/10 to-chart-3/10",
-      borderColor: "border-chart-5/30"
+      sectionClass: "section-wages",
+      shortTitle: "National Living Wage"
     },
     {
       title: "Rates of Pay",
       description: "Comprehensive salary benchmarking data",
       path: "/rates",
       icon: Users,
-      colors: "from-chart-2 to-primary",
-      bgGradient: "from-chart-2/10 to-primary/10",
-      borderColor: "border-chart-2/30"
+      sectionClass: "section-rates",
+      shortTitle: "Rates of Pay"
     }
   ];
 
@@ -105,34 +99,36 @@ export default function Overview() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {navigationSections.map((section) => {
                 const IconComponent = section.icon;
+                const isActive = location === section.path;
                 return (
                   <Button
                     key={section.path}
                     onClick={() => navigateToSection(section.path)}
                     variant="ghost"
-                    className="group relative h-auto p-6 bg-card border-primary/20 border-2 rounded-xl shadow-lg hover-elevate transition-all duration-300 text-left"
+                    className={`section-button ${section.sectionClass} ${isActive ? 'active' : ''} group h-auto p-0 text-left`}
                     data-testid={`button-navigate-${section.path.substring(1)}`}
                   >
-                    <div className="flex flex-col items-start space-y-4 w-full">
-                      <div className="bg-primary p-3 rounded-lg shadow-md group-hover:scale-110 transition-transform duration-200">
-                        <IconComponent className="h-6 w-6 text-white" />
+                    <div className="flex items-center gap-4 p-4 w-full">
+                      <div className={`section-icon h-12 w-12 flex items-center justify-center rounded-lg shadow-sm transition-all duration-200
+                          ${isActive ? 'scale-105' : 'group-hover:scale-105'}`}>
+                        <IconComponent className="h-6 w-6" />
                       </div>
                       
-                      <div className="space-y-2 flex-1">
-                        <h3 className="font-bold text-lg text-chart-2 group-hover:scale-105 transition-transform duration-200">
-                          {section.title}
+                      <div className="flex-1 min-w-0">
+                        <h3 className={`section-title font-semibold text-base leading-tight transition-all duration-200 overflow-hidden text-ellipsis whitespace-nowrap
+                            ${isActive ? 'scale-105' : 'group-hover:scale-105'}`}>
+                          {section.shortTitle}
                         </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-sm text-muted-foreground leading-relaxed mt-1 line-clamp-2">
                           {section.description}
                         </p>
                       </div>
                       
-                      <div className="flex items-center justify-between w-full pt-2">
-                        <span className="text-xs font-medium text-chart-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                          View Details
-                        </span>
-                        <ArrowRight className="h-4 w-4 text-chart-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200" />
-                      </div>
+                      <ArrowRight className={`section-arrow h-5 w-5 transition-all duration-200 flex-shrink-0
+                          ${isActive 
+                            ? 'opacity-100 translate-x-1' 
+                            : 'opacity-0 group-hover:opacity-100 group-hover:translate-x-1'
+                          }`} />
                     </div>
                   </Button>
                 );

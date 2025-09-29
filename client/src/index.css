@@ -76,6 +76,14 @@
   --chart-4: 212 85% 25%;
   --chart-5: 43 70% 35%;
 
+  /* Section-specific accent colors for navigation */
+  --section-reflections: 176 48% 32%; /* Teal Blue #2B7A78 */
+  --section-benefits: 131 31% 43%; /* Sage Green #4C956C */
+  --section-frameworks: 267 32% 42%; /* Royal Purple #6A4C93 */
+  --section-kpis: 243 29% 32%; /* Indigo #3C366B */
+  --section-wages: 0 68% 42%; /* Deep Red #B22222 */
+  --section-rates: 207 44% 56%; /* Steel Blue #4682B4 */
+
   --font-sans: Inter, system-ui, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
@@ -242,5 +250,60 @@
   .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
+  }
+
+  /* Section-specific navigation button styles */
+  .section-button {
+    @apply bg-card border-2 border-gray-200 rounded-xl shadow-sm transition-all duration-300 hover-elevate;
+  }
+
+  /* Section-specific color utilities */
+  .section-reflections {
+    --section-color: 176 48% 32%; /* Teal Blue */
+  }
+  .section-benefits {
+    --section-color: 131 31% 43%; /* Sage Green */
+  }
+  .section-frameworks {
+    --section-color: 267 32% 42%; /* Royal Purple */
+  }
+  .section-kpis {
+    --section-color: 243 29% 32%; /* Indigo */
+  }
+  .section-wages {
+    --section-color: 0 68% 42%; /* Deep Red */
+  }
+  .section-rates {
+    --section-color: 207 44% 56%; /* Steel Blue */
+  }
+
+  .section-button:hover {
+    border-color: hsl(var(--section-color));
+    box-shadow: 0 4px 6px -1px hsl(var(--section-color) / 0.2), 0 2px 4px -1px hsl(var(--section-color) / 0.1);
+  }
+
+  .section-button:focus-visible {
+    border-color: hsl(var(--section-color));
+    box-shadow: 0 0 0 2px hsl(var(--section-color) / 0.2);
+    outline: none;
+  }
+
+  .section-button.active {
+    background-color: hsl(var(--section-color) / 0.1);
+    border-color: hsl(var(--section-color));
+    box-shadow: 0 4px 6px -1px hsl(var(--section-color) / 0.15), 0 2px 4px -1px hsl(var(--section-color) / 0.1);
+  }
+
+  .section-icon {
+    background-color: hsl(var(--section-color));
+    color: white;
+  }
+
+  .section-title {
+    color: hsl(var(--section-color));
+  }
+
+  .section-arrow {
+    color: hsl(var(--section-color));
   }
 }
