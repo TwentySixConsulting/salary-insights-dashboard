@@ -27,12 +27,12 @@ export default function PayFrameworks() {
   return (
     <div className="space-y-8">
       {/* Professional Header */}
-      <div className="bg-gradient-to-r from-primary/10 to-chart-3/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="frameworks-header">
+      <div className="bg-primary/5 rounded-xl p-8 border border-primary/20 shadow-xl" data-testid="frameworks-header">
         <div className="flex items-center gap-4 mb-4">
           <BarChart3 className="h-10 w-10 text-primary" />
           <div>
-            <h1 className="text-4xl font-bold text-foreground tracking-tight">Pay Frameworks</h1>
-            <p className="text-xl text-muted-foreground mt-2">
+            <h1 className="text-4xl font-bold text-primary tracking-tight">Pay Frameworks</h1>
+            <p className="text-xl text-foreground mt-2">
               Analysis of pay structures and frameworks across housing associations
             </p>
           </div>

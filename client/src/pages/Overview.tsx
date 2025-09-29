@@ -80,10 +80,10 @@ export default function Overview() {
   return (
     <div className="space-y-8">
       {/* Report Title Header */}
-      <div className="bg-gradient-to-r from-primary/10 to-chart-1/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="report-title-header">
+      <div className="bg-primary/5 rounded-xl p-8 border border-primary/20 shadow-xl" data-testid="report-title-header">
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold text-foreground mb-3 tracking-tight">Supported Housing HR Network</h1>
-          <h2 className="text-3xl font-semibold text-primary mb-3">Pay Benchmarking Group</h2>
+          <h1 className="text-5xl font-bold text-primary mb-3 tracking-tight">Supported Housing HR Network</h1>
+          <h2 className="text-3xl font-semibold text-chart-2 mb-3">Pay Benchmarking Group</h2>
           <p className="text-xl text-muted-foreground mb-2">December 2024</p>
           <p className="text-sm text-muted-foreground italic">Confidential Report for Participants</p>
         </div>
@@ -92,13 +92,13 @@ export default function Overview() {
       {/* Dashboard Navigation */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-6" data-testid="section-dashboard-navigation">
-          <div className="w-1 h-8 bg-gradient-to-b from-chart-2 to-chart-4 rounded-full shadow-sm"></div>
+          <div className="w-1 h-8 bg-primary rounded-full shadow-md"></div>
           <h2 className="text-2xl font-bold text-primary">Explore Dashboard Sections</h2>
         </div>
         
-        <Card className="bg-gradient-to-br from-card to-chart-2/5 border-chart-2/20 shadow-xl">
+        <Card className="bg-card border-primary/20 shadow-2xl">
           <CardContent className="p-8">
-            <p className="text-lg text-muted-foreground mb-8 text-center">
+            <p className="text-lg text-foreground mb-8 text-center">
               Navigate to detailed analyses and insights across all areas of the salary benchmarking report
             </p>
             
@@ -110,18 +110,11 @@ export default function Overview() {
                     key={section.path}
                     onClick={() => navigateToSection(section.path)}
                     variant="ghost"
-                    className={`
-                      group relative h-auto p-6 bg-gradient-to-br ${section.bgGradient} 
-                      ${section.borderColor} border-2 rounded-xl shadow-lg hover-elevate 
-                      transition-all duration-300 text-left
-                    `}
+                    className="group relative h-auto p-6 bg-card border-primary/20 border-2 rounded-xl shadow-lg hover-elevate transition-all duration-300 text-left"
                     data-testid={`button-navigate-${section.path.substring(1)}`}
                   >
                     <div className="flex flex-col items-start space-y-4 w-full">
-                      <div className={`
-                        bg-gradient-to-r ${section.colors} p-3 rounded-lg shadow-md 
-                        group-hover:scale-110 transition-transform duration-200
-                      `}>
+                      <div className="bg-primary p-3 rounded-lg shadow-md group-hover:scale-110 transition-transform duration-200">
                         <IconComponent className="h-6 w-6 text-white" />
                       </div>
                       
@@ -158,11 +151,11 @@ export default function Overview() {
       {/* About the Participants */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4" data-testid="section-about-participants">
-          <div className="w-1 h-8 bg-primary rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">About the Participants</h2>
+          <div className="w-1 h-8 bg-primary rounded-full shadow-md"></div>
+          <h2 className="text-2xl font-bold text-primary">About the Participants</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+        <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-xl">
           <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
               The 2024/25 Supported Housing HR Network survey includes nine participating organisations from across the supported housing sector, encompassing both homelessness and care organisations.
@@ -182,11 +175,11 @@ export default function Overview() {
       {/* About Us */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4" data-testid="section-about-us">
-          <div className="w-1 h-8 bg-chart-2 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">About Us</h2>
+          <div className="w-1 h-8 bg-chart-2 rounded-full shadow-md"></div>
+          <h2 className="text-2xl font-bold text-primary">About Us</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+        <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-xl">
           <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
               TwentySix is a specialist reward consultancy, which works closely with a large number of social housing groups, community support, social care and homelessness charities. Our team consists of senior reward consultants, supported by specially trained analysts. We have a track record of delivering outstanding reward projects and have built our business almost entirely on our clients recommending us to other organisations.
@@ -202,11 +195,11 @@ export default function Overview() {
       {/* Summary of Findings */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4" data-testid="section-summary-findings">
-          <div className="w-1 h-8 bg-chart-3 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Summary of Findings</h2>
+          <div className="w-1 h-8 bg-chart-3 rounded-full shadow-md"></div>
+          <h2 className="text-2xl font-bold text-primary">Summary of Findings</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+        <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-xl">
           <p className="text-lg text-muted-foreground mb-6">Below we summarise some of the key findings from this report:</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -268,8 +261,8 @@ export default function Overview() {
       {/* Executive Summary and Key Metrics */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4" data-testid="section-pay-compensation">
-          <div className="w-1 h-8 bg-chart-4 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Key Metrics Overview</h2>
+          <div className="w-1 h-8 bg-chart-4 rounded-full shadow-md"></div>
+          <h2 className="text-2xl font-bold text-primary">Key Metrics Overview</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <KPICard
@@ -311,8 +304,8 @@ export default function Overview() {
       {/* Benefits & Policies Section */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4" data-testid="section-benefits-policies">
-          <div className="w-1 h-8 bg-chart-2 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Benefits & Employment Policies</h2>
+          <div className="w-1 h-8 bg-chart-2 rounded-full shadow-md"></div>
+          <h2 className="text-2xl font-bold text-primary">Benefits & Employment Policies</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <KPICard
@@ -351,8 +344,8 @@ export default function Overview() {
       {/* Workforce Performance Section */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4" data-testid="section-workforce-performance">
-          <div className="w-1 h-8 bg-chart-3 rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Workforce Performance Indicators</h2>
+          <div className="w-1 h-8 bg-chart-3 rounded-full shadow-md"></div>
+          <h2 className="text-2xl font-bold text-primary">Workforce Performance Indicators</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <KPICard

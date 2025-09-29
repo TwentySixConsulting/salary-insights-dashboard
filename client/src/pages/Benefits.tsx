@@ -26,9 +26,9 @@ export default function Benefits() {
   return (
     <div className="space-y-8">
       {/* Professional Header */}
-      <div className="bg-gradient-to-r from-primary/10 to-chart-5/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="benefits-header">
-        <h1 className="text-4xl font-bold text-foreground mb-4 tracking-tight">Core Benefits</h1>
-        <p className="text-xl text-muted-foreground">
+      <div className="bg-primary/5 rounded-xl p-8 border border-primary/20 shadow-xl" data-testid="benefits-header">
+        <h1 className="text-4xl font-bold text-primary mb-4 tracking-tight">Core Benefits</h1>
+        <p className="text-xl text-foreground">
           Comprehensive overview of benefits packages across housing associations
         </p>
       </div>
@@ -36,11 +36,11 @@ export default function Benefits() {
       {/* Introduction */}
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-8 bg-primary rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Benefits Overview</h2>
+          <div className="w-1 h-8 bg-primary rounded-full shadow-xl"></div>
+          <h2 className="text-2xl font-bold text-primary">Benefits Overview</h2>
         </div>
         
-        <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+        <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-xl">
           <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
             <p className="mb-4">
               We were interested in finding out whether organisations had recently reviewed any of their benefits or wider terms and conditions, as well as whether they were planning to do so in the near future.
@@ -136,7 +136,7 @@ export default function Benefits() {
         <TabsContent value="holiday" className="space-y-6">
           {/* Holiday Section - Text First */}
           <div className="space-y-6">
-            <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+            <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-xl">
               <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
                 <h3 className="text-xl font-bold text-foreground mb-4">Starting Annual Leave Entitlement</h3>
                 <p className="mb-4">
@@ -241,7 +241,7 @@ export default function Benefits() {
 
         <TabsContent value="pension" className="space-y-6">
           {/* Pension Section - Text First */}
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-xl">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <h3 className="text-xl font-bold text-foreground mb-4">Pension Contributions</h3>
               <p className="mb-4">
@@ -301,7 +301,7 @@ export default function Benefits() {
 
         <TabsContent value="sickness" className="space-y-6">
           {/* Sickness Section - Text First */}
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-xl">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <h3 className="text-xl font-bold text-foreground mb-4">Sickness Arrangements</h3>
               <p className="mb-4">
@@ -425,7 +425,7 @@ export default function Benefits() {
 
         <TabsContent value="family" className="space-y-6">
           {/* Family Section - Text First */}
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-xl">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <h3 className="text-xl font-bold text-foreground mb-4">Maternity/Paternity Leave</h3>
               <p className="mb-4">

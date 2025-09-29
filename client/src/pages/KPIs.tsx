@@ -26,12 +26,12 @@ export default function KPIs() {
   return (
     <div className="space-y-8">
       {/* Professional Header */}
-      <div className="bg-gradient-to-r from-primary/10 to-chart-3/10 rounded-xl p-8 border border-primary/20 shadow-lg" data-testid="kpis-header">
+      <div className="bg-primary/5 rounded-xl p-8 border border-primary/20 shadow-xl" data-testid="kpis-header">
         <div className="flex items-center gap-4 mb-4">
           <Activity className="h-10 w-10 text-primary" />
           <div>
-            <h1 className="text-4xl font-bold text-foreground tracking-tight">Key Performance Indicators</h1>
-            <p className="text-xl text-muted-foreground mt-2">
+            <h1 className="text-4xl font-bold text-primary tracking-tight">Key Performance Indicators</h1>
+            <p className="text-xl text-foreground mt-2">
               Performance metrics and trends across participating housing associations
             </p>
           </div>
@@ -43,11 +43,11 @@ export default function KPIs() {
         {/* Sickness Absences - Lost Time Rate (LTR) */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-8 bg-primary rounded-full"></div>
-            <h2 className="text-2xl font-bold text-foreground">4.1. Sickness absences – Lost Time Rate (LTR)</h2>
+            <div className="w-1 h-8 bg-primary rounded-full shadow-md"></div>
+            <h2 className="text-2xl font-bold text-primary">4.1. Sickness absences – Lost Time Rate (LTR)</h2>
           </div>
           
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-md">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <p className="mb-6">
                 In this survey, we asked respondents to provide their most recent percentage figures for annual sickness lost time rate (LTR), calculated as total absence (hours or days) in a year divided by the total possible total (hours or days) in a year.
@@ -70,11 +70,11 @@ export default function KPIs() {
         {/* Annual Employee Turnover Rate (Global) */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-1 h-8 bg-chart-2 rounded-full"></div>
-            <h2 className="text-2xl font-bold text-foreground">4.2. Annual Employee Turnover Rate (Global)</h2>
+            <div className="w-1 h-8 bg-chart-2 rounded-full shadow-md"></div>
+            <h2 className="text-2xl font-bold text-primary">4.2. Annual Employee Turnover Rate (Global)</h2>
           </div>
           
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-md">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <p className="mb-6">
                 We were also interested in gathering information on respondents' annual employee turnover rate (global) over the past two years, understood as the number of employees who have left over the year for any reason. We asked for this value to be expressed as a percentage. Eight of nine organisations were able to provide us with this information.
@@ -98,10 +98,10 @@ export default function KPIs() {
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-8 bg-chart-3 rounded-full"></div>
-            <h2 className="text-2xl font-bold text-foreground">4.3. Annual Employee Turnover Rate (Voluntary)</h2>
+            <h2 className="text-2xl font-bold text-primary">4.3. Annual Employee Turnover Rate (Voluntary)</h2>
           </div>
           
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-md">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <p className="mb-6">
                 We were also interested in participants' annual employee turnover rate (voluntary), understood as the number of employees who left for voluntary reasons, therefore not including redundancies, or any other dismissals, TUPEs etc. We asked for the most recent figures available to be expressed as a percentage. Seven of the nine respondent organisations were able to share this data for the survey.
@@ -133,10 +133,10 @@ export default function KPIs() {
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-8 bg-chart-4 rounded-full"></div>
-            <h2 className="text-2xl font-bold text-foreground">4.4 Annual conflict index</h2>
+            <h2 className="text-2xl font-bold text-primary">4.4 Annual conflict index</h2>
           </div>
           
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-md">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <p className="mb-6">
                 Another key performance indicator which this survey explores is respondents' annual conflict index; that is, the number of staff who have been subject to formal disciplinary or capability proceedings (not including sickness) or raised a grievance. We asked for this to be expressed as a percentage of the total average number of staff employed over the year.
@@ -160,10 +160,10 @@ export default function KPIs() {
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-8 bg-chart-5 rounded-full"></div>
-            <h2 className="text-2xl font-bold text-foreground">4.5 Agency staff</h2>
+            <h2 className="text-2xl font-bold text-primary">4.5 Agency staff</h2>
           </div>
           
-          <div className="bg-card border border-card-border rounded-xl p-8 shadow-md">
+          <div className="bg-card border border-primary/15 rounded-xl p-8 shadow-md">
             <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
               <p className="mb-6">
                 We also asked respondents to share their figures for the percentage of annual payroll that was spent on temporary agency staff over the past two years. All nine organisations were able to share this data with us. The comparisons are presented in the graph below, which shows how the rate of expenditure has fluctuated for each organisation since last year.
@@ -184,7 +184,7 @@ export default function KPIs() {
       <div className="space-y-8">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 bg-accent rounded-full"></div>
-          <h2 className="text-2xl font-bold text-foreground">Supporting Data Analysis</h2>
+          <h2 className="text-2xl font-bold text-primary">Supporting Data Analysis</h2>
         </div>
 
         {/* KPI Summary Cards */}

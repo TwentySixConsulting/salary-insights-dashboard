@@ -38,12 +38,12 @@ export default function ReflectionsOnPay() {
   return (
     <div className="space-y-8">
       {/* Professional Header */}
-      <div className="bg-gradient-to-r from-primary/10 to-chart-2/10 rounded-lg p-6 border" data-testid="reflections-header">
+      <div className="bg-primary/5 rounded-xl p-8 border border-primary/20 shadow-xl" data-testid="reflections-header">
         <div className="flex items-center gap-3 mb-3">
           <TrendingUp className="h-8 w-8 text-primary" />
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Reflections on Pay</h1>
-            <p className="text-lg text-muted-foreground mt-1">
+            <h1 className="text-3xl font-bold text-primary">Reflections on Pay</h1>
+            <p className="text-lg text-foreground mt-1">
               Market overview, economic context and pay award analysis for Housing Associations
             </p>
           </div>
