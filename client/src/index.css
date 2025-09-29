@@ -295,15 +295,53 @@
   }
 
   .section-icon {
-    background-color: hsl(var(--section-color));
-    color: white;
+    background-color: hsl(var(--section-color)) !important;
+    color: white !important;
   }
 
   .section-title {
-    color: hsl(var(--section-color));
+    color: hsl(var(--section-color)) !important;
   }
 
   .section-arrow {
-    color: hsl(var(--section-color));
+    color: hsl(var(--section-color)) !important;
+  }
+
+  /* Sidebar section styling */
+  .section-overview {
+    --section-color: 212 85% 12%; /* Primary blue for overview */
+  }
+
+  .sidebar-section-item {
+    transition: all 0.2s ease;
+  }
+
+  .sidebar-section-item:hover {
+    background-color: hsl(var(--section-color) / 0.08) !important;
+  }
+
+  .sidebar-section-active {
+    background-color: hsl(var(--section-color) / 0.15) !important;
+    border-left: 3px solid hsl(var(--section-color)) !important;
+    padding-left: calc(0.5rem - 3px) !important;
+  }
+
+  .sidebar-section-icon {
+    color: hsl(var(--sidebar-foreground));
+    transition: color 0.2s ease;
+  }
+
+  .sidebar-section-icon-active {
+    color: hsl(var(--section-color)) !important;
+  }
+
+  .sidebar-section-title {
+    color: hsl(var(--sidebar-foreground));
+    transition: color 0.2s ease;
+  }
+
+  .sidebar-section-title-active {
+    color: hsl(var(--section-color)) !important;
+    font-weight: 600;
   }
 }

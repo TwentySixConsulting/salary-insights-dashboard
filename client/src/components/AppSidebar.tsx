@@ -29,43 +29,50 @@ const navigationItems = [
     title: "Overview",
     url: "/",
     icon: Home,
-    description: "Summary metrics and key insights"
+    description: "Summary metrics and key insights",
+    sectionClass: "section-overview"
   },
   {
     title: "Reflections on Pay",
     url: "/reflections",
     icon: TrendingUp,
-    description: "Market overview and forecasts"
+    description: "Market overview and forecasts",
+    sectionClass: "section-reflections"
   },
   {
     title: "Core Benefits",
     url: "/benefits",
     icon: Award,
-    description: "Holiday, pension, and wellbeing"
+    description: "Holiday, pension, and wellbeing",
+    sectionClass: "section-benefits"
   },
   {
     title: "Pay Frameworks",
     url: "/frameworks",
     icon: Grid,
-    description: "Framework types and prevalence"
+    description: "Framework types and prevalence",
+    sectionClass: "section-frameworks"
   },
   {
     title: "KPIs",
     url: "/kpis",
     icon: Target,
-    description: "Performance indicators and trends"
+    description: "Performance indicators and trends",
+    sectionClass: "section-kpis"
   },
   {
     title: "National Minimum Wage",
     url: "/wages",
     icon: Coins,
-    description: "Living wage impact and policies"
+    description: "Living wage impact and policies",
+    sectionClass: "section-wages"
   },
   {
     title: "Rates of Pay",
     url: "/rates",
     icon: Table,
-    description: "Comprehensive salary data table"
+    description: "Comprehensive salary data table",
+    sectionClass: "section-rates"
   }
 ];
 
@@ -101,12 +108,12 @@ export default function AppSidebar() {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton 
                       asChild
-                      className={`${isActive ? 'bg-sidebar-accent text-sidebar-accent-foreground' : ''}`}
+                      className={`${item.sectionClass} ${isActive ? 'sidebar-section-active' : 'sidebar-section-item'}`}
                     >
                       <Link href={item.url} data-testid={`nav-link-${item.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <item.icon className="h-4 w-4" />
+                        <item.icon className={`h-4 w-4 ${isActive ? 'sidebar-section-icon-active' : 'sidebar-section-icon'}`} />
                         <div className="flex flex-col items-start">
-                          <span className="font-medium">{item.title}</span>
+                          <span className={`font-medium ${isActive ? 'sidebar-section-title-active' : 'sidebar-section-title'}`}>{item.title}</span>
                           <span className="text-xs text-sidebar-foreground/60">
                             {item.description}
                           </span>
