@@ -322,6 +322,45 @@ export default function RatesOfPaySSHR() {
         </div>
       </div>
 
+      {/* Salary Quartiles Glossary */}
+      <Card className="bg-card border-primary/15 shadow-xl hover-elevate">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <div className="bg-chart-4 p-2 rounded-md shadow-md">
+              <Info className="h-4 w-4 text-white" />
+            </div>
+            <span className="text-chart-4 font-semibold">Salary Data Columns Explained</span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+            <div className="p-3 rounded-lg border border-chart-2/30 bg-chart-2/10 shadow-md">
+              <div className="font-medium text-primary">LQ (Lower Quartile)</div>
+              <p className="text-muted-foreground">25th percentile</p>
+              <p className="text-xs mt-1">25% of salaries fall below this amount</p>
+            </div>
+
+            <div className="p-3 rounded-lg border border-chart-4/30 bg-chart-4/10 shadow-md">
+              <div className="font-medium text-primary">Median</div>
+              <p className="text-muted-foreground">50th percentile</p>
+              <p className="text-xs mt-1">Middle value - 50% above, 50% below</p>
+            </div>
+
+            <div className="p-3 rounded-lg border border-chart-5/30 bg-chart-5/10 shadow-md">
+              <div className="font-medium text-primary">UQ (Upper Quartile)</div>
+              <p className="text-muted-foreground">75th percentile</p>
+              <p className="text-xs mt-1">75% of salaries fall below this amount</p>
+            </div>
+
+            <div className="p-3 rounded-lg border border-primary/30 bg-primary/10 shadow-md">
+              <div className="font-medium text-primary">Average</div>
+              <p className="text-muted-foreground">Mean salary</p>
+              <p className="text-xs mt-1">Arithmetic mean of all salary values</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Search and Export Controls */}
       <Card className="bg-card border-primary/15 shadow-xl hover-elevate">
         <CardHeader>
@@ -390,45 +429,6 @@ export default function RatesOfPaySSHR() {
               </div>
             </div>
           )}
-        </CardContent>
-      </Card>
-
-      {/* Salary Quartiles Glossary */}
-      <Card className="bg-card border-primary/15 shadow-xl hover-elevate">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-lg">
-            <div className="bg-chart-4 p-2 rounded-md shadow-md">
-              <Info className="h-4 w-4 text-white" />
-            </div>
-            <span className="text-chart-4 font-semibold">Salary Data Columns Explained</span>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-            <div className="p-3 rounded-lg border border-chart-2/30 bg-chart-2/10 shadow-md">
-              <div className="font-medium text-primary">LQ (Lower Quartile)</div>
-              <p className="text-muted-foreground">25th percentile</p>
-              <p className="text-xs mt-1">25% of salaries fall below this amount</p>
-            </div>
-
-            <div className="p-3 rounded-lg border border-chart-4/30 bg-chart-4/10 shadow-md">
-              <div className="font-medium text-primary">Median</div>
-              <p className="text-muted-foreground">50th percentile</p>
-              <p className="text-xs mt-1">Middle value - 50% above, 50% below</p>
-            </div>
-
-            <div className="p-3 rounded-lg border border-chart-5/30 bg-chart-5/10 shadow-md">
-              <div className="font-medium text-primary">UQ (Upper Quartile)</div>
-              <p className="text-muted-foreground">75th percentile</p>
-              <p className="text-xs mt-1">75% of salaries fall below this amount</p>
-            </div>
-
-            <div className="p-3 rounded-lg border border-primary/30 bg-primary/10 shadow-md">
-              <div className="font-medium text-primary">Average</div>
-              <p className="text-muted-foreground">Mean salary</p>
-              <p className="text-xs mt-1">Arithmetic mean of all salary values</p>
-            </div>
-          </div>
         </CardContent>
       </Card>
 
