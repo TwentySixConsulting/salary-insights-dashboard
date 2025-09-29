@@ -93,7 +93,7 @@ export default function Overview() {
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-6" data-testid="section-dashboard-navigation">
           <div className="w-1 h-8 bg-gradient-to-b from-chart-2 to-chart-4 rounded-full shadow-sm"></div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-chart-2 to-chart-4 bg-clip-text text-transparent">Explore Dashboard Sections</h2>
+          <h2 className="text-2xl font-bold text-primary">Explore Dashboard Sections</h2>
         </div>
         
         <Card className="bg-gradient-to-br from-card to-chart-2/5 border-chart-2/20 shadow-xl">
@@ -126,11 +126,7 @@ export default function Overview() {
                       </div>
                       
                       <div className="space-y-2 flex-1">
-                        <h3 className={`
-                          font-bold text-lg bg-gradient-to-r ${section.colors} 
-                          bg-clip-text text-transparent group-hover:scale-105 
-                          transition-transform duration-200
-                        `}>
+                        <h3 className="font-bold text-lg text-chart-2 group-hover:scale-105 transition-transform duration-200">
                           {section.title}
                         </h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">

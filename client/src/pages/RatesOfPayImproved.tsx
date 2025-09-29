@@ -243,7 +243,7 @@ export default function RatesOfPayImproved() {
             <BarChart3 className="h-10 w-10 text-white" />
           </div>
           <div>
-            <h1 className="text-4xl font-bold text-foreground tracking-tight bg-gradient-to-r from-primary to-chart-4 bg-clip-text text-transparent">Rates of Pay for Key Roles</h1>
+            <h1 className="text-4xl font-bold text-primary tracking-tight">Rates of Pay for Key Roles</h1>
             <p className="text-xl text-chart-4 mt-2 font-medium">
               Comprehensive salary benchmarking across housing association front-line roles
             </p>
@@ -255,7 +255,7 @@ export default function RatesOfPayImproved() {
       <div className="space-y-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 bg-gradient-to-b from-chart-2 to-chart-5 rounded-full shadow-sm"></div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-chart-4 bg-clip-text text-transparent">6. Rates of Pay for Key Roles</h2>
+          <h2 className="text-2xl font-bold text-primary">6. Rates of Pay for Key Roles</h2>
         </div>
         
         <div className="bg-gradient-to-br from-card to-chart-2/5 border border-chart-2/20 rounded-xl p-6 shadow-lg hover-elevate">
@@ -278,7 +278,7 @@ export default function RatesOfPayImproved() {
       <div className="space-y-8">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 bg-gradient-to-b from-chart-2 to-chart-5 rounded-full shadow-sm"></div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-chart-4 to-chart-2 bg-clip-text text-transparent">Interactive Salary Data Analysis</h2>
+          <h2 className="text-2xl font-bold text-chart-2">Interactive Salary Data Analysis</h2>
         </div>
 
         {/* Search and Filter Controls */}
@@ -289,7 +289,7 @@ export default function RatesOfPayImproved() {
                 <div className="bg-gradient-to-r from-chart-2 to-chart-4 p-1.5 rounded-md">
                   <Search className="h-4 w-4 text-white" />
                 </div>
-                <span className="bg-gradient-to-r from-chart-4 to-chart-2 bg-clip-text text-transparent font-semibold">Search & Filter Options</span>
+                <span className="text-chart-4 font-semibold">Search & Filter Options</span>
               </div>
               <Button 
                 onClick={handleExportCSV} 
@@ -390,7 +390,7 @@ export default function RatesOfPayImproved() {
               <div className="bg-gradient-to-r from-chart-4 to-chart-2 p-1.5 rounded-md">
                 <Info className="h-4 w-4 text-white" />
               </div>
-              <span className="bg-gradient-to-r from-chart-4 to-chart-2 bg-clip-text text-transparent font-semibold">Salary Quartiles Glossary</span>
+              <span className="text-chart-4 font-semibold">Salary Quartiles Glossary</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -466,7 +466,7 @@ export default function RatesOfPayImproved() {
                 <div className="bg-gradient-to-r from-chart-2 to-chart-4 p-1.5 rounded-md">
                   <Users className="h-4 w-4 text-white" />
                 </div>
-                <span className="bg-gradient-to-r from-chart-4 to-chart-2 bg-clip-text text-transparent font-semibold">Salary Data by Role and Geography</span>
+                <span className="text-chart-4 font-semibold">Salary Data by Role and Geography</span>
               </div>
               <Badge variant="outline" className="text-xs bg-gradient-to-r from-chart-2/20 to-chart-4/20 border-chart-2/30 text-chart-4 font-medium">
                 {filteredAndSortedData.length} roles shown
@@ -584,14 +584,14 @@ export default function RatesOfPayImproved() {
       <div className="space-y-8">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 bg-gradient-to-b from-chart-3 to-chart-5 rounded-full shadow-sm"></div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-chart-3 to-chart-5 bg-clip-text text-transparent">Detailed Methodology & Job Groupings</h2>
+          <h2 className="text-2xl font-bold text-chart-3">Detailed Methodology & Job Groupings</h2>
         </div>
 
         {/* Methodology Section */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 bg-gradient-to-b from-chart-2 to-chart-4 rounded-full shadow-sm"></div>
-            <h3 className="text-xl font-bold bg-gradient-to-r from-chart-2 to-chart-4 bg-clip-text text-transparent">Methodology</h3>
+            <h3 className="text-xl font-bold text-chart-2">Methodology</h3>
           </div>
           
           <div className="bg-gradient-to-br from-card to-chart-2/5 border border-chart-2/20 rounded-xl p-8 shadow-lg hover-elevate">
@@ -639,7 +639,7 @@ export default function RatesOfPayImproved() {
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 bg-gradient-to-b from-chart-4 to-chart-5 rounded-full shadow-sm"></div>
-            <h3 className="text-xl font-bold bg-gradient-to-r from-chart-4 to-chart-5 bg-clip-text text-transparent">Job Groupings</h3>
+            <h3 className="text-xl font-bold text-chart-4">Job Groupings</h3>
           </div>
 
           {/* Search for Job Groupings */}
@@ -649,7 +649,7 @@ export default function RatesOfPayImproved() {
                 <div className="bg-gradient-to-r from-chart-4 to-chart-5 p-1.5 rounded-md">
                   <Search className="h-4 w-4 text-white" />
                 </div>
-                <span className="bg-gradient-to-r from-chart-4 to-chart-5 bg-clip-text text-transparent font-semibold">Search Job Groupings</span>
+                <span className="text-chart-4 font-semibold">Search Job Groupings</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -674,7 +674,7 @@ export default function RatesOfPayImproved() {
               <div key={category} className="bg-gradient-to-br from-card to-chart-4/5 border border-chart-4/20 rounded-xl p-6 shadow-lg hover-elevate">
                 <h4 className="text-lg font-bold mb-6 flex items-center gap-2">
                   <div className="w-1 h-5 bg-gradient-to-b from-chart-2 to-chart-4 rounded-full shadow-sm"></div>
-                  <span className="bg-gradient-to-r from-chart-2 to-chart-4 bg-clip-text text-transparent">{category}</span>
+                  <span className="text-chart-2 font-semibold">{category}</span>
                 </h4>
                 
                 <div className="grid gap-4">
