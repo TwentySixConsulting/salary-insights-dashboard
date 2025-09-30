@@ -44,7 +44,7 @@ const JobTableComponent = ({ job, showTable = true }: { job: JobTable; showTable
           <div className="rounded-md border">
             <Table>
               <TableHeader>
-                <TableRow className="bg-blue-100 border-b-2 border-blue-200">
+                <TableRow className="bg-blue-100 border-b-2 border-blue-200 hover:bg-blue-100">
                   <TableHead className="w-[200px] font-bold text-primary bg-gray-100 border-r border-gray-300">Geography</TableHead>
                   <TableHead className="w-[120px] text-center font-bold text-primary">Sample Size</TableHead>
                   <TableHead className="w-[120px] text-right font-bold text-primary">LQ</TableHead>
@@ -129,7 +129,7 @@ const ExpandableJobItem = ({ job, isExpanded, onToggle }: {
           <div className="rounded-md border">
             <Table>
               <TableHeader>
-                <TableRow className="bg-blue-100 border-b-2 border-blue-200">
+                <TableRow className="bg-blue-100 border-b-2 border-blue-200 hover:bg-blue-100">
                   <TableHead className="w-[200px] font-bold text-primary bg-gray-100 border-r border-gray-300">Geography</TableHead>
                   <TableHead className="w-[120px] text-center font-bold text-primary">Sample Size</TableHead>
                   <TableHead className="w-[120px] text-right font-bold text-primary">LQ</TableHead>

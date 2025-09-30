@@ -73,7 +73,7 @@ export default function PayFrameworks() {
               <div className="overflow-x-auto mb-6">
                 <table className="w-full border-collapse border border-border rounded-lg">
                   <thead>
-                    <tr className="bg-blue-100">
+                    <tr className="bg-blue-100 hover:bg-blue-100">
                       <th className="border border-gray-300 p-4 text-left font-semibold bg-gray-100">Framework Type</th>
                       <th className="border border-gray-300 p-4 text-center font-semibold">Total Answered (9)</th>
                       <th className="border border-gray-300 p-4 text-center font-semibold">Operate Both Inside & Outside London (6)</th>
@@ -145,7 +145,7 @@ export default function PayFrameworks() {
               <div className="overflow-x-auto mb-6">
                 <table className="w-full border-collapse border border-border rounded-lg">
                   <thead>
-                    <tr className="bg-blue-100">
+                    <tr className="bg-blue-100 hover:bg-blue-100">
                       <th className="border border-gray-300 p-4 text-left font-semibold bg-gray-100">Framework Type</th>
                       <th className="border border-gray-300 p-4 text-center font-semibold">Total Answered (9)</th>
                       <th className="border border-gray-300 p-4 text-center font-semibold">&lt;250 Employees (3)</th>
