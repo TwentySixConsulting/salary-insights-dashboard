@@ -457,7 +457,7 @@ export default function RatesOfPaySSHR() {
               </Button>
             </CardContent>
           </Card>
-        ) : (
+        ) : showTables ? (
           <div className="space-y-8">
             {filteredJobTables.map((job, index) => (
               <div key={job.id} data-testid={`job-table-${job.id}`}>
@@ -469,15 +469,27 @@ export default function RatesOfPaySSHR() {
                     of {filteredJobTables.length} job{filteredJobTables.length !== 1 ? 's' : ''}
                   </span>
                 </div>
-                {showTables ? (
-                  <JobTableComponent job={job} />
-                ) : (
-                  <ExpandableJobItem 
-                    job={job} 
-                    isExpanded={expandedJobs.has(job.id)}
-                    onToggle={() => toggleJobExpansion(job.id)}
-                  />
-                )}
+                <JobTableComponent job={job} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-8">
+            {filteredJobTables.map((job, index) => (
+              <div key={job.id} data-testid={`job-expandable-${job.id}`}>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-lg font-bold text-primary bg-primary/10 px-3 py-1 rounded-md">
+                    {index + 1}.
+                  </span>
+                  <span className="text-sm text-muted-foreground">
+                    of {filteredJobTables.length} job{filteredJobTables.length !== 1 ? 's' : ''}
+                  </span>
+                </div>
+                <ExpandableJobItem 
+                  job={job} 
+                  isExpanded={expandedJobs.has(job.id)}
+                  onToggle={() => toggleJobExpansion(job.id)}
+                />
               </div>
             ))}
           </div>
