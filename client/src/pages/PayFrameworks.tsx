@@ -73,56 +73,56 @@ export default function PayFrameworks() {
               <div className="overflow-x-auto mb-6">
                 <table className="w-full border-collapse border border-border rounded-lg">
                   <thead>
-                    <tr className="bg-muted/50">
-                      <th className="border border-border p-4 text-left font-semibold">Framework Type</th>
-                      <th className="border border-border p-4 text-center font-semibold">Total Answered (9)</th>
-                      <th className="border border-border p-4 text-center font-semibold">Operate Both Inside & Outside London (6)</th>
-                      <th className="border border-border p-4 text-center font-semibold">Only Inside Greater London (2)</th>
-                      <th className="border border-border p-4 text-center font-semibold">Only Outside Greater London (1)</th>
+                    <tr className="bg-blue-100">
+                      <th className="border border-gray-300 p-4 text-left font-semibold bg-gray-100">Framework Type</th>
+                      <th className="border border-gray-300 p-4 text-center font-semibold">Total Answered (9)</th>
+                      <th className="border border-gray-300 p-4 text-center font-semibold">Operate Both Inside & Outside London (6)</th>
+                      <th className="border border-gray-300 p-4 text-center font-semibold">Only Inside Greater London (2)</th>
+                      <th className="border border-gray-300 p-4 text-center font-semibold">Only Outside Greater London (1)</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border border-border p-4 font-medium">Narrow graded</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">0</td>
-                      <td className="border border-border p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Narrow graded</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
                     </tr>
                     <tr className="bg-muted/25">
-                      <td className="border border-border p-4 font-medium">Broad-banded</td>
-                      <td className="border border-border p-4 text-center">3</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Broad-banded</td>
+                      <td className="border border-gray-300 p-4 text-center">3</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
                     </tr>
                     <tr>
-                      <td className="border border-border p-4 font-medium">Job family</td>
-                      <td className="border border-border p-4 text-center">2</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">0</td>
-                      <td className="border border-border p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Job family</td>
+                      <td className="border border-gray-300 p-4 text-center">2</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
                     </tr>
                     <tr className="bg-muted/25">
-                      <td className="border border-border p-4 font-medium">Pay spine</td>
-                      <td className="border border-border p-4 text-center">4</td>
-                      <td className="border border-border p-4 text-center">3</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Pay spine</td>
+                      <td className="border border-gray-300 p-4 text-center">4</td>
+                      <td className="border border-gray-300 p-4 text-center">3</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
                     </tr>
                     <tr>
-                      <td className="border border-border p-4 font-medium">Market spot salaries/ranges</td>
-                      <td className="border border-border p-4 text-center">3</td>
-                      <td className="border border-border p-4 text-center">2</td>
-                      <td className="border border-border p-4 text-center">0</td>
-                      <td className="border border-border p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Market spot salaries/ranges</td>
+                      <td className="border border-gray-300 p-4 text-center">3</td>
+                      <td className="border border-gray-300 p-4 text-center">2</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
                     </tr>
                     <tr className="bg-muted/25">
-                      <td className="border border-border p-4 font-medium">Other</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">0</td>
-                      <td className="border border-border p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Other</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
                     </tr>
                   </tbody>
                 </table>
@@ -145,49 +145,49 @@ export default function PayFrameworks() {
               <div className="overflow-x-auto mb-6">
                 <table className="w-full border-collapse border border-border rounded-lg">
                   <thead>
-                    <tr className="bg-muted/50">
-                      <th className="border border-border p-4 text-left font-semibold">Framework Type</th>
-                      <th className="border border-border p-4 text-center font-semibold">Total Answered (9)</th>
-                      <th className="border border-border p-4 text-center font-semibold">&lt;250 Employees (3)</th>
-                      <th className="border border-border p-4 text-center font-semibold">250&lt; Employees (6)</th>
+                    <tr className="bg-blue-100">
+                      <th className="border border-gray-300 p-4 text-left font-semibold bg-gray-100">Framework Type</th>
+                      <th className="border border-gray-300 p-4 text-center font-semibold">Total Answered (9)</th>
+                      <th className="border border-gray-300 p-4 text-center font-semibold">&lt;250 Employees (3)</th>
+                      <th className="border border-gray-300 p-4 text-center font-semibold">250&lt; Employees (6)</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border border-border p-4 font-medium">Narrow graded</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">0</td>
-                      <td className="border border-border p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Narrow graded</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
                     </tr>
                     <tr className="bg-muted/25">
-                      <td className="border border-border p-4 font-medium">Broad-banded</td>
-                      <td className="border border-border p-4 text-center">3</td>
-                      <td className="border border-border p-4 text-center">2</td>
-                      <td className="border border-border p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Broad-banded</td>
+                      <td className="border border-gray-300 p-4 text-center">3</td>
+                      <td className="border border-gray-300 p-4 text-center">2</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
                     </tr>
                     <tr>
-                      <td className="border border-border p-4 font-medium">Job family</td>
-                      <td className="border border-border p-4 text-center">2</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Job family</td>
+                      <td className="border border-gray-300 p-4 text-center">2</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
                     </tr>
                     <tr className="bg-muted/25">
-                      <td className="border border-border p-4 font-medium">Pay spine</td>
-                      <td className="border border-border p-4 text-center">4</td>
-                      <td className="border border-border p-4 text-center">0</td>
-                      <td className="border border-border p-4 text-center">4</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Pay spine</td>
+                      <td className="border border-gray-300 p-4 text-center">4</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 text-center">4</td>
                     </tr>
                     <tr>
-                      <td className="border border-border p-4 font-medium">Market spot salaries/ranges</td>
-                      <td className="border border-border p-4 text-center">3</td>
-                      <td className="border border-border p-4 text-center">2</td>
-                      <td className="border border-border p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Market spot salaries/ranges</td>
+                      <td className="border border-gray-300 p-4 text-center">3</td>
+                      <td className="border border-gray-300 p-4 text-center">2</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
                     </tr>
                     <tr className="bg-muted/25">
-                      <td className="border border-border p-4 font-medium">Other</td>
-                      <td className="border border-border p-4 text-center">1</td>
-                      <td className="border border-border p-4 text-center">0</td>
-                      <td className="border border-border p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 font-medium bg-gray-50">Other</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
+                      <td className="border border-gray-300 p-4 text-center">0</td>
+                      <td className="border border-gray-300 p-4 text-center">1</td>
                     </tr>
                   </tbody>
                 </table>

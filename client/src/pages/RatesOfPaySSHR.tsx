@@ -44,8 +44,8 @@ const JobTableComponent = ({ job, showTable = true }: { job: JobTable; showTable
           <div className="rounded-md border">
             <Table>
               <TableHeader>
-                <TableRow className="bg-primary/10 border-b-2 border-primary/20">
-                  <TableHead className="w-[200px] font-bold text-primary bg-primary/15 border-r border-primary/20">Geography</TableHead>
+                <TableRow className="bg-blue-100 border-b-2 border-blue-200">
+                  <TableHead className="w-[200px] font-bold text-primary bg-gray-100 border-r border-gray-300">Geography</TableHead>
                   <TableHead className="w-[120px] text-center font-bold text-primary">Sample Size</TableHead>
                   <TableHead className="w-[120px] text-right font-bold text-primary">LQ</TableHead>
                   <TableHead className="w-[120px] text-right font-bold text-primary">Median</TableHead>
@@ -58,10 +58,10 @@ const JobTableComponent = ({ job, showTable = true }: { job: JobTable; showTable
                   <TableRow 
                     key={`${job.id}-${row.geography}-${index}`} 
                     className={`hover:bg-muted/50 ${
-                      row.geography === 'Total' ? 'bg-primary/5 font-medium' : ''
+                      row.geography === 'Total' ? 'bg-gray-50 font-medium' : ''
                     }`}
                   >
-                    <TableCell className="font-bold bg-primary/5 border-r border-primary/10">
+                    <TableCell className="font-bold bg-gray-50 border-r border-gray-200">
                       {row.geography}
                     </TableCell>
                     <TableCell className="text-center">
@@ -129,8 +129,8 @@ const ExpandableJobItem = ({ job, isExpanded, onToggle }: {
           <div className="rounded-md border">
             <Table>
               <TableHeader>
-                <TableRow className="bg-primary/10 border-b-2 border-primary/20">
-                  <TableHead className="w-[200px] font-bold text-primary bg-primary/15 border-r border-primary/20">Geography</TableHead>
+                <TableRow className="bg-blue-100 border-b-2 border-blue-200">
+                  <TableHead className="w-[200px] font-bold text-primary bg-gray-100 border-r border-gray-300">Geography</TableHead>
                   <TableHead className="w-[120px] text-center font-bold text-primary">Sample Size</TableHead>
                   <TableHead className="w-[120px] text-right font-bold text-primary">LQ</TableHead>
                   <TableHead className="w-[120px] text-right font-bold text-primary">Median</TableHead>
@@ -143,10 +143,10 @@ const ExpandableJobItem = ({ job, isExpanded, onToggle }: {
                   <TableRow 
                     key={`${job.id}-${row.geography}-${index}`} 
                     className={`hover:bg-muted/50 ${
-                      row.geography === 'Total' ? 'bg-primary/5 font-medium' : ''
+                      row.geography === 'Total' ? 'bg-gray-50 font-medium' : ''
                     }`}
                   >
-                    <TableCell className="font-bold bg-primary/5 border-r border-primary/10">
+                    <TableCell className="font-bold bg-gray-50 border-r border-gray-200">
                       {row.geography}
                     </TableCell>
                     <TableCell className="text-center">
