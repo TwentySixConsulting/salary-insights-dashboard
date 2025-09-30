@@ -6,21 +6,63 @@ import { kpiData } from "@shared/sampleData";
 import { TrendingDown, TrendingUp, Activity, Users } from "lucide-react";
 
 export default function KPIs() {
-  // Transform KPI data for charts
-  const sicknessData = kpiData.map(kpi => ({ name: kpi.year, value: kpi.sickness_ltr_pct || 0 }));
-  const turnoverData = [
-    { name: '2023', value: 19, 'Global Turnover': 19, 'Voluntary Turnover': 12 },
-    { name: '2024', value: 15, 'Global Turnover': 15, 'Voluntary Turnover': 11 }
+  // Authentic SSHR Report Data - Graph 10: 2022-24 Annual LTR
+  const sicknessData = [
+    { name: '1', '2022/23': 0.1, '2023/24': 0.08 },
+    { name: '2', '2022/23': 1.0, '2023/24': 2.0 },
+    { name: '3', '2022/23': 3.8, '2023/24': 3.0 },
+    { name: '4', '2022/23': null, '2023/24': 4.6 },
+    { name: '5', '2022/23': 3.8, '2023/24': 4.36 },
+    { name: '6', '2022/23': null, '2023/24': 5.0 },
+    { name: '7', '2022/23': 3.36, '2023/24': 4.0 }
   ];
+  
+  // Authentic SSHR Report Data - Graph 11: 2022-24 Global Turnover Rate
+  const globalTurnoverData = [
+    { name: '1', '2022/2023': 30.8, '2023/2024': 52.0 },
+    { name: '2', '2022/2023': 38.0, '2023/2024': 37.8 },
+    { name: '3', '2022/2023': 26.0, '2023/2024': 18.1 },
+    { name: '4', '2022/2023': 18.1, '2023/2024': 18.0 },
+    { name: '5', '2022/2023': 27.83, '2023/2024': 23.09 },
+    { name: '6', '2022/2023': 25.6, '2023/2024': 30.8 },
+    { name: '7', '2022/2023': null, '2023/2024': 24.0 },
+    { name: '8', '2022/2023': null, '2023/2024': 24.9 }
+  ];
+  
+  // Authentic SSHR Report Data - Graph 12: 2022-24 Voluntary Turnover Rate
+  const voluntaryTurnoverData = [
+    { name: '1', '2022/2023': 29.0, '2023/2024': 33.0 },
+    { name: '2', '2022/2023': 24.0, '2023/2024': 24.0 },
+    { name: '3', '2022/2023': 9.7, '2023/2024': 10.4 },
+    { name: '4', '2022/2023': 18.1, '2023/2024': 23.3 },
+    { name: '5', '2022/2023': 21.79, '2023/2024': 17.35 },
+    { name: '6', '2022/2023': null, '2023/2024': 18.35 },
+    { name: '7', '2022/2023': null, '2023/2024': 19.0 }
+  ];
+  
+  // Authentic SSHR Report Data - Graph 13: 2022-24 Annual Conflict Index
   const conflictData = [
-    { name: '0-3%', value: 11 },
-    { name: '3-5%', value: 33 },
-    { name: '5-8%', value: 44 },
-    { name: '8%+', value: 12 }
+    { name: '1', '2022/23': 8.0, '2023/24': 8.0 },
+    { name: '2', '2022/23': 12.0, '2023/24': 7.5 },
+    { name: '3', '2022/23': 0.0, '2023/24': 2.9 },
+    { name: '4', '2022/23': null, '2023/24': 5.6 },
+    { name: '5', '2022/23': 7.0, '2023/24': 4.1 },
+    { name: '6', '2022/23': null, '2023/24': 6.14 },
+    { name: '7', '2022/23': null, '2023/24': 5.05 },
+    { name: '8', '2022/23': null, '2023/24': 5.0 }
   ];
+  
+  // Authentic SSHR Report Data - Graph 14: 2022-24 % Annual Payroll on Temporary Staff
   const agencySpendData = [
-    { name: '2022/23', value: 3 },
-    { name: '2023/24', value: 3 }
+    { name: '1', '2022/23': 25.0, '2023/24': 18.5 },
+    { name: '2', '2022/23': 7.5, '2023/24': 27.0 },
+    { name: '3', '2022/23': 8.7, '2023/24': 6.13 },
+    { name: '4', '2022/23': 15.0, '2023/24': 12.0 },
+    { name: '5', '2022/23': 4.2, '2023/24': 16.4 },
+    { name: '6', '2022/23': 13.0, '2023/24': 12.0 },
+    { name: '7', '2022/23': null, '2023/24': 11.0 },
+    { name: '8', '2022/23': null, '2023/24': 19.0 },
+    { name: '9', '2022/23': null, '2023/24': 27.0 }
   ];
 
   return (
@@ -226,38 +268,54 @@ export default function KPIs() {
           />
         </div>
 
-        {/* Charts Grid */}
+        {/* Charts Grid - Authentic SSHR Report Graphs */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ChartContainer
-            title="Sickness LTR Trends"
-            data={sicknessData}
-            type="line"
-            description="Long-term sickness rates year-over-year"
-            allowTypeToggle={true}
-          />
-          
-          <ChartContainer
-            title="Turnover Comparison"
-            data={turnoverData}
+            title="Graph 10: 2022-24 Annual LTR"
+            data={sicknessData as any}
             type="bar"
             multiSeries={true}
-            seriesKeys={['Global Turnover', 'Voluntary Turnover']}
-            description="Global vs voluntary turnover rates"
+            seriesKeys={['2022/23', '2023/24']}
+            description="Lost Time Rate by organisation (authentic SSHR data)"
             allowTypeToggle={true}
           />
           
           <ChartContainer
-            title="Conflict Index Distribution"
-            data={conflictData}
-            type="pie"
-            description="Distribution of conflict index percentages"
+            title="Graph 11: 2022-24 Global Turnover Rate"
+            data={globalTurnoverData as any}
+            type="bar"
+            multiSeries={true}
+            seriesKeys={['2022/2023', '2023/2024']}
+            description="Annual employee turnover (global) by organisation"
             allowTypeToggle={true}
           />
           
           <ChartContainer
-            title="Agency Spend Trend"
-            data={agencySpendData}
-            type="line"
+            title="Graph 12: 2022-24 Voluntary Turnover Rate"
+            data={voluntaryTurnoverData as any}
+            type="bar"
+            multiSeries={true}
+            seriesKeys={['2022/2023', '2023/2024']}
+            description="Voluntary employee turnover by organisation"
+            allowTypeToggle={true}
+          />
+          
+          <ChartContainer
+            title="Graph 13: 2022-24 Annual Conflict Index"
+            data={conflictData as any}
+            type="bar"
+            multiSeries={true}
+            seriesKeys={['2022/23', '2023/24']}
+            description="Annual conflict index by organisation"
+            allowTypeToggle={true}
+          />
+          
+          <ChartContainer
+            title="Graph 14: 2022-24 % Annual Payroll on Temporary Staff"
+            data={agencySpendData as any}
+            type="bar"
+            multiSeries={true}
+            seriesKeys={['2022/23', '2023/24']}
             description="Agency spending as percentage of payroll"
             allowTypeToggle={true}
           />
